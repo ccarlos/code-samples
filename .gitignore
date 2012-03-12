@@ -1,0 +1,11 @@
+*.pyc
+*.pyo
+*.swo
+*.swp
+*-min.css
+*-all.css
+*-min.js
+*-all.js
+*.class
+*.o
+*.*~

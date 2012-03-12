@@ -1,0 +1,56 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2010.02.05.21.36.53;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2010.01.30.02.09.29;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@# $Id: pythagoras.dr,v 1.1 2010-01-29 18:09:29-08 - - $
+define triangle polygon 0 3 4 -3
+define right square .5 .5
+define 3 text 16 NewCenturySchlbk-Roman side1 = 3
+define 4 text 16 NewCenturySchlbk-Roman side2 = 4
+define 5 text 16 NewCenturySchlbk-Roman hypotenuse = 5
+draw triangle 2 2
+draw right 2 2
+draw 3 1 3.5
+draw 4 3.5 1.75
+draw 5 4.05 3.5
+define ALPHABETA text 30 Symbol ABGDEZHQIKLMNXOPRSTUFCYW
+define alphabeta text 30 Symbol abgdezhqiklmnxoprstufcyw
+draw ALPHABETA .5 8
+draw alphabeta .5 7
+define Pythagoras text 30 Symbol O PuqagoraV o SamioV
+draw Pythagoras 2.1 5
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a17 1
+# $Id: pythagoras.dr,v 1.1 2009-02-24 14:00:59-08 - - $
+@

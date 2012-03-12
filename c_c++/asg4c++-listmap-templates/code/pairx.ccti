@@ -1,0 +1,15 @@
+
+//
+// Template instantiation that g++ can not perform automatically.
+// This is not a header file and is incuded from listmap.template.
+// This is unfortunate and causes excessive coupling between
+// modules.
+//
+
+template pairx <string, string>::pairx (const string &, const string &);
+template ostream &operator<< (ostream &out,
+         const pairx <string, string> &);
+
+RCSH(__pairx_template__,
+"$Id: pairx.ccti,v 1.2 2010-02-12 17:46:00-08 - - $")
+

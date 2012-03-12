@@ -1,0 +1,6 @@
+This is an input test file.
+Its name is used on the command line.
+It should be read in at the beginning
+of execution
+when its name appears on the command line.
+$Id: input.test,v 1.1 2010-10-05 15:34:41-07 - - $

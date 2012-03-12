@@ -1,0 +1,4 @@
+#!/bin/sh
+# $Id: mk.build,v 1.1 2010-10-05 15:34:45-07 - - $
+checksource Makefile *.java >check.log 2>&1
+gmake >gmake.log 2>&1

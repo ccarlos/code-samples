@@ -1,0 +1,8 @@
+#!/bin/sh
+# $Id: mk.tests,v 1.3 2010-02-04 18:55:17-08 - - $
+for file in *.dr
+do
+   runprogram -otest$file draw $file
+done
+runprogram -B -otestleaks draw round.dr square.dr text.dr
+runprogram -ofileerrors draw /no/such/file /dev/null /foo/bar

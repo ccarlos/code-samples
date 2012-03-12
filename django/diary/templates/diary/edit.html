@@ -1,0 +1,45 @@
+{# vim: set ts=2 et sts=2 sw=2: #}
+{% extends "diary/base.html" %}
+{% from "errorlist.html" import errorlist %}
+{% from "diary/macros.html" import delete_entry, diary_pics, diary_entry with context %}
+
+{% block sub_tabs %}
+
+  <section id="new-entry">
+    {{ profile_tabs(user, profile, active=active_tab) }}
+    {{ calendar(creator, calendar_data) }}
+    <section id="diary-posts">
+      {{ errorlist(form) }}
+      <div class="new-diary">
+        <h2 class="d-n-title">{{ datetimeformat(entry.created, format='date') }}{% if entry.is_draft %}<span class="draft-saved"> (Draft saved: {{ datetimeformat(entry.updated, format='mobile') }})</span>{% endif %}</h2>
+        <div class="d-n-desc">{{ _('Make changes to your entry:') }}</div>
+        <form method="POST" action="{{ url('diary.edit', diary_id=entry.pk) }}">
+          {{ csrf() }}
+          <div class="d-textarea-wrap">{{ form['text'] }}</div>
+          <ul class="new-diary-actions">
+          {% if entry.is_draft %}
+            <li class="d-publish"><input class="button" name="publish" type="submit" value="Publish"/></li>
+            <li><input class="plain-submit plain-green" name="is_draft" type="submit" value="Save draft"/></li>
+            <li><div id="autosave"></div></li>
+          {% else %}
+            <li><input class="button" name="update" type="submit" value="Update"/></li>
+          {% endif %}
+          {% if entry.can_edit(user) %}
+            <li>
+              <a class="plain-submit plain-red discard-changes" href="{{ entry.get_absolute_url() }}">Discard Changes</a>
+            </li>
+          {% endif %}
+          </ul>
+        </form>
+
+        {# View upload_pic will have a parameter of entry=None, when None
+           we create a new draft for today. Otherwise, attach the picture
+           to an entry. #}
+        {% if entry %}
+          {% set pics = entry.pictures.all() %}
+        {% endif %}
+        {{ diary_pics(pics, creator, entry) }}
+      </div>{# .new-diary #}
+    </section>
+  </section>
+{% endblock sub_tabs %}

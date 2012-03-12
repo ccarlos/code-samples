@@ -1,0 +1,25 @@
+javac chatter.java
+echo Main-class: chatter >Manifest
+jar cvfm chatter Manifest chatter.class auxlib.class client.class gui.class server.class chatter\$options.class client\$client_starter.class client\$sender.class client\$listener.class gui\$confirm.class gui\$gui_starter.class gui\$copyfield.class gui\$gui_listener.class server\$server_listener.class server\$usr_mngr.class server\$que_mngr.class server\$verify_user.class server\$client_listener.class server\$client_writer.class
+added manifest
+adding: chatter.class(in = 861) (out= 543)(deflated 36%)
+adding: auxlib.class(in = 2200) (out= 1223)(deflated 44%)
+adding: client.class(in = 341) (out= 245)(deflated 28%)
+adding: gui.class(in = 1275) (out= 655)(deflated 48%)
+adding: server.class(in = 1566) (out= 739)(deflated 52%)
+adding: chatter$options.class(in = 1434) (out= 934)(deflated 34%)
+adding: client$client_starter.class(in = 1554) (out= 843)(deflated 45%)
+adding: client$sender.class(in = 1378) (out= 761)(deflated 44%)
+adding: client$listener.class(in = 1000) (out= 601)(deflated 39%)
+adding: gui$confirm.class(in = 579) (out= 398)(deflated 31%)
+adding: gui$gui_starter.class(in = 3448) (out= 1926)(deflated 44%)
+adding: gui$copyfield.class(in = 1819) (out= 961)(deflated 47%)
+adding: gui$gui_listener.class(in = 1160) (out= 672)(deflated 42%)
+adding: server$server_listener.class(in = 1746) (out= 1003)(deflated 42%)
+adding: server$usr_mngr.class(in = 1762) (out= 820)(deflated 53%)
+adding: server$que_mngr.class(in = 1470) (out= 802)(deflated 45%)
+adding: server$verify_user.class(in = 1731) (out= 1012)(deflated 41%)
+adding: server$client_listener.class(in = 1836) (out= 1070)(deflated 41%)
+adding: server$client_writer.class(in = 1708) (out= 959)(deflated 43%)
+rm Manifest
+chmod +x chatter

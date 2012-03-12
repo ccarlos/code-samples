@@ -1,0 +1,53 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2010.02.05.21.36.53;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2010.01.30.02.09.29;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@# $Id: hellohello.dr,v 1.1 2010-01-29 18:09:29-08 - - $
+define hello text 20 Times-Roman . . . . . Hello, World! (\)
+draw hello 4 4 0
+draw hello 4 4 30
+draw hello 4 4 60
+draw hello 4 4 90
+draw hello 4 4 120
+draw hello 4 4 150
+draw hello 4 4 180
+draw hello 4 4 210
+draw hello 4 4 240
+draw hello 4 4 270
+draw hello 4 4 300
+draw hello 4 4 330
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a14 1
+# $Id: hellohello.dr,v 1.1 2009-02-24 14:00:59-08 - - $
+@

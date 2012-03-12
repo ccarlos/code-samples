@@ -1,0 +1,29 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2010.10.05.22.34.41;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@This is an input test file.
+Its name is used on the command line.
+It should be read in at the beginning
+of execution
+when its name appears on the command line.
+$Id: input.test,v 1.1 2008-04-11 17:57:09-07 - - $
+@

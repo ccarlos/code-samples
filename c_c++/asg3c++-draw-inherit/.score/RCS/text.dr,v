@@ -1,0 +1,46 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2010.02.05.21.36.53;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2010.01.30.02.09.29;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@# $Id: text.dr,v 1.1 2010-01-29 18:09:29-08 - - $
+define tx12 text font Words, words, words, words.
+define tx24 text 24 font Words, words, words, words.
+draw tx12 2 2
+draw tx24 4 4 45
+draw tx12 2 2
+draw tx24 4 4 45
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a7 1
+# $Id: text.dr,v 1.1 2009-02-24 14:00:59-08 - - $
+@

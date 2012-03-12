@@ -1,0 +1,13 @@
+$Id: README,v 1.1 2010-02-23 19:35:28-08 - - $
+
+Known Bug
+User id already exists. - Make sure message appears in client side as
+opposed to the server side.
+
+Fix
+gui.java
+   Quit - Close all threads and input/output streams properly
+   
+chatter.java 
+   chatter -g portnumber - option starts the server 
+

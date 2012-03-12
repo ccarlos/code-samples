@@ -1,0 +1,29 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2010.10.05.22.35.36;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@wnewfile.output
+rreading.test
+*
+wwriting.test
+# Testing reading and writing
+# $Id: test3.edf,v 1.1 2008-04-11 17:57:09-07 - - $
+@

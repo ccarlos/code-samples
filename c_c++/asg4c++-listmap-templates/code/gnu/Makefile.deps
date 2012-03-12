@@ -1,0 +1,7 @@
+# Makefile.deps created Tue Feb  9 20:46:38 PST 2010
+comparex.o: comparex.cc comparex.h trace.h
+listmap.o: listmap.cc listmap.h comparex.h trace.h pairx.h
+main.o: main.cc listmap.h comparex.h trace.h pairx.h
+pairx.o: pairx.cc pairx.h trace.h
+trace.o: trace.cc trace.h
+util.o: util.cc util.h trace.h

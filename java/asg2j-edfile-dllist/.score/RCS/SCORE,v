@@ -1,0 +1,118 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2010.10.23.01.27.02;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2010.10.05.22.35.57;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@$Id: SCORE,v 1.1 2010-10-05 15:35:57-07 - - $
+
+Copy this SCORE file and other files into the student's submit
+directory.  For any point deduction, note it in the left margin,
+and add a comment under it indicating the reason for the loss of
+points.
+
+*****************************************************************
+
+SOURCE CODE = 30 points
+
+    (3) checksource:  3 pts if <= 5 complaints;  2 pts for 6 to 15
+        complaints;  1 pt for 16 to 30 complaints;  0 pt if >30.
+
+    (3) Proper formatting, indentation.
+
+    (3) no 1-letter idents.  all idents are meaningful.
+
+    (3) Used interface list as given in the code
+        Separated dllist code from edfile code to be modular
+
+    (3) edfile.java contains code to read and write files,
+
+    (3) edfile reads commands from stdin and uses a switch
+        statement to select among the various choices
+        (no else if else if else if)
+
+    (3) edfile contains appropriate functions and none of them
+        extremely long
+
+    (3) dllist class makes internal nodes private
+
+    (3) each of the functions in 3. interface list are implemented
+        in dllist
+
+    (3) no read/write code in dllist.  only specified functions
+
+*****************************************************************
+
+TESTING = 30 points
+
+    0 points total for this section if compilation failed.
+
+    mk.tests
+    output in *.stdout *.stderr and status in *.status
+
+    (3) gmake built a jar file.  grader build jar by cmd if not,
+        and deduct these 3 pts.
+
+    (3) -e option causes echo printing of input.
+
+    (3) exit status is 0 when no errors and 1 with errors
+
+    (3) files named on command line read into buffer
+
+    (3) r command reads files
+
+    (3) w command writes files
+
+    (3) insert and delete commands work
+
+    (3) printing commands work:  $ 0 . *
+
+    (3) navigational commands work:  < > 
+
+    (3) error messages for missing files?
+
+*****************************************************************
+
+SUBTOTAL=
+min 1, max 60
+
+If pair programming, TOTALSCORE = SUBTOTAL - TOTAL1.
+If not, TOTALSCORE = SUBTOTAL.
+
+TOTALSCORE=
+minimum: 1; maximum: 60
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+$Id: SCORE,v 1.2 2008-04-11 17:56:25-07 - - $
+d70 6
+@

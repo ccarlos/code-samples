@@ -1,0 +1,65 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2010.02.12.04.29.28;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2010.02.10.04.46.37;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: mk,v 1.1 2010-02-09 20:46:37-08 - - $
+#
+# This script, run in a subdirectory of the code subdirectory,
+# uses Gnu g++ 4.3.4 to compile programs.  It does so by faking
+# the Makefile's UNAME and calling it Linux.  The source files
+# are all symbolic links created and destroyed at each run.
+# 
+
+PATH=/opt/csw/gcc4/bin:$PATH
+export PATH
+g++ -v 2>&1
+echo which g++ = `which g++`
+
+for file in ../README ../Makefile ../*.h ../*.cc ../*.template
+do
+   ln -s $file
+done
+rm *.o
+echo -----------------------------------------------------------------
+UNAME=Linux gmake
+echo -----------------------------------------------------------------
+rm Makefile README *.h *.cc
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk,v 1.2 2010-02-05 17:20:07-08 - - $
+d15 1
+a15 1
+for file in ../README ../Makefile ../*.h ../*.cc
+@

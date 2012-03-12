@@ -1,0 +1,21 @@
+$Id: README,v 1.1 2010-01-29 18:07:32-08 - - $
+
+
+Cesar Carlos
+ccarlos@ucsc.edu
+
+The files refer to the perl generated files by Mackey,
+and those created by my draw program.
+
+Polygon.ps prints out the second rectangle two times,
+However I compare the files under vim and both
+are nearly identical except some spacing.
+
+Square.ps prints off center,
+However I compare the file under vim and both
+are nearly identical except some spacing.
+
+The Above is same with Pythagoras.ps
+
+The escaping of parens or \ 
+is not working for drawing text to ps files.

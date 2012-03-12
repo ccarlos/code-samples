@@ -1,0 +1,136 @@
+{# vim: set ts=2 et sts=2 sw=2: #}
+{% from "macros.html" import close_button with context %}
+
+{% macro calendar(user, calendar_data, all=None, single=None) -%}
+  {# all=Are we listing all entries?, single=When viewing a single entry pass in the day #}
+  {% if calendar_data['current']['year'] == calendar_data['today'].year and calendar_data['current']['month'] == calendar_data['today'].month %}
+    {% set current_month = True %}
+  {% endif %}
+  <div id="diary-calendar">
+    <a id="diary-all" {% if all %} class="selected" {% endif %}href="{{ url('diary.list_all', username=user.username) }}">{{ _('All') }}</a>
+    <span class="separator">{{ _('or') }}</span>
+    <select id="diary-months" onchange="{window.top.location.href=this.options[this.selectedIndex].value}">
+    {% for month in calendar_data['months'] %}
+      <option {% if loop.index == calendar_data['current']['month'] %} selected="selected" {% endif %}
+        value="{{ url('diary.list_month', username=user.username, year=calendar_data['current']['year'], month=loop.index )}}">{{ month }}</option>
+    {% endfor %}
+    </select>
+
+    <div id="diary-days">
+      <ol>
+      {% for day in range(1, calendar_data['days_in_month'] + 1) %}
+        <li class="{% if day == single %} selected{% endif %}{% if day < 10 %} b-10{% elif day < 20 %} b-20{% endif %}" {% if current_month and day == calendar_data['today'].day %}id="diary-today"{% endif %}>
+        {% if day in calendar_data['days_with_entries'] %}
+          <a href="{{ url('diary.single', username=user.username, year=calendar_data['current']['year'], month=calendar_data['current']['month'], day=day) }}"><span>{{ day }}</span></a>
+        {% else %}
+          {% if current_month and day == calendar_data['today'].day %}
+            <a href="{{ url('diary.list_all', username=user.username) }}"><span>{{ day }}</span></a>
+          {% else %}
+            <span>{{ day }}</span>
+          {% endif %}
+        {% endif %}
+        </li>
+      {% endfor %}
+      </ol>
+    </div>
+  </div>
+{%- endmacro %}
+
+{% macro delete_entry(entry, discard_red=False) -%}
+{# Before including: A check must be performed if entry.creator is the owner of the entry. #}
+  <form method="POST" action="{{ url('diary.delete', diary_id=entry.pk) }}">
+    {{ csrf() }}
+    {% if entry.is_draft %}
+    <a href="#" id="draft-delete" data-for-modal="#delete-confirm-modal" class="sw-modal-trigger{% if discard_red %} button button-red{% else %} plain-red{% endif %}">{{ _('Discard') }}</a>
+    {% else %}
+    <a href="#" id="diary-delete" data-for-modal="#delete-confirm-modal" class="sw-modal-trigger plain-red">{{ _('Delete') }}</a>
+    {% endif %}
+  </form>
+{%- endmacro %}
+
+{% macro diary_pic(pic, creator=None, large=False) -%}
+  <div class="d-pic">
+    {% if creator == pic.entry.creator %}
+      <div class="d-pic-link delete"
+         data-url="{{ url('diary.delete_pic', pic.pk) }}"
+         title="{{ _('Delete this picture') }}">
+        {{ close_button(_('Delete')) }}
+    {% else %}
+      <a class="d-pic-link" href="{{ pic.image.url if large else pic.entry.get_absolute_url() }}">
+    {% endif %}
+      <img src="{{ pic.image.url if large else pic.thumbnail.url }}"/>
+    {% if creator == pic.entry.creator %}
+      </div>
+    {% else %}
+      </a>
+    {% endif %}
+  </div>
+{%- endmacro %}
+
+{% macro diary_pics(pics, creator=None, entry=None, large=False) -%}
+  {% if entry %}
+    {% set upload_url = url('diary.upload_pic', entry.pk) %}
+  {% else %}
+    {% set upload_url = url('diary.upload_pic') %}
+  {% endif %}
+  <div class="d-pic-upload">
+    <div class="d-pic-upload-pad">
+      <div class="uploaded{% if not pics %} empty{% endif %}">
+        <div class="d-pics">
+          {% if pics %}
+            {% for pic in pics %}
+              {{ diary_pic(pic, creator, large=large) }}
+            {% endfor %}
+          {% endif %}
+        </div>
+        {% if creator %}
+        <div class="upload-progress"
+             style="height:{{ settings.THUMBNAIL_SIZE }}px;width:{{ settings.THUMBNAIL_SIZE }}px">
+          <img src="{{ settings.MEDIA_URL }}img/purple-circle.gif" alt="{{ _('Uploading...') }}"/>
+        </div>
+        {% endif %}
+      </div>{# /.uploaded #}
+    {% if creator %}
+      <div class="add-d-pic">
+        <a class="d-file-click" href="#"><img src="{{ MEDIA_URL }}img/diary-up.png" alt="{{ _('Upload Picture') }}" title="{{ _('Click to upload picture') }}"/></a>
+        <input type="file" id="id_pic" name="image" size="30"
+               class="d-pic-file"
+               data-url="{{ upload_url }}"
+               accept="{{ settings.IMAGE_ALLOWED_MIMETYPES }}"
+               title="{{ _('Browse for a picture to upload.') }}"/>
+      </div>
+    {% endif %}
+    </div>{# /.d-pic-upload-pad #}
+  </div>{# /.d-pic-upload #}
+{%- endmacro %}
+
+
+{% macro diary_entry(entry, large=False) -%}
+  <h2>
+    <a href="{{ entry.get_absolute_url() }}">{{ datetimeformat(entry.created, format='date') }}</a>
+    {% if entry.is_draft %}<span class="draft-saved"> (Draft saved: {{ datetimeformat(entry.updated, format='mobile') }})</span>{% endif %}
+    {% set c_count = entry.comments.count() %}
+    <span class="comment-count">
+      {% if c_count %}
+        <a href="{{ entry.get_absolute_url() }}">{{ ngettext('1 comment', '{num} comments', c_count)|f(num=c_count) }}</a>
+      {% else %}
+        {{ _('no comments') }}
+      {% endif %}
+    </span>
+  </h2>
+  <div class="content">
+    {{ entry.text|display_html }}
+  </div>
+  {% set pics = entry.pictures.all() %}
+  {% if pics %}
+    <div class="e-pics">
+    {{ diary_pics(pics, None, entry, large=large) }}
+    </div>
+  {% endif %}
+  {% if entry.can_edit(user) %}
+    <ul class="diary-actions">
+      <li><a href="{{ url('diary.edit', diary_id=entry.pk) }}">Edit this entry</a></li>
+      <li>{{ delete_entry(entry) }}</li>
+    </ul>
+  {% endif %}
+{% endmacro %}

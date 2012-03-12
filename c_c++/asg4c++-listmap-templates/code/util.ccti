@@ -1,0 +1,11 @@
+//
+// Template instantiation that g++ can not perform automatically.
+// This is not a header file and is incuded from listmap.template.
+// This is unfortunate and causes excessive coupling between
+// modules.
+//
+
+template string to_string <int> (const int &);
+
+RCSH(__util_template__,
+"$Id: util.ccti,v 1.2 2010-02-12 17:46:00-08 - - $")

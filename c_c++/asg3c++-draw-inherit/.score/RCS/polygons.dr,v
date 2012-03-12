@@ -1,0 +1,49 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2010.02.05.21.36.53;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2010.01.30.02.09.29;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@# $Id: polygons.dr,v 1.1 2010-01-29 18:09:29-08 - - $
+define pq polygon 1 0 0 1 2 2 -2 -4
+draw pq 1 1
+define octagon polygon -.7 .7 0 1 .7 .7 1 0 .7 -.7 0 -1 -.7 -.7 8
+draw octagon 4 4
+define crown polygon 0 1.2 .2 -1 .2 1 .2 -1 \
+             .2 1.2 .2 -1.2 .2 1 .2 -1 .2 1 0 -1.2
+draw crown 4 8
+define lightning polygon 1 2 -1 0 1 2 -1 0 1 2 -1 0 1 2 15
+draw lightning 1 2
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a10 1
+# $Id: polygons.dr,v 1.1 2009-02-24 14:00:59-08 - - $
+@

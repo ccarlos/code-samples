@@ -1,0 +1,13 @@
+asg4c-spellchk-hash.pdf contains the program specifications.
+asg4c-spellchk.code.pdf contains the starter code.
+asg4c-spellchk.misc.pdf contains all source files in the 
+directory /misc.
+
+code/ contains the program implementation. Inside code/ is
+spellchk.c which contains the main function
+
+misc/ contains a reference perl implementation and an
+example of how to compute a string hash value.
+
+test_code contains the scripts mk.build and mk.tests to 
+test the program implementation

@@ -1,0 +1,29 @@
+{# vim: set ts=2 et sts=2 sw=2: #}
+{% extends "users/profile_base.html" %}
+{% from "errorlist.html" import errorlist %}
+{% from "diary/macros.html" import calendar with context %}
+{% from "photos/macros.html" import profile_picture with context %}
+
+{% set styles = ('messages', 'users', 'diary') %}
+{% set scripts = ('messages', 'users', 'diary') %}
+{% set display_creator = display_name(creator) %}
+{% set active_tab = 'diary' %}
+{% set profile = creator.profile %}
+
+{% set classes = 'diary profile-side' %}
+{% if user == creator %}
+  {% set title = _('My MiniBlog') %}
+  {% set classes = classes + ' self-diary' %}
+{% else %}
+  {% set title = _("{user}'s MiniBlog")|f(user=display_creator) %}
+{% endif %}
+
+{% block side_action %}
+  <a id="side-links" href="{{ profile_url(creator) }}">
+    {% if self_profile %}
+      {{ _('Back to my profile') }}
+    {% else %}
+      {{  _("Back to {user}'s profile")|fe(user=display_creator) }}
+    {% endif %}
+  </a>
+{% endblock side_action %}

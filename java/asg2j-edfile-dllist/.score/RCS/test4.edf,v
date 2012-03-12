@@ -1,0 +1,35 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2010.10.05.22.35.36;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@iinput line
+$
+append line
+input line
+*
+>
+>
+d
+d
+*
+wfinal.write.test
+# $Id: test4.edf,v 1.1 2008-04-11 17:57:09-07 - - $
+@

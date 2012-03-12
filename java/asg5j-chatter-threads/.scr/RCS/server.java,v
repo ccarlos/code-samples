@@ -1,0 +1,471 @@
+head	1.4;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.4
+date	2011.04.20.06.14.55;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2011.04.16.06.35.20;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2011.04.15.07.37.17;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2010.02.24.03.35.28;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@-
+@
+text
+@// $Id: server.java,v 1.3 2011-04-15 23:35:20-07 - - $
+
+import java.io.*;
+import java.net.*;
+import java.util.*;
+import java.util.concurrent.*;
+import static java.lang.System.*;
+
+class server {
+   static usr_mngr usr_table;
+   static BlockingQueue <String> buffer; 
+
+   //
+   // Poll a queue, waiting for some number of milliseconds.
+   // Return a message or a condition. 
+   //
+   static String poll (BlockingQueue <String> source, long msec) {
+      String msg = null;
+      
+      try {
+         msg = source.poll (msec, TimeUnit.MILLISECONDS);
+      }catch (InterruptedException exn) {
+         msg = null;  
+      }
+      return msg;
+   }
+
+   //
+   // Put a new element into a blockingqueue, waiting if necessary
+   // if the queue is full. 
+   //
+   static void put (BlockingQueue <String> source, String msg) {
+      try {
+         source.put (msg);
+      }catch (InterruptedException exn) {
+         auxlib.warn (exn);
+      }
+   }
+   
+   static class server_listener implements Runnable {
+      private ServerSocket socket;
+      private Socket client;
+      chatter.options opts;
+      server_listener (chatter.options opts) {
+         this.opts = opts;
+      }
+
+      public void run () {
+         //spawn usr mngr
+         usr_table = new usr_mngr ();
+         buffer =  new LinkedBlockingQueue <String> ();
+         try {
+            // User mng, queue mng spawn here
+            socket = new ServerSocket (opts.server_portnumber);
+            Thread qm = new Thread (new que_mngr (buffer));
+            qm.setDaemon (true);
+            qm.start ();
+            out.printf ("waiting on client to connect%n");
+            for (;;) {
+               client = socket.accept ();
+               out.printf ("socket accepted OK %n");
+               Thread vu = new Thread (new verify_user (opts, client));
+               vu.start ();
+            }
+         }catch (IOException exn) {
+            auxlib.warn (exn);
+         }
+      }
+   }
+   
+   //
+   // Class used to maintain a table of the clients connected to the
+   //  server. Another table maintained is the clients output stream.
+   // 
+   static class usr_mngr {
+      private static Map <String, Boolean> usr_online;
+      private static Map <String, PrintWriter> usr_client_writer;
+      usr_mngr () {
+         usr_online = Collections.synchronizedMap 
+            (new HashMap <String, Boolean> ());
+         usr_client_writer = Collections.synchronizedMap 
+            (new HashMap <String, PrintWriter> ());
+      }
+      
+      static void add_usr (String user) {
+         usr_online.put (user, true);
+      }
+     
+      static void rm_usr (String user) {
+         boolean bool;  
+         bool = usr_online.remove (user);
+      } 
+      
+      static boolean exists_usr (String user) {
+         boolean bool;
+         bool = usr_online.containsKey (user);
+         return bool;
+      }
+
+      static boolean status_usr (String user) {
+         boolean bool;
+         bool = usr_online.get (user);
+         return bool;
+      }
+
+      static void set_false_usr (String user) {
+         usr_online.put (user, false);
+      }
+
+      static void add_cw (String user, PrintWriter pw) {
+         usr_client_writer.put (user, pw);
+      }
+
+      static PrintWriter rm_cw (String user) {
+         PrintWriter pw;
+         pw = usr_client_writer.remove (user);
+         return pw;
+      }
+
+      static Collection <PrintWriter> get_vals_cw () {
+         Collection <PrintWriter> vals = usr_client_writer.values ();
+         return vals;
+      }
+   }
+
+   //
+   // Accepts a message from a source queue(buffer) and distributes it
+   // to each of some number of other client writers.
+   //
+   static class que_mngr implements Runnable {
+      BlockingQueue <String> source;
+      que_mngr (BlockingQueue <String> source) {
+         this.source = source;
+      }
+
+      public void run () {
+         out.printf ("qm daemon started..%n");
+         for (;;) {
+            String line = poll (source, 300);
+            if (line == null) continue;
+            //out.printf(" polled - %s%n",line);
+            //if (line.size ()==0) out.printf ("Zero%n");
+            for (PrintWriter cw : usr_table.get_vals_cw ()) {
+               cw.printf("%s%n", line);
+               cw.flush ();
+            }
+         }
+      }
+   }
+
+   static class verify_user implements Runnable {
+      chatter.options opts;
+      private Socket client;
+      verify_user (chatter.options opts, Socket client) {
+         this.opts = opts;
+         this.client = client;
+      }
+
+      public void run () {
+         try {
+            Scanner client_in = new Scanner (client.getInputStream ());
+            String[] new_user = client_in.nextLine ().split (":", 2);
+
+            //out.printf("new_user -- %s%n", new_user[0]);
+            if (usr_table.exists_usr (new_user[0]) == true) {
+               throw new IOException ();
+            }
+            opts.username = new_user [0];
+//            client_in.close ();
+            
+            Thread cl = new Thread (new client_listener (opts, client));
+            Thread cw = new Thread (new client_writer (opts, client));
+            cl.start ();
+            Thread.currentThread ().sleep (1000);
+            cw.start ();
+
+         }catch (IOException exn) {
+            auxlib.warn ("%s: user exists: %s", exn, opts.username);
+            //fix to display error in client.java, when multiple usr
+         }catch (InterruptedException exn) {
+            auxlib.warn (exn);
+         }
+      }
+   }
+
+   static class client_listener implements Runnable {
+      private String user;
+      private Socket client;
+      client_listener (chatter.options opts, Socket client) {
+         this.user = opts.username;
+         this.client = client;
+      }
+
+      public void run () {
+         out.printf ("client listener starting.. %n");
+         try {
+            Scanner client_in = new Scanner (client.getInputStream ());
+            usr_table.add_usr (user);
+               while (client_in.hasNextLine ()) { 
+                  String line = client_in.nextLine ();
+                  line = line.trim ();
+                  if (line.length () == 0) continue;
+                  line = user + ": " + line;
+                  put (buffer, line); 
+                  //out.printf ("add to q %s%n", line);
+               }
+               //out.printf ("xxxf -  2-s %n");
+            
+            //noticed client closed socket, send message to USR_MNGR
+            usr_table.set_false_usr (user);  
+            client_in.close ();
+            client.close (); //not sure to put here or not
+         }catch (IOException exn) {
+            auxlib.warn (exn);
+         }
+      }
+   }
+
+   static class client_writer implements Runnable {
+      private String user;
+      private Socket client;
+      client_writer (chatter.options opts, Socket client) {
+         this.user = opts.username;
+         this.client = client;
+      }
+
+      public void run () {
+         out.printf ("cw starting %n");
+         try {
+            PrintWriter client_out =
+               new PrintWriter (client.getOutputStream ());
+            usr_table.add_cw (user, client_out);
+
+            //status_usr_on (user) == true, else rm_usr, rm_cw,quit
+            
+            while (usr_table.status_usr (user)) {
+               Thread.currentThread ().sleep (2000);
+               //accept msg from Queue manager
+               //send to client
+               //client_out.printf ("write to client%n");
+               //client_out.flush ();
+            }
+
+            usr_table.rm_usr (user);
+            PrintWriter pw = usr_table.rm_cw (user); 
+            pw.close ();
+            client_out.close ();
+            client.close (); 
+         }catch (IOException exn) {
+            auxlib.warn (exn);
+         }catch (InterruptedException exn) {
+            auxlib.warn (exn);
+         }
+      }
+   }
+}
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: server.java,v 1.1 2010-02-23 19:35:28-08 - - $
+a9 2
+   static Map <String, Boolean> usr_online;
+   static Map <String, PrintWriter> usr_client_writer;
+a39 1
+   //
+d41 2
+a42 2
+      ServerSocket socket;
+      Socket client;
+a61 6
+               //CL and CW threads spawn here
+               
+               //Thread cl = new Thread (new client_listener (opts,));
+               //Thread cw = new Thread (new client_writer (opts, cl;
+               //cl.start ();
+               //cw.start ();
+d76 2
+a116 1
+         //pw.close
+d137 1
+a137 1
+         out.printf ("qm daemon started %n");
+d139 4
+a142 2
+            String line = poll (source, 2000);
+            out.printf ("polled val - %s%n", line);
+d144 1
+a144 1
+               cw.printf("qm - %s%n", line);
+d153 1
+a153 1
+      Socket client;
+a159 1
+         out.printf ("verify user %n");
+d164 1
+a164 1
+            out.printf("new_user -- %s%n", new_user[0]);
+d178 2
+a179 1
+            auxlib.die ("%s: user exists: %s", exn, opts.username);
+d187 2
+a188 2
+      String user;
+      Socket client;
+d195 1
+a195 1
+         out.printf ("client listener starting %n");
+d201 2
+d205 1
+a205 1
+                  out.printf ("add to q %s%n", line);
+d207 1
+a207 1
+               out.printf ("xxxf -  2-s %n");
+d211 1
+d220 2
+a221 2
+      String user;
+      Socket client;
+d245 4
+a248 4
+            PrintWriter p = usr_table.rm_cw (user); 
+            p.close();
+            client_out.close();
+            //client.close(); //hmm
+@
+
+
+1.2
+log
+@-
+@
+text
+@d38 1
+a38 1
+         out.printf ("%s%n", exn);
+d41 2
+a42 1
+
+d61 1
+a61 1
+            out.printf (" waiting on client%n");
+d64 1
+a64 1
+               out.printf (" socket accepted OK %n");
+d75 1
+a75 1
+            out.printf("%s%n", exn);
+d79 5
+a83 1
+
+d87 1
+a87 1
+                      (new HashMap <String, Boolean> ());
+d89 1
+a89 1
+                      (new HashMap <String, PrintWriter> ());
+d143 1
+d147 1
+a147 1
+            String line = poll (source, 5000);
+d164 1
+a172 1
+               out.printf ("usr name already taken");
+d185 1
+a185 1
+            out.printf ("%s%n", exn);
+d187 1
+a187 1
+            out.printf ("%s%n", exn);
+d205 1
+a205 2
+            //while (!client.isClosed ()) {//not working <-- fix
+               for (; client_in.hasNextLine ();) {
+a207 1
+                  //add to queue
+d212 1
+a212 1
+            //}
+a213 1
+
+d215 1
+a215 1
+            client.close ();//not sure to put here or not
+d217 1
+a217 1
+            out.printf("%s%n", exn);
+d229 1
+d234 1
+a234 1
+                        new PrintWriter (client.getOutputStream ());
+d239 2
+a240 1
+            for (;usr_table.status_usr (user);) {
+d246 1
+d253 3
+a255 1
+            out.printf ("%s%n", exn);
+a258 1
+   
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: server.java,v 1.1 2009-03-03 20:16:58-08 - - $
+d6 1
+d10 4
+a13 1
+   private ServerSocket socket;
+d15 112
+a126 1
+   server (chatter.options opts) {
+d129 9
+a137 1
+   static class receiver implements Runnable {
+d139 9
+d151 7
+a157 1
+   static class sender implements Runnable {
+d159 90
+@

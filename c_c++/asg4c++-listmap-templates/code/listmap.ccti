@@ -1,0 +1,31 @@
+
+//
+// Template instantiation that g++ can not perform automatically.
+// This is not a header file and is incuded from listmap.template.
+// This is unfortunate and causes excessive coupling between
+// modules.
+//
+
+typedef listmap <string, string> listmap_ss;
+typedef listmap <string, string>::iterator listmap_ss_itor;
+typedef listmap <string, string>::mappairx listmap_ss_pair;
+
+template listmap_ss::listmap ();
+template listmap_ss::~listmap ();
+template void listmap_ss::insert (const pairx <string, string> &);
+template listmap_ss_itor listmap_ss::begin ();
+template listmap_ss_itor listmap_ss::begin_min ();
+template listmap_ss_itor listmap_ss::end ();
+template listmap_ss_itor listmap_ss::end_minus ();
+
+template listmap_ss_pair &listmap_ss_itor::operator* ();
+template listmap_ss_pair *listmap_ss_itor::operator-> ();
+template listmap_ss_itor &listmap_ss_itor::operator++ ();
+template listmap_ss_itor &listmap_ss_itor::operator-- ();
+template bool listmap_ss_itor::operator== (const iterator &) const;
+template bool listmap_ss_itor::operator!= (const iterator &) const;
+template void listmap_ss_itor::erase ();
+
+RCSC(__listmap_template__,
+"$Id: listmap.ccti,v 1.5 2010-03-03 14:45:41-08 - - $")
+

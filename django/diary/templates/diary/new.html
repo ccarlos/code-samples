@@ -1,0 +1,49 @@
+{# vim: set ts=2 et sts=2 sw=2: #}
+{% extends "diary/base.html" %}
+{% from "errorlist.html" import errorlist %}
+{% from "diary/macros.html" import delete_entry, diary_pics, diary_entry with context %}
+
+{% block sub_tabs %}
+
+  <section id="new-entry">
+    {{ profile_tabs(user, profile, active=active_tab) }}
+    {{ calendar(creator, calendar_data) }}
+    <section id="diary-posts">
+      {{ errorlist(form) }}
+      <div class="new-diary">
+        <h2 class="d-n-title">Today - {{ datetimeformat(calendar_data['today'], format='date') }}{% if draft_exists and entries %}<span class="draft-saved"> (Draft saved: {{ datetimeformat(entries[0].updated, format='mobile') }})</span>{% endif %}</h2>
+        <div class="d-n-desc">{{ _('You haven\'t published a miniblog entry for today yet. Get started right now:') }}</div>
+        {% if draft_exists and entries %}
+        <form method="POST" action="{{ url('diary.edit', diary_id=entries[0].pk) }}" class="d-new-entry-form" {% if draft_exists %} data-delete="{{ url('diary.delete', entries[0].pk) }}"{% endif %}>
+        {% else %}
+        <form method="POST" action="{{ url('diary.new') }}" class="d-new-entry-form">
+        {% endif %}
+          {{ csrf() }}
+          <div class="d-textarea-wrap">{{ form['text'] }}</div>
+          <ul class="new-diary-actions">
+            <li class="d-publish"><input class="button" name="publish" type="submit" value="Publish"/></li>
+            <li><input class="plain-submit plain-green" name="is_draft" type="submit" value="Save draft"/></li>
+            <li><div id="autosave"></div></li>
+          {% if not draft_exists %}
+            <li class="discard"><input class="plain-submit plain-red" name="reset" type="reset" value="Reset"/></li>
+          {% endif %}
+          {% if draft_exists %}
+            {% set entry = entries[0] %}
+            <li class="discard">{{ delete_entry(entry, discard_red=True) }}</li>
+          {% else %}
+            {% set entry = None %}
+          {% endif %}
+          </ul>
+        </form>
+
+        {# View upload_pic will have a parameter of entry=None, when None
+           we create a new draft for today. Otherwise, attach the picture
+           to an entry. #}
+        {% if entry %}
+          {% set pics = entry.pictures.all() %}
+        {% endif %}
+        {{ diary_pics(pics, creator, entry) }}
+      </div>{# .new-diary #}
+    </section>
+  </section>
+{% endblock sub_tabs %}

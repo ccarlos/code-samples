@@ -1,0 +1,46 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2010.10.05.22.35.49;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2010.10.05.22.35.36;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@*
+0
+>
+>
+$
+<
+<
+# Testing navigational commands
+# $Id$
+@
+
+
+1.1
+log
+@-
+@
+text
+@d9 1
+@

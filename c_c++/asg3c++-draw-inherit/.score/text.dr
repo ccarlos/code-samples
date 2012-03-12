@@ -1,0 +1,7 @@
+# $Id: text.dr,v 1.2 2010-02-05 13:36:53-08 - - $
+define tx12 text font Words, words, words, words.
+define tx24 text 24 font Words, words, words, words.
+draw tx12 2 2
+draw tx24 4 4 45
+draw tx12 2 2
+draw tx24 4 4 45

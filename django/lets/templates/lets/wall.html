@@ -1,0 +1,38 @@
+{# vim: set ts=2 et sts=2 sw=2: #}
+{% extends "users/profile_base.html" %}
+{% from "lets/macros.html" import activities, lets_area with context %}
+{% set display_profile = display_name(profile.user) %}
+{% set title = _("{user}'s Wall")|f(user=display_profile) %}
+{% set classes = '' %}
+{% set active_tab = 'wall' %}
+
+{% block sub_tabs %}
+<section id="wall" class="s-stream">
+  {{ profile_tabs(user, profile, active=active_tab) }}
+  {% if self_profile %}
+    {{ lets_area(active='', form=True, wall=True) }}
+  {% endif %}
+  {% if pages.object_list %}
+    {{ activities(pages.object_list, pages, for_user=profile.user, wall=True) }}
+  {% else %}
+    {% set text = _("Hey {user},\n\nI'd like to hear what kind of activities you're interested in!")|f(user=display_profile) %}
+    {{ activities([]) }}
+    <div id="content-container">
+    {% if self_profile %}
+      <p class="empty">{% trans %}
+        You haven't posted any activities on your wall yet.
+        Use the form above to post something!
+      {%- endtrans %}</p>
+      <p class="empty">{% trans %}
+        You'll receive coins for posting a new activity each day!
+      {% endtrans %}</p>
+    {% else %}
+      <p class="empty">{% trans user=display_profile, url=url('messages.new')|urlparams(to=profile.user.username, text=text) %}
+        {{ user }} hasn't posted any activities on their wall yet.
+        <a href="{{ url }}">Encourage them to post something!</a>
+      {%- endtrans %}</p>
+    {% endif %}
+    </div>
+  {% endif %}
+</section>
+{% endblock sub_tabs %}

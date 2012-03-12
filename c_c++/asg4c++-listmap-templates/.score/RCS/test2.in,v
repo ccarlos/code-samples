@@ -1,0 +1,36 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2010.02.10.04.31.28;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@key=value
+second=third
+foo=bar
+f1=51
+f2=52
+foobar=baz
+baz=quux
+this=is=a=test
+=
+a=value
+b=value
+=value
+# $Id: test2.in,v 1.1 2009-03-05 14:52:28-08 - - $
+@

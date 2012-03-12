@@ -1,0 +1,741 @@
+%PDF-1.2
+5 0 obj
+<</Length 6 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+1 i
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/05/10)Tj
+-0.659766 -12.8004 Td
+(15:50:51)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 277.35 736.5 Tm
+(edfile.perl)Tj
+-119.514 18 Td
+($cmps012b-wm/Assignments/asg2j-edfile-dllist/test/)Tj
+/R10 10 Tf
+-89.8355 -35.5 Td
+[(1:)-600(#!/usr/local/bin/perl -w)]TJ
+11 TL
+T*[(2:)-600(# $Id: edfile.perl,v 1.1 2010-10-05 15:49:44-07 - - $)]TJ
+T*[(3:)-600(# See the listedit utility man page for specifications.)]TJ
+(4:)'
+T*[(5:)-600(use strict;)]TJ
+T*[(6:)-600(use warnings;)]TJ
+T*[(7:)-600(use Getopt::Std;)]TJ
+T*[(8:)-600(use IO::Handle;)]TJ
+(9:)'
+-6 -11 Td
+[(10:)-600($0 =~ s|^\(.*/\)?\([^/]+\)/*$|$2|;)]TJ
+T*[(11:)-600(my $exit_status = 0;)]TJ
+T*[(12:)-600(END{ exit $exit_status; })]TJ
+T*[(13:)-600(sub note\(@\){ print STDERR "$0: @_"; };)]TJ
+T*[(14:)-600($SIG{'__WARN__'} = sub{ note @_; $exit_status = 1; };)]TJ
+T*[(15:)-600($SIG{'__DIE__'} = sub{ warn @_; exit; };)]TJ
+(16:)'
+T*[(17:)-600(autoflush STDOUT 1;)]TJ
+T*[(18:)-600(autoflush STDERR 1;)]TJ
+T*[(19:)-600(my \($dotline, @buffer\);)]TJ
+(20:)'
+T*[(21:)-600(sub readfile\($\) {)]TJ
+T*[(22:)-600(   my \($filename\) = @_;)]TJ
+T*[(23:)-600(   warn "$filename: $!\\n" and return unless open my $file, "<$filename";)]TJ
+T*[(24:)-600(   my @input = <$file>;)]TJ
+T*[(25:)-600(   close $file;)]TJ
+T*[(26:)-600(   printf "%d lines read from $filename\\n", scalar @input;)]TJ
+T*[(27:)-600(   splice @buffer, $dotline + 1, 0, @input;)]TJ
+T*[(28:)-600(   $dotline += @input;)]TJ
+T*[(29:)-600(};)]TJ
+(30:)'
+T*[(31:)-600(sub writefile\($\) {)]TJ
+T*[(32:)-600(   my \($filename\) = @_;)]TJ
+T*[(33:)-600(   warn "$filename: $!\\n" and return unless open my $file, ">$filename";)]TJ
+T*[(34:)-600(   print $file @buffer;)]TJ
+T*[(35:)-600(   close $file;)]TJ
+T*[(36:)-600(   $dotline = $#buffer;)]TJ
+T*[(37:)-600(   printf "%d lines written to $filename\\n", scalar @buffer;)]TJ
+T*[(38:)-600(};)]TJ
+(39:)'
+T*[(40:)-600(sub printcurr\(\) {)]TJ
+T*[(41:)-600(   print "no lines in file\\n" and return unless $dotline >= 0;)]TJ
+T*[(42:)-600(   printf "%6d  %s", $dotline, $buffer[$dotline])]TJ
+T*[(43:)-600(};)]TJ
+(44:)'
+T*[(45:)-600(my %switch = \()]TJ
+T*[(46:)-600(   #ch => [hasopnd, printcurr, sub])]TJ
+T*[(47:)-600(   '#' => [1, 0, sub {}],)]TJ
+T*[(48:)-600(   '$' => [0, 1, sub {$dotline = $#buffer}],)]TJ
+T*[(49:)-600(   '*' => [0, 0, sub {$dotline = $_, printcurr for 0..$#buffer}],)]TJ
+T*[(50:)-600(   '.' => [0, 1, sub {}],)]TJ
+T*[(51:)-600(   '0' => [0, 1, sub {$dotline = 0}],)]TJ
+T*[(52:)-600(   '<' => [0, 1, sub {--$dotline}],)]TJ
+T*[(53:)-600(   '>' => [0, 1, sub {++$dotline}],)]TJ
+T*[(54:)-600(   'a' => [1, 1, sub {splice @buffer, ++$dotline, 0, "$_[0]\\n"}],)]TJ
+T*[(55:)-600(   'd' => [0, 1, sub {splice @buffer, $dotline, 1 if @buffer}],)]TJ
+T*[(56:)-600(   'i' => [1, 1, sub {if \($dotline < 0\) {@buffer = "$_[0]\\n"})]TJ
+T*[(57:)-600(                      else {splice @buffer, $dotline, 0, "$_[0]\\n"}}],)]TJ
+T*[(58:)-600(   'r' => [1, 0, sub {readfile $_[0]}],)]TJ
+T*[(59:)-600(   'w' => [1, 0, sub {writefile $_[0]}],)]TJ
+(60:)'
+T*[(61:)-600(\);)]TJ
+(62:)'
+T*[(63:)-600(my $wantecho = 1 if @ARGV and $ARGV[0] eq "-e" and shift;)]TJ
+T*[(64:)-600(for my $filename \(@ARGV\) {)]TJ
+ET
+Q
+Q
+endstream
+endobj
+6 0 obj
+3449
+endobj
+14 0 obj
+<</Length 15 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/05/10)Tj
+-0.659766 -12.8004 Td
+(15:50:51)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 277.35 736.5 Tm
+(edfile.perl)Tj
+-119.514 18 Td
+($cmps012b-wm/Assignments/asg2j-edfile-dllist/test/)Tj
+/R10 10 Tf
+-95.8355 -35.5 Td
+[(65:)-600(   open FILE, "<$filename" or warn "$filename: $!\\n" and next;)]TJ
+11 TL
+T*[(66:)-600(   push @buffer, <FILE>;)]TJ
+T*[(67:)-600(   close FILE;)]TJ
+T*[(68:)-600(})]TJ
+T*[(69:)-600($dotline = $#buffer;)]TJ
+T*[(70:)-600(printf "%d lines read\\n", scalar @buffer if @buffer;)]TJ
+(71:)'
+T*[(72:)-600(for\(;;\) {)]TJ
+T*[(73:)-600(   print "$0: ";)]TJ
+T*[(74:)-600(   last unless defined \(my $line = <STDIN>\);)]TJ
+T*[(75:)-600(   print $line if $wantecho;)]TJ
+T*[(76:)-600(   chomp $line;)]TJ
+T*[(77:)-600(   next if $line =~ m/^\\s*$/;)]TJ
+T*[(78:)-600(   my \($key, $operand\) = $line =~ m/\(.\)\(.*\)/;)]TJ
+T*[(79:)-600(   my \($hasopnd, $printcurr, $sub\) = @{$switch{$key} || []};)]TJ
+T*[(80:)-600(   warn "invalid command: $line\\n" and next)]TJ
+T*[(81:)-600(        unless length $key and defined $sub)]TJ
+T*[(82:)-600(           and \($hasopnd or \(length $operand\) == 0\);)]TJ
+T*[(83:)-600(   $sub->\($operand\);)]TJ
+T*[(84:)-600(   $dotline = 0 if $dotline < 0;)]TJ
+T*[(85:)-600(   $dotline = $#buffer if $dotline > $#buffer;)]TJ
+T*[(86:)-600(   printcurr if $printcurr;)]TJ
+T*[(87:)-600(};)]TJ
+(88:)'
+T*[(89:)-600(print "^D" if $wantecho;)]TJ
+T*[(90:)-600(print "\\n";)]TJ
+(91:)'
+ET
+Q
+Q
+endstream
+endobj
+15 0 obj
+1724
+endobj
+18 0 obj
+<</Length 19 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/05/10)Tj
+-0.659766 -12.8004 Td
+(15:50:51)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 283.762 736.5 Tm
+(edscript)Tj
+-125.926 18 Td
+($cmps012b-wm/Assignments/asg2j-edfile-dllist/test/)Tj
+/R10 10 Tf
+-89.8355 -35.5 Td
+[(1:)-600(# $Id: edscript,v 1.1 2010-10-05 15:49:44-07 - - $)]TJ
+11 TL
+T*[(2:)-600(rtest.in)]TJ
+T*[(3:)-600(*)]TJ
+T*[(4:)-600(aanother line)]TJ
+T*[(5:)-600(ianother line)]TJ
+T*[(6:)-600(*)]TJ
+T*[(7:)-600(<)]TJ
+T*[(8:)-600(<)]TJ
+T*[(9:)-600(d)]TJ
+-6 -11 Td
+[(10:)-600(<)]TJ
+T*[(11:)-600(d)]TJ
+T*[(12:)-600(*)]TJ
+T*[(13:)-600(wscript.out)]TJ
+ET
+Q
+Q
+endstream
+endobj
+19 0 obj
+863
+endobj
+22 0 obj
+<</Length 23 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/05/10)Tj
+-0.659766 -12.8004 Td
+(15:50:51)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 297.054 736.5 Tm
+(mk)Tj
+-139.218 18 Td
+($cmps012b-wm/Assignments/asg2j-edfile-dllist/test/)Tj
+/R10 10 Tf
+-89.8355 -35.5 Td
+[(1:)-600(#!/bin/sh -x)]TJ
+11 TL
+T*[(2:)-600(# $Id: mk,v 1.2 2010-10-05 15:50:51-07 - - $)]TJ
+T*[(3:)-600(FILES="edfile.perl edscript mk test.in")]TJ
+T*[(4:)-600(cid + $FILES)]TJ
+T*[(5:)-600(edfile.perl <edscript 2>&1 | tee edscript.log)]TJ
+T*[(6:)-600(mkpspdf ../asg2j-edfile.test.ps $FILES *.out *.log)]TJ
+ET
+Q
+Q
+endstream
+endobj
+23 0 obj
+825
+endobj
+26 0 obj
+<</Length 27 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/05/10)Tj
+-0.659766 -12.8004 Td
+(15:50:51)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 289.081 736.5 Tm
+(test.in)Tj
+-131.246 18 Td
+($cmps012b-wm/Assignments/asg2j-edfile-dllist/test/)Tj
+/R10 10 Tf
+-89.8355 -35.5 Td
+[(1:)-600(# $Id: test.in,v 1.1 2010-10-05 15:49:44-07 - - $)]TJ
+11 TL
+T*[(2:)-600(This is an input test file.)]TJ
+T*[(3:)-600(It contains a few lines of data.)]TJ
+T*[(4:)-600(It will be written out again.)]TJ
+T*[(5:)-600(Look at the typescript logs for an example.)]TJ
+ET
+Q
+Q
+endstream
+endobj
+27 0 obj
+791
+endobj
+30 0 obj
+<</Length 31 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/05/10)Tj
+-0.659766 -12.8004 Td
+(15:50:51)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 279.674 736.5 Tm
+(script.out)Tj
+-121.838 18 Td
+($cmps012b-wm/Assignments/asg2j-edfile-dllist/test/)Tj
+/R10 10 Tf
+-89.8355 -35.5 Td
+[(1:)-600(# $Id: test.in,v 1.1 2010-10-05 15:49:44-07 - - $)]TJ
+11 TL
+T*[(2:)-600(This is an input test file.)]TJ
+T*[(3:)-600(It contains a few lines of data.)]TJ
+T*[(4:)-600(another line)]TJ
+T*[(5:)-600(another line)]TJ
+ET
+Q
+Q
+endstream
+endobj
+31 0 obj
+746
+endobj
+34 0 obj
+<</Length 35 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/05/10)Tj
+-0.659766 -12.8004 Td
+(15:50:51)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 273.066 736.5 Tm
+(edscript.log)Tj
+-115.23 18 Td
+($cmps012b-wm/Assignments/asg2j-edfile-dllist/test/)Tj
+/R10 10 Tf
+-89.8355 -35.5 Td
+[(1:)-600(edfile.perl: edfile.perl: 5 lines read from test.in)]TJ
+11 TL
+T*[(2:)-600(edfile.perl:      0  # $Id: test.in,v 1.1 2010-10-05 15:49:44-07 - - $)]TJ
+T*[(3:)-600(     1  This is an input test file.)]TJ
+T*[(4:)-600(     2  It contains a few lines of data.)]TJ
+T*[(5:)-600(     3  It will be written out again.)]TJ
+T*[(6:)-600(     4  Look at the typescript logs for an example.)]TJ
+T*[(7:)-600(edfile.perl:      5  another line)]TJ
+T*[(8:)-600(edfile.perl:      5  another line)]TJ
+T*[(9:)-600(edfile.perl:      0  # $Id: test.in,v 1.1 2010-10-05 15:49:44-07 - - $)]TJ
+-6 -11 Td
+[(10:)-600(     1  This is an input test file.)]TJ
+T*[(11:)-600(     2  It contains a few lines of data.)]TJ
+T*[(12:)-600(     3  It will be written out again.)]TJ
+T*[(13:)-600(     4  Look at the typescript logs for an example.)]TJ
+T*[(14:)-600(     5  another line)]TJ
+T*[(15:)-600(     6  another line)]TJ
+T*[(16:)-600(edfile.perl:      5  another line)]TJ
+T*[(17:)-600(edfile.perl:      4  Look at the typescript logs for an example.)]TJ
+T*[(18:)-600(edfile.perl:      4  another line)]TJ
+T*[(19:)-600(edfile.perl:      3  It will be written out again.)]TJ
+T*[(20:)-600(edfile.perl:      3  another line)]TJ
+T*[(21:)-600(edfile.perl:      0  # $Id: test.in,v 1.1 2010-10-05 15:49:44-07 - - $)]TJ
+T*[(22:)-600(     1  This is an input test file.)]TJ
+T*[(23:)-600(     2  It contains a few lines of data.)]TJ
+T*[(24:)-600(     3  another line)]TJ
+T*[(25:)-600(     4  another line)]TJ
+T*[(26:)-600(edfile.perl: 5 lines written to script.out)]TJ
+T*[(27:)-600(edfile.perl: )]TJ
+ET
+Q
+Q
+endstream
+endobj
+35 0 obj
+2091
+endobj
+4 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 12 0 R
+>>
+/Contents 5 0 R
+>>
+endobj
+13 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 16 0 R
+>>
+/Contents 14 0 R
+>>
+endobj
+17 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 20 0 R
+>>
+/Contents 18 0 R
+>>
+endobj
+21 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 24 0 R
+>>
+/Contents 22 0 R
+>>
+endobj
+25 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 28 0 R
+>>
+/Contents 26 0 R
+>>
+endobj
+29 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 32 0 R
+>>
+/Contents 30 0 R
+>>
+endobj
+33 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 36 0 R
+>>
+/Contents 34 0 R
+>>
+endobj
+3 0 obj
+<< /Type /Pages /Kids [
+4 0 R
+13 0 R
+17 0 R
+21 0 R
+25 0 R
+29 0 R
+33 0 R
+] /Count 7
+>>
+endobj
+1 0 obj
+<</Type /Catalog /Pages 3 0 R
+>>
+endobj
+12 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R11
+11 0 R>>
+endobj
+16 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+20 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+24 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+28 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+32 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+36 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+8 0 obj
+<</BaseFont/Times-Roman/Type/Font
+/Subtype/Type1>>
+endobj
+10 0 obj
+<</BaseFont/Courier/Type/Font
+/Encoding 37 0 R/Subtype/Type1>>
+endobj
+37 0 obj
+<</Type/Encoding/Differences[
+126/tilde]>>
+endobj
+7 0 obj
+<</BaseFont/Helvetica-Bold/Type/Font
+/Subtype/Type1>>
+endobj
+9 0 obj
+<</BaseFont/Times-Bold/Type/Font
+/Subtype/Type1>>
+endobj
+11 0 obj
+<</BaseFont/Courier-Bold/Type/Font
+/Subtype/Type1>>
+endobj
+2 0 obj
+<</Producer(ESP Ghostscript 815.02)
+/CreationDate(D:20101005155051)
+/ModDate(D:20101005155051)>>endobj
+xref
+0 38
+0000000000 65535 f 
+0000012046 00000 n 
+0000012924 00000 n 
+0000011945 00000 n 
+0000011002 00000 n 
+0000000009 00000 n 
+0000003508 00000 n 
+0000012722 00000 n 
+0000012518 00000 n 
+0000012791 00000 n 
+0000012584 00000 n 
+0000012856 00000 n 
+0000012094 00000 n 
+0000011135 00000 n 
+0000003528 00000 n 
+0000005304 00000 n 
+0000012164 00000 n 
+0000011270 00000 n 
+0000005325 00000 n 
+0000006240 00000 n 
+0000012223 00000 n 
+0000011405 00000 n 
+0000006260 00000 n 
+0000007137 00000 n 
+0000012282 00000 n 
+0000011540 00000 n 
+0000007157 00000 n 
+0000008000 00000 n 
+0000012341 00000 n 
+0000011675 00000 n 
+0000008020 00000 n 
+0000008818 00000 n 
+0000012400 00000 n 
+0000011810 00000 n 
+0000008838 00000 n 
+0000010981 00000 n 
+0000012459 00000 n 
+0000012663 00000 n 
+trailer
+<< /Size 38 /Root 1 0 R /Info 2 0 R
+/ID [<8AF52249ABA4923F64EBC6CE4D479CAF><8AF52249ABA4923F64EBC6CE4D479CAF>]
+>>
+startxref
+13035
+%%EOF

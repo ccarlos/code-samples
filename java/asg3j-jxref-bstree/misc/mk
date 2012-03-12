@@ -1,0 +1,10 @@
+#!/bin/sh -x
+# $Id: mk,v 1.4 2010-10-22 18:32:17-07 - - $
+JAVA=*.java
+SRC="$JAVA *.perl $0"
+cid + $SRC
+javac $JAVA
+echo Main-class: runtest >Manifest
+jar cvfm runtest Manifest *.class
+chmod +x runtest
+mkpspdf ../asg3j-jxref.misc.ps $SRC

@@ -1,0 +1,6 @@
+#!/bin/sh -x
+# $Id: mk,v 1.1 2010-01-29 18:14:27-08 - - $
+cid + $0 *.perl *.dr
+draw.perl ../.score/*.dr 2>errors.log
+cat errors.log
+enscript -GjC -p Listing.ps *.perl *.dr

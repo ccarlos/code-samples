@@ -1,0 +1,545 @@
+%PDF-1.2
+5 0 obj
+<</Length 6 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+1 i
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/22/10)Tj
+-0.659766 -12.8004 Td
+(18:32:17)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 273.458 736.5 Tm
+(runtest.java)Tj
+-119.263 18 Td
+($cmps012b-wm/Assignments/asg3j-jxref-bstree/misc/)Tj
+/R10 10 Tf
+-86.1957 -35.5 Td
+[(1:)-600(// $Id: runtest.java,v 1.1 2010-10-22 18:29:43-07 - - $)]TJ
+11 TL
+(2:)'
+T*[(3:)-600(import static java.lang.System.*;)]TJ
+(4:)'
+T*[(5:)-600(class runtest {)]TJ
+(6:)'
+T*[(7:)-600(   static class printer implements visitor<String> {)]TJ
+T*[(8:)-600(      public void visit \(String item\) {)]TJ
+T*[(9:)-600(         out.printf \("%s%n", item\);)]TJ
+-6 -11 Td
+[(10:)-600(      })]TJ
+T*[(11:)-600(   })]TJ
+(12:)'
+T*[(13:)-600(   public static void main \(String[] args\) {)]TJ
+T*[(14:)-600(      String[] arguments = new String [args.length];)]TJ
+T*[(15:)-600(      for \(int itor = 0; itor < args.length; ++itor\) {)]TJ
+T*[(16:)-600(         arguments[itor] = "[" + itor + "]" + args[itor];)]TJ
+T*[(17:)-600(      })]TJ
+T*[(18:)-600(      tree<String> the_tree = new tree<String> \(arguments\);)]TJ
+T*[(19:)-600(      the_tree.visit \(new printer \(\)\);)]TJ
+T*[(20:)-600(   })]TJ
+(21:)'
+T*[(22:)-600(})]TJ
+ET
+Q
+Q
+endstream
+endobj
+6 0 obj
+1444
+endobj
+14 0 obj
+<</Length 15 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/22/10)Tj
+-0.659766 -12.8004 Td
+(18:32:17)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 282.019 736.5 Tm
+(tree.java)Tj
+-127.823 18 Td
+($cmps012b-wm/Assignments/asg3j-jxref-bstree/misc/)Tj
+/R10 10 Tf
+-86.1957 -35.5 Td
+[(1:)-600(// $Id: tree.java,v 1.1 2010-10-22 18:29:43-07 - - $)]TJ
+11 TL
+(2:)'
+T*[(3:)-600(class tree<item_t> {)]TJ
+(4:)'
+T*[(5:)-600(   private class node {)]TJ
+T*[(6:)-600(      item_t item;)]TJ
+T*[(7:)-600(      node left;)]TJ
+T*[(8:)-600(      node right;)]TJ
+T*[(9:)-600(   })]TJ
+-6 -11 Td
+(10:)Tj
+T*[(11:)-600(   private node root;)]TJ
+(12:)'
+T*[(13:)-600(   public tree \(item_t[] argitems\) {)]TJ
+T*[(14:)-600(      if \(argitems.length == 0\) return;)]TJ
+T*[(15:)-600(      java.util.ArrayList<node> nodes = new java.util.ArrayList<node>\(\);)]TJ
+T*[(16:)-600(      for \(int itor = 0; itor < argitems.length; ++itor\) {)]TJ
+T*[(17:)-600(         node tmp = new node \(\);)]TJ
+T*[(18:)-600(         tmp.item = argitems[itor];)]TJ
+T*[(19:)-600(         nodes.add \(tmp\);)]TJ
+T*[(20:)-600(         int parent = \(itor + 1\) / 2 - 1;)]TJ
+T*[(21:)-600(         if \(parent < 0\) continue;)]TJ
+T*[(22:)-600(         node parentnode = nodes.get \(parent\);)]TJ
+T*[(23:)-600(         if \(itor % 2 == 1\) parentnode.left = tmp;)]TJ
+T*[(24:)-600(                       else parentnode.right = tmp;)]TJ
+T*[(25:)-600(      })]TJ
+T*[(26:)-600(      root = nodes.get \(0\);)]TJ
+T*[(27:)-600(   })]TJ
+(28:)'
+T*[(29:)-600(   private void visit_rec \(node a_node, visitor<item_t> vis\) {)]TJ
+T*[(30:)-600(      if \(a_node == null\) return;)]TJ
+T*[(31:)-600(      visit_rec \(a_node.left, vis\);)]TJ
+T*[(32:)-600(      vis.visit \(a_node.item\);)]TJ
+T*[(33:)-600(      visit_rec \(a_node.right, vis\);)]TJ
+T*[(34:)-600(   })]TJ
+(35:)'
+T*[(36:)-600(   public void visit \(visitor<item_t> the_visitor\) {)]TJ
+T*[(37:)-600(      visit_rec \(root, the_visitor\);)]TJ
+T*[(38:)-600(   })]TJ
+(39:)'
+T*[(40:)-600(})]TJ
+(41:)'
+ET
+Q
+Q
+endstream
+endobj
+15 0 obj
+2236
+endobj
+18 0 obj
+<</Length 19 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/22/10)Tj
+-0.659766 -12.8004 Td
+(18:32:17)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 274.62 736.5 Tm
+(visitor.java)Tj
+-120.424 18 Td
+($cmps012b-wm/Assignments/asg3j-jxref-bstree/misc/)Tj
+/R10 10 Tf
+-86.1957 -35.5 Td
+[(1:)-600(// $Id: visitor.java,v 1.1 2010-10-22 18:29:43-07 - - $)]TJ
+11 TL
+(2:)'
+T*[(3:)-600(interface visitor<item_t> {)]TJ
+T*[(4:)-600(   public void visit \(item_t item\);)]TJ
+T*[(5:)-600(})]TJ
+(6:)'
+ET
+Q
+Q
+endstream
+endobj
+19 0 obj
+729
+endobj
+22 0 obj
+<</Length 23 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/22/10)Tj
+-0.659766 -12.8004 Td
+(18:32:17)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 278.442 736.5 Tm
+(pxref.perl)Tj
+-124.246 18 Td
+($cmps012b-wm/Assignments/asg3j-jxref-bstree/misc/)Tj
+/R10 10 Tf
+-86.1957 -35.5 Td
+[(1:)-600(#!/usr/bin/perl)]TJ
+11 TL
+T*[(2:)-600(# $Id: pxref.perl,v 1.1 2010-10-22 18:29:43-07 - - $)]TJ
+T*[(3:)-600(use strict;)]TJ
+T*[(4:)-600(use warnings;)]TJ
+(5:)'
+T*[(6:)-600($0 =~ s|^\(.*/\)?\([^/]+\)/*$|$2|;)]TJ
+T*[(7:)-600(my $status = 0;)]TJ
+T*[(8:)-600(END {exit $status})]TJ
+T*[(9:)-600($SIG{'__WARN__'} = sub {print STDERR "$0: @_"; $status = 1};)]TJ
+-6 -11 Td
+[(10:)-600($SIG{'__DIE__'} = sub {warn @_; exit};)]TJ
+(11:)'
+T*[(12:)-600(my $sep = "\\n" . ":" x 65 . "\\n";)]TJ
+T*[(13:)-600(for my $filename \(@ARGV ? @ARGV : "-"\) {)]TJ
+T*[(14:)-600(   open my $file, "<$filename" or do {warn "$filename: $!\\n"; next};)]TJ
+T*[(15:)-600(   print "$sep$filename$sep\\n";)]TJ
+T*[(16:)-600(   my %xref;)]TJ
+T*[(17:)-600(   while \(defined \(my $line = <$file>\)\) {)]TJ
+T*[(18:)-600(      m/^\\d*$/ or push @{$xref{$_}}, $. for split m/\\W+/, $line)]TJ
+T*[(19:)-600(   })]TJ
+T*[(20:)-600(   close $file;)]TJ
+T*[(21:)-600(   print "$_ @{$xref{$_}}\\n" for sort keys %xref;)]TJ
+T*[(22:)-600(})]TJ
+(23:)'
+ET
+Q
+Q
+endstream
+endobj
+23 0 obj
+1534
+endobj
+26 0 obj
+<</Length 27 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/22/10)Tj
+-0.659766 -12.8004 Td
+(18:32:17)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 297.054 736.5 Tm
+(mk)Tj
+-142.858 18 Td
+($cmps012b-wm/Assignments/asg3j-jxref-bstree/misc/)Tj
+/R10 10 Tf
+-86.1957 -35.5 Td
+[(1:)-600(#!/bin/sh -x)]TJ
+11 TL
+T*[(2:)-600(# $Id: mk,v 1.4 2010-10-22 18:32:17-07 - - $)]TJ
+T*[(3:)-600(JAVA=*.java)]TJ
+T*[(4:)-600(SRC="$JAVA *.perl $0")]TJ
+T*[(5:)-600(cid + $SRC)]TJ
+T*[(6:)-600(javac $JAVA)]TJ
+T*[(7:)-600(echo Main-class: runtest >Manifest)]TJ
+T*[(8:)-600(jar cvfm runtest Manifest *.class)]TJ
+T*[(9:)-600(chmod +x runtest)]TJ
+-6 -11 Td
+[(10:)-600(mkpspdf ../asg3j-jxref.misc.ps $SRC)]TJ
+ET
+Q
+Q
+endstream
+endobj
+27 0 obj
+926
+endobj
+4 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 12 0 R
+>>
+/Contents 5 0 R
+>>
+endobj
+13 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 16 0 R
+>>
+/Contents 14 0 R
+>>
+endobj
+17 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 20 0 R
+>>
+/Contents 18 0 R
+>>
+endobj
+21 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 24 0 R
+>>
+/Contents 22 0 R
+>>
+endobj
+25 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 28 0 R
+>>
+/Contents 26 0 R
+>>
+endobj
+3 0 obj
+<< /Type /Pages /Kids [
+4 0 R
+13 0 R
+17 0 R
+21 0 R
+25 0 R
+] /Count 5
+>>
+endobj
+1 0 obj
+<</Type /Catalog /Pages 3 0 R
+>>
+endobj
+12 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R11
+11 0 R>>
+endobj
+16 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+20 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+24 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+28 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+8 0 obj
+<</BaseFont/Times-Roman/Type/Font
+/Subtype/Type1>>
+endobj
+10 0 obj
+<</BaseFont/Courier/Type/Font
+/Encoding 29 0 R/Subtype/Type1>>
+endobj
+29 0 obj
+<</Type/Encoding/Differences[
+126/tilde]>>
+endobj
+7 0 obj
+<</BaseFont/Helvetica-Bold/Type/Font
+/Subtype/Type1>>
+endobj
+9 0 obj
+<</BaseFont/Times-Bold/Type/Font
+/Subtype/Type1>>
+endobj
+11 0 obj
+<</BaseFont/Courier-Bold/Type/Font
+/Subtype/Type1>>
+endobj
+2 0 obj
+<</Producer(ESP Ghostscript 815.02)
+/CreationDate(D:20101022183218)
+/ModDate(D:20101022183218)>>endobj
+xref
+0 30
+0000000000 65535 f 
+0000007998 00000 n 
+0000008758 00000 n 
+0000007911 00000 n 
+0000007238 00000 n 
+0000000009 00000 n 
+0000001503 00000 n 
+0000008556 00000 n 
+0000008352 00000 n 
+0000008625 00000 n 
+0000008418 00000 n 
+0000008690 00000 n 
+0000008046 00000 n 
+0000007371 00000 n 
+0000001523 00000 n 
+0000003811 00000 n 
+0000008116 00000 n 
+0000007506 00000 n 
+0000003832 00000 n 
+0000004613 00000 n 
+0000008175 00000 n 
+0000007641 00000 n 
+0000004633 00000 n 
+0000006219 00000 n 
+0000008234 00000 n 
+0000007776 00000 n 
+0000006240 00000 n 
+0000007218 00000 n 
+0000008293 00000 n 
+0000008497 00000 n 
+trailer
+<< /Size 30 /Root 1 0 R /Info 2 0 R
+/ID [<F6C868D1CD8543078565CF180FB28151><F6C868D1CD8543078565CF180FB28151>]
+>>
+startxref
+8869
+%%EOF

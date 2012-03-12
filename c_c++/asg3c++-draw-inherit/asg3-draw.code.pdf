@@ -1,0 +1,4017 @@
+%PDF-1.2
+5 0 obj
+<</Length 6 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+1 i
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 284.419 736.5 Tm
+(interp.h)Tj
+-126.955 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-89.4641 -35.5 Td
+(1:)Tj
+11 TL
+T*[(2:)-600(#ifndef __INTERP_H__)]TJ
+T*[(3:)-600(#define __INTERP_H__)]TJ
+(4:)'
+T*[(5:)-600(#include <iostream>)]TJ
+T*[(6:)-600(#include <map>)]TJ
+(7:)'
+T*[(8:)-600(using namespace std;)]TJ
+(9:)'
+-6 -11 Td
+[(10:)-600(#include "object.h")]TJ
+T*[(11:)-600(#include "trace.h")]TJ
+(12:)'
+T*[(13:)-600(typedef map <string, object *> objectmap;)]TJ
+(14:)'
+T*[(15:)-600(class interpreter {)]TJ
+T*[(16:)-600(   public:)]TJ
+T*[(17:)-600(      typedef list<string> parameters;)]TJ
+T*[(18:)-600(      interpreter \(const string &, ostream &, objectmap &\);)]TJ
+T*[(19:)-600(      ~interpreter \(\);)]TJ
+T*[(20:)-600(      void interpret \(parameters &\);)]TJ
+T*[(21:)-600(   private:)]TJ
+T*[(22:)-600(      interpreter \(\); // Disable)]TJ
+T*[(23:)-600(      interpreter \(const interpreter &\); // Disable)]TJ
+T*[(24:)-600(      interpreter &operator= \(const interpreter &\); // Disable)]TJ
+(25:)'
+T*[(26:)-600(      // Data fields.)]TJ
+T*[(27:)-600(      typedef void \(interpreter::*interpreterfn\) \(parameters &\);)]TJ
+T*[(28:)-600(      typedef object *\(interpreter::*factoryfn\) \(parameters &\);)]TJ
+T*[(29:)-600(      static map <string, interpreterfn> interpmap;)]TJ
+T*[(30:)-600(      static map <string, factoryfn> factorymap;)]TJ
+T*[(31:)-600(      ostream &outfile;)]TJ
+T*[(32:)-600(      int pagenr;)]TJ
+T*[(33:)-600(      objectmap objmap;)]TJ
+T*[(34:)-600(      string infilename;)]TJ
+T*[(35:)-600(      double page_xoffset;)]TJ
+T*[(36:)-600(      double page_yoffset;)]TJ
+(37:)'
+T*[(38:)-600(      // Service functions.)]TJ
+T*[(39:)-600(      void do_define \(parameters &\);)]TJ
+T*[(40:)-600(      void do_draw \(parameters &\);)]TJ
+T*[(41:)-600(      void do_newpage \(parameters &\);)]TJ
+T*[(42:)-600(      void prolog \(\);)]TJ
+T*[(43:)-600(      void startpage \(\);)]TJ
+T*[(44:)-600(      void endpage \(\);)]TJ
+T*[(45:)-600(      void epilog \(\);)]TJ
+(46:)'
+T*[(47:)-600(      // Factory functions.)]TJ
+T*[(48:)-600(      object *make_object \(parameters &\);)]TJ
+T*[(49:)-600(      object *make_text \(parameters &\);)]TJ
+T*[(50:)-600(      object *make_ellipse \(parameters &\);)]TJ
+T*[(51:)-600(      object *make_circle \(parameters &\);)]TJ
+T*[(52:)-600(      object *make_polygon \(parameters &\);)]TJ
+T*[(53:)-600(      object *make_rectangle \(parameters &\);)]TJ
+T*[(54:)-600(      object *make_square \(parameters &\);)]TJ
+T*[(55:)-600(      object *make_line \(parameters &\);)]TJ
+T*[(56:)-600(};)]TJ
+(57:)'
+T*[(58:)-600(RCSH\(__interp_h__,)]TJ
+T*[(59:)-600("$Id: interp.h,v 1.1 2010-01-29 18:07:32-08 - - $"\))]TJ
+(60:)'
+T*[(61:)-600(#endif)]TJ
+(62:)'
+ET
+Q
+Q
+endstream
+endobj
+6 0 obj
+3118
+endobj
+14 0 obj
+<</Length 15 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 276.643 736.5 Tm
+(numbers.h)Tj
+-119.179 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-89.4641 -35.5 Td
+(1:)Tj
+11 TL
+T*[(2:)-600(#ifndef __NUMBERS_H__)]TJ
+T*[(3:)-600(#define __NUMBERS_H__)]TJ
+(4:)'
+T*[(5:)-600(#include <iostream>)]TJ
+T*[(6:)-600(#include <utility>)]TJ
+(7:)'
+T*[(8:)-600(using namespace std;)]TJ
+(9:)'
+-6 -11 Td
+[(10:)-600(#include "trace.h")]TJ
+(11:)'
+T*[(12:)-600(const double PTS_PER_INCH = 72;)]TJ
+(13:)'
+T*[(14:)-600(class degrees {)]TJ
+T*[(15:)-600(   friend ostream &operator<< \(ostream &, const degrees &\);)]TJ
+T*[(16:)-600(   public:)]TJ
+T*[(17:)-600(      explicit degrees \(double init\): angle\(init\) {})]TJ
+T*[(18:)-600(      operator double\(\) {return angle; })]TJ
+T*[(19:)-600(   private:)]TJ
+T*[(20:)-600(      degrees \(\); // Disable.)]TJ
+T*[(21:)-600(      double angle;)]TJ
+T*[(22:)-600(};)]TJ
+(23:)'
+T*[(24:)-600(class points {)]TJ
+T*[(25:)-600(   friend ostream &operator<< \(ostream &, const points &\);)]TJ
+T*[(26:)-600(   public:)]TJ
+T*[(27:)-600(      explicit points \(double init\): pointvalue\(init\) {})]TJ
+T*[(28:)-600(      operator double\(\) {return pointvalue; })]TJ
+T*[(29:)-600(   private:)]TJ
+T*[(30:)-600(      points \(\); // Disable.)]TJ
+T*[(31:)-600(      double pointvalue;)]TJ
+T*[(32:)-600(};)]TJ
+(33:)'
+T*[(34:)-600(class inches {)]TJ
+T*[(35:)-600(   friend ostream &operator<< \(ostream &, const inches &\);)]TJ
+T*[(36:)-600(   public:)]TJ
+T*[(37:)-600(      explicit inches \(double init\): pointvalue\(init * PTS_PER_INCH\) {})]TJ
+T*[(38:)-600(      operator double\(\) {return pointvalue; })]TJ
+T*[(39:)-600(   private:)]TJ
+T*[(40:)-600(      inches \(\); // Disable.)]TJ
+T*[(41:)-600(      double pointvalue;)]TJ
+T*[(42:)-600(};)]TJ
+(43:)'
+T*[(44:)-600(typedef pair <inches, inches> xycoords;)]TJ
+(45:)'
+T*[(46:)-600(ostream &operator<< \(ostream &, const xycoords &\);)]TJ
+(47:)'
+T*[(48:)-600(RCSH\(__numbers_h__,)]TJ
+T*[(49:)-600("$Id: numbers.h,v 1.3 2010-02-05 14:09:12-08 - - $"\))]TJ
+(50:)'
+T*[(51:)-600(#endif)]TJ
+(52:)'
+ET
+Q
+Q
+endstream
+endobj
+15 0 obj
+2416
+endobj
+18 0 obj
+<</Length 19 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 283.643 736.5 Tm
+(object.h)Tj
+-126.179 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-89.4641 -35.5 Td
+(1:)Tj
+11 TL
+T*[(2:)-600(#ifndef __OBJECT_H__)]TJ
+T*[(3:)-600(#define __OBJECT_H__)]TJ
+(4:)'
+T*[(5:)-600(#include <iomanip>)]TJ
+T*[(6:)-600(#include <iostream>)]TJ
+T*[(7:)-600(#include <list>)]TJ
+T*[(8:)-600(#include <utility>)]TJ
+(9:)'
+-6 -11 Td
+[(10:)-600(using namespace std;)]TJ
+(11:)'
+T*[(12:)-600(#include "numbers.h")]TJ
+(13:)'
+T*[(14:)-600(//)]TJ
+T*[(15:)-600(// Objects constitute a single-inheritance hierarchy, summarized)]TJ
+T*[(16:)-600(// here, with the superclass listed first, and subclasses indented)]TJ
+T*[(17:)-600(// under their immediate superclass.)]TJ
+T*[(18:)-600(//)]TJ
+T*[(19:)-600(// object)]TJ
+T*[(20:)-600(//    test)]TJ
+T*[(21:)-600(//    shape)]TJ
+T*[(22:)-600(//       ellipse)]TJ
+T*[(23:)-600(//          circle)]TJ
+T*[(24:)-600(//       polygon)]TJ
+T*[(25:)-600(//          rectangle)]TJ
+T*[(26:)-600(//             square)]TJ
+T*[(27:)-600(//          line)]TJ
+T*[(28:)-600(//)]TJ
+(29:)'
+T*[(30:)-600(typedef list<xycoords> coordlist;)]TJ
+(31:)'
+T*[(32:)-600(//)]TJ
+T*[(33:)-600(// Abstract base class for all shapes in this system.)]TJ
+T*[(34:)-600(//)]TJ
+(35:)'
+T*[(36:)-600(class object {)]TJ
+T*[(37:)-600(   public:)]TJ
+T*[(38:)-600(      virtual ~object \(\);)]TJ
+T*[(39:)-600(      virtual void draw \(ostream &, const xycoords &,)]TJ
+T*[(40:)-600(                         const degrees &angle\) = 0;)]TJ
+T*[(41:)-600(   protected:)]TJ
+T*[(42:)-600(      object \(\) {})]TJ
+T*[(43:)-600(};)]TJ
+(44:)'
+T*[(45:)-600(//)]TJ
+T*[(46:)-600(// Class for printing text.)]TJ
+T*[(47:)-600(//)]TJ
+(48:)'
+T*[(49:)-600(class text: public object {)]TJ
+T*[(50:)-600(   public:)]TJ
+T*[(51:)-600(      text \(const string &fontname, const points &fontsize,)]TJ
+T*[(52:)-600(            const string &textdata\);)]TJ
+T*[(53:)-600(      virtual void draw \(ostream &, const xycoords &,)]TJ
+T*[(54:)-600(                         const degrees &angle\);)]TJ
+T*[(55:)-600(   protected:)]TJ
+T*[(56:)-600(      string fontname;)]TJ
+T*[(57:)-600(      points fontsize;)]TJ
+T*[(58:)-600(      string textdata;)]TJ
+T*[(59:)-600(};)]TJ
+(60:)'
+T*[(61:)-600(//)]TJ
+T*[(62:)-600(// Shape of a geometric object.)]TJ
+T*[(63:)-600(//)]TJ
+(64:)'
+ET
+Q
+Q
+endstream
+endobj
+19 0 obj
+2671
+endobj
+22 0 obj
+<</Length 23 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 283.643 736.5 Tm
+(object.h)Tj
+-126.179 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-95.4641 -35.5 Td
+[(65:)-600(class shape: public object {)]TJ
+11 TL
+T*[(66:)-600(   protected:)]TJ
+T*[(67:)-600(      shape \(const points &thick\): thick\(thick\) {})]TJ
+T*[(68:)-600(      points thick;)]TJ
+T*[(69:)-600(   private:)]TJ
+T*[(70:)-600(      shape \(\); // Disable.)]TJ
+T*[(71:)-600(};)]TJ
+(72:)'
+T*[(73:)-600(//)]TJ
+T*[(74:)-600(// Classes for ellipse and circle.)]TJ
+T*[(75:)-600(//)]TJ
+(76:)'
+T*[(77:)-600(class ellipse: public shape {)]TJ
+T*[(78:)-600(   public:)]TJ
+T*[(79:)-600(      ellipse \(const inches &height, const inches &width,)]TJ
+T*[(80:)-600(               const points &thick\);)]TJ
+T*[(81:)-600(      virtual void draw \(ostream &, const xycoords &,)]TJ
+T*[(82:)-600(                         const degrees &angle\);)]TJ
+T*[(83:)-600(   protected:)]TJ
+T*[(84:)-600(      inches height;)]TJ
+T*[(85:)-600(      inches width;)]TJ
+T*[(86:)-600(};)]TJ
+(87:)'
+T*[(88:)-600(class circle: public ellipse {)]TJ
+T*[(89:)-600(   public:)]TJ
+T*[(90:)-600(      circle \(const inches &diameter, const points &thick\);)]TJ
+T*[(91:)-600(};)]TJ
+(92:)'
+T*[(93:)-600(//)]TJ
+T*[(94:)-600(// Class polygon.)]TJ
+T*[(95:)-600(//)]TJ
+(96:)'
+T*[(97:)-600(class polygon: public shape {)]TJ
+T*[(98:)-600(   public:)]TJ
+T*[(99:)-600(      polygon \(const coordlist &coords, const points &thick\);)]TJ
+-6 -11 Td
+[(100:)-600(      virtual void draw \(ostream &, const xycoords &,)]TJ
+T*[(101:)-600(                         const degrees &angle\);)]TJ
+T*[(102:)-600(   protected:)]TJ
+T*[(103:)-600(      const coordlist coordinates;)]TJ
+T*[(104:)-600(};)]TJ
+(105:)'
+T*[(106:)-600(//)]TJ
+T*[(107:)-600(// Classes rectangle, square, and line..)]TJ
+T*[(108:)-600(//)]TJ
+(109:)'
+T*[(110:)-600(class rectangle: public polygon {)]TJ
+T*[(111:)-600(   public:)]TJ
+T*[(112:)-600(      rectangle \(const inches &height, const inches &width,)]TJ
+T*[(113:)-600(                 const points &thick\);)]TJ
+T*[(114:)-600(   private:)]TJ
+T*[(115:)-600(      static coordlist make_list \()]TJ
+T*[(116:)-600(             const inches &height, const inches &width\);)]TJ
+T*[(117:)-600(};)]TJ
+(118:)'
+T*[(119:)-600(class square: public rectangle {)]TJ
+T*[(120:)-600(   public:)]TJ
+T*[(121:)-600(      square \(const inches &width, const points &thick\);)]TJ
+T*[(122:)-600(};)]TJ
+(123:)'
+T*[(124:)-600(class line: public polygon {)]TJ
+T*[(125:)-600(   public:)]TJ
+T*[(126:)-600(      line \(const inches &length, const points &thick\);)]TJ
+T*[(127:)-600(   private:)]TJ
+T*[(128:)-600(      static coordlist make_list \(const inches &length\);)]TJ
+ET
+Q
+Q
+endstream
+endobj
+23 0 obj
+3032
+endobj
+26 0 obj
+<</Length 27 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(3)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 283.643 736.5 Tm
+(object.h)Tj
+-126.179 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-101.464 -35.5 Td
+[(129:)-600(};)]TJ
+11 TL
+(130:)'
+T*[(131:)-600(RCSH\(__object_h__,)]TJ
+T*[(132:)-600("$Id: object.h,v 1.4 2010-02-04 19:09:00-08 - - $"\))]TJ
+(133:)'
+T*[(134:)-600(#endif)]TJ
+(135:)'
+ET
+Q
+Q
+endstream
+endobj
+27 0 obj
+703
+endobj
+30 0 obj
+<</Length 31 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 287.15 736.5 Tm
+(trace.h)Tj
+-129.686 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-89.4641 -35.5 Td
+(1:)Tj
+11 TL
+T*[(2:)-600(#ifndef __TRACE_H__)]TJ
+T*[(3:)-600(#define __TRACE_H__)]TJ
+(4:)'
+T*[(5:)-600(#include <vector>)]TJ
+(6:)'
+T*[(7:)-600(using namespace std;)]TJ
+(8:)'
+T*[(9:)-600(//)]TJ
+-6 -11 Td
+[(10:)-600(// traceflags -)]TJ
+T*[(11:)-600(//    static class for maintaining global trace flags, each indicated)]TJ
+T*[(12:)-600(//    by a single character.)]TJ
+T*[(13:)-600(// setflags -)]TJ
+T*[(14:)-600(//    Takes a string argument, and sets a flag for each char in the)]TJ
+T*[(15:)-600(//    string.  As a special case, '@', sets all flags.)]TJ
+T*[(16:)-600(// getflag -)]TJ
+T*[(17:)-600(//    Used by the TRACE macro to check to see if a flag has been set.)]TJ
+T*[(18:)-600(//    Not to be called by user code.)]TJ
+T*[(19:)-600(//)]TJ
+(20:)'
+T*[(21:)-600(class traceflags {)]TJ
+T*[(22:)-600(   private:)]TJ
+T*[(23:)-600(      static vector<char> flags;)]TJ
+T*[(24:)-600(   public:)]TJ
+T*[(25:)-600(      static void setflags \(const string &optflags\);)]TJ
+T*[(26:)-600(      static bool getflag \(char flag\);)]TJ
+T*[(27:)-600(};)]TJ
+(28:)'
+T*[(29:)-600(//)]TJ
+T*[(30:)-600(// TRACE -)]TJ
+T*[(31:)-600(//    Macro which expands into trace code.  First argument is a)]TJ
+T*[(32:)-600(//    trace flag char, second argument is output code that can)]TJ
+T*[(33:)-600(//    be sandwiched between <<.  Beware of operator precedence.)]TJ
+T*[(34:)-600(//    Example:)]TJ
+T*[(35:)-600(//       TRACE \('u', "foo = " << foo\);)]TJ
+T*[(36:)-600(//    will print two words and a newline if flag 'u' is  on.)]TJ
+T*[(37:)-600(//    Traces are preceded by filename, line number, and function.)]TJ
+T*[(38:)-600(//)]TJ
+(39:)'
+T*[(40:)-600(#define TRACE\(FLAG,CODE\) { \\)]TJ
+T*[(41:)-600(           if \(traceflags::getflag \(FLAG\)\) { \\)]TJ
+T*[(42:)-600(              cerr << __FILE__ << ":" << __LINE__ << ":" \\)]TJ
+T*[(43:)-600(                   << __func__ << ": "; \\)]TJ
+T*[(44:)-600(              cerr << CODE << endl; \\)]TJ
+T*[(45:)-600(           } \\)]TJ
+T*[(46:)-600(        })]TJ
+(47:)'
+T*[(48:)-600(//)]TJ
+T*[(49:)-600(// RCSH, RCSC -)]TJ
+T*[(50:)-600(//    Macros which allow RCS Id information to transfer to object)]TJ
+T*[(51:)-600(//    files and executable binaries.)]TJ
+T*[(52:)-600(//)]TJ
+(53:)'
+T*[(54:)-600(#define RCSH\(NAME,ID\) \\)]TJ
+T*[(55:)-600(static const char __RCS_##NAME[] = "\\0" ID;)]TJ
+T*[(56:)-600(#define RCSC\(NAME,ID\) \\)]TJ
+T*[(57:)-600(static const char __RCS_C_##NAME[] = "\\0" ID \\)]TJ
+T*[(58:)-600("\\0$Compiled: " __FILE__ " " __DATE__ " " __TIME__ " $";)]TJ
+(59:)'
+T*[(60:)-600(RCSH\(__trace_h__,)]TJ
+T*[(61:)-600("$Id: trace.h,v 1.1 2010-01-29 18:07:32-08 - - $"\))]TJ
+(62:)'
+T*[(63:)-600(#endif)]TJ
+(64:)'
+ET
+Q
+Q
+endstream
+endobj
+31 0 obj
+3175
+endobj
+34 0 obj
+<</Length 35 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 291.412 736.5 Tm
+(util.h)Tj
+-133.948 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-89.4641 -35.5 Td
+[(1:)-600(//)]TJ
+11 TL
+T*[(2:)-600(// util -)]TJ
+T*[(3:)-600(//    A utility class to provide various services not conveniently)]TJ
+T*[(4:)-600(//    included in other modules.)]TJ
+T*[(5:)-600(//)]TJ
+(6:)'
+T*[(7:)-600(#ifndef __UTIL_H__)]TJ
+T*[(8:)-600(#define __UTIL_H__)]TJ
+(9:)'
+-6 -11 Td
+[(10:)-600(#include <iostream>)]TJ
+T*[(11:)-600(#include <list>)]TJ
+T*[(12:)-600(#include <string>)]TJ
+(13:)'
+T*[(14:)-600(#ifdef __GNUC__)]TJ
+T*[(15:)-600(#include <stdexcept>)]TJ
+T*[(16:)-600(#endif)]TJ
+(17:)'
+T*[(18:)-600(using namespace std;)]TJ
+(19:)'
+T*[(20:)-600(#include "trace.h")]TJ
+(21:)'
+T*[(22:)-600(//)]TJ
+T*[(23:)-600(// sys_info -)]TJ
+T*[(24:)-600(//    Keep track of execname and exit status.  Must be initialized)]TJ
+T*[(25:)-600(//    as the first thing done inside main.  Main should call:)]TJ
+T*[(26:)-600(//       sys_info::set_execname \(argv[0]\);)]TJ
+T*[(27:)-600(//    before anything else.)]TJ
+T*[(28:)-600(//)]TJ
+(29:)'
+T*[(30:)-600(class sys_info {)]TJ
+T*[(31:)-600(   public:)]TJ
+T*[(32:)-600(      static const string &get_execname \(\);)]TJ
+T*[(33:)-600(      static void set_exit_status \(int status\);)]TJ
+T*[(34:)-600(      static int get_exit_status \(\);)]TJ
+T*[(35:)-600(   private:)]TJ
+T*[(36:)-600(      friend int main \(int argc, char **argv\);)]TJ
+T*[(37:)-600(      static void set_execname \(const string &argv0\);)]TJ
+T*[(38:)-600(      static string *execname;)]TJ
+T*[(39:)-600(      static int exit_status;)]TJ
+T*[(40:)-600(};)]TJ
+(41:)'
+T*[(42:)-600(//)]TJ
+T*[(43:)-600(// datestring -)]TJ
+T*[(44:)-600(//    Return the current date, as printed by date\(1\).)]TJ
+T*[(45:)-600(//)]TJ
+(46:)'
+T*[(47:)-600(const string datestring \(\);)]TJ
+(48:)'
+T*[(49:)-600(//)]TJ
+T*[(50:)-600(// split -)]TJ
+T*[(51:)-600(//    Split a string into a list<string>..  Any sequence)]TJ
+T*[(52:)-600(//    of chars in the delimiter string is used as a separator.  To)]TJ
+T*[(53:)-600(//    Split a pathname, use "/".  To split a shell command, use " ".)]TJ
+T*[(54:)-600(//)]TJ
+(55:)'
+T*[(56:)-600(list<string> split \(const string &line, const string &delimiter\);)]TJ
+(57:)'
+T*[(58:)-600(//)]TJ
+T*[(59:)-600(// complain -)]TJ
+T*[(60:)-600(//    Used for starting error messages.  Sets the exit status to)]TJ
+T*[(61:)-600(//    EXIT_FAILURE, writes the program name to cerr, and then)]TJ
+T*[(62:)-600(//    returns the cerr ostream.  Example:)]TJ
+T*[(63:)-600(//       complain\(\) << filename << ": some problem" << endl;)]TJ
+T*[(64:)-600(//)]TJ
+ET
+Q
+Q
+endstream
+endobj
+35 0 obj
+2985
+endobj
+38 0 obj
+<</Length 39 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 291.412 736.5 Tm
+(util.h)Tj
+-133.948 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-95.4641 -35.5 Td
+(65:)Tj
+11 TL
+T*[(66:)-600(ostream &complain\(\);)]TJ
+(67:)'
+T*[(68:)-600(//)]TJ
+T*[(69:)-600(// syscall_error -)]TJ
+T*[(70:)-600(//    Complain about a failed system call.  Argument is the name)]TJ
+T*[(71:)-600(//    of the object causing trouble.  The extern errno must contain)]TJ
+T*[(72:)-600(//    the reason for the problem.)]TJ
+T*[(73:)-600(//)]TJ
+(74:)'
+T*[(75:)-600(void syscall_error \(const string &\);)]TJ
+(76:)'
+T*[(77:)-600(//)]TJ
+T*[(78:)-600(// operator<< \(list\) -)]TJ
+T*[(79:)-600(//    An overloaded template operator which allows lists to be)]TJ
+T*[(80:)-600(//    printed out as a single operator, each element separated from)]TJ
+T*[(81:)-600(//    the next with spaces.  The item_t must have an output operator)]TJ
+T*[(82:)-600(//    defined for it.)]TJ
+T*[(83:)-600(//)]TJ
+(84:)'
+T*[(85:)-600(template <typename item_t>)]TJ
+T*[(86:)-600(ostream &operator<< \(ostream &out, const list<item_t> &vec\);)]TJ
+(87:)'
+T*[(88:)-600(//)]TJ
+T*[(89:)-600(// string to_string \(thing\) -)]TJ
+T*[(90:)-600(//    Convert anything into a string if it has an ostream<< operator.)]TJ
+T*[(91:)-600(//)]TJ
+(92:)'
+T*[(93:)-600(template <typename type>)]TJ
+T*[(94:)-600(string to_string \(const type &\);)]TJ
+(95:)'
+T*[(96:)-600(//)]TJ
+T*[(97:)-600(// thing from_string \(cons string &\) -)]TJ
+T*[(98:)-600(//    Scan a string for something if it has an istream>> operator.)]TJ
+T*[(99:)-600(//)]TJ
+-6 -11 Td
+(100:)Tj
+T*[(101:)-600(template <typename type>)]TJ
+T*[(102:)-600(type from_string \(const string &\);)]TJ
+(103:)'
+T*[(104:)-600(//)]TJ
+T*[(105:)-600(// Put the RCS Id string in the object file.)]TJ
+T*[(106:)-600(//)]TJ
+(107:)'
+T*[(108:)-600(RCSH\(__util_h__,)]TJ
+T*[(109:)-600("$Id: util.h,v 1.4 2010-02-05 14:09:12-08 - - $"\))]TJ
+(110:)'
+T*[(111:)-600(#endif)]TJ
+(112:)'
+ET
+Q
+Q
+endstream
+endobj
+39 0 obj
+2303
+endobj
+42 0 obj
+<</Length 43 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 273.92 736.5 Tm
+(templates.h)Tj
+-116.456 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-89.4641 -35.5 Td
+(1:)Tj
+11 TL
+T*[(2:)-600(// )]TJ
+T*[(3:)-600(// Unlike Sun CC, Gnu g++ is not properly able to instantiate all)]TJ
+T*[(4:)-600(// templates.  To fix this one problem in an ad hoc way, we)]TJ
+T*[(5:)-600(// explicitly declare the missing instatiations.  A sample error)]TJ
+T*[(6:)-600(// message in typical C++ unreadable template style follows.)]TJ
+T*[(7:)-600(// )]TJ
+T*[(8:)-600(// Note that his is a link time, not a compile time, error.  The)]TJ
+T*[(9:)-600(// error messages have been edited with the addition of newlines to)]TJ
+-6 -11 Td
+[(10:)-600(// avoid random line wrap.  This is not needed with SUNWspro CC.)]TJ
+T*[(11:)-600(// )]TJ
+T*[(12:)-600(// No header file is needed, because this module is not needed by)]TJ
+T*[(13:)-600(// the compiler, only the Gnu linker.)]TJ
+T*[(14:)-600(// )]TJ
+T*[(15:)-600(// )]TJ
+T*[(16:)-600(// Undefined                    first referenced)]TJ
+T*[(17:)-600(//  symbol                          in file)]TJ
+T*[(18:)-600(// __cxa_get_exception_ptr             main.o)]TJ
+T*[(19:)-600(// )]TJ
+T*[(20:)-600(// std::basic_ostream<char, std::char_traits<char> >& operator<<)]TJ
+T*[(21:)-600(// <std::pair<inches, inches> >)]TJ
+T*[(22:)-600(// \(std::basic_ostream<char, std::char_traits<char> >&,)]TJ
+T*[(23:)-600(// std::list<std::pair<inches, inches>,)]TJ
+T*[(24:)-600(// std::allocator<std::pair<inches, inches> > > const&\)object.o)]TJ
+T*[(25:)-600(// )]TJ
+T*[(26:)-600(// double from_string<double>\(std::basic_string<char,)]TJ
+T*[(27:)-600(// std::char_traits<char>, std::allocator<char> > const&\)interp.o)]TJ
+T*[(28:)-600(// )]TJ
+T*[(29:)-600(// ld: fatal: Symbol referencing errors. No output written to draw)]TJ
+T*[(30:)-600(// collect2: ld returned 1 exit status)]TJ
+T*[(31:)-600(// )]TJ
+(32:)'
+T*[(33:)-600(#include "numbers.h")]TJ
+(34:)'
+T*[(35:)-600(template ostream &operator<< \(ostream &, const list<xycoords> &\);)]TJ
+T*[(36:)-600(template double from_string <double> \(const string &\);)]TJ
+(37:)'
+T*[(38:)-600(RCSH\(__templates_h__,)]TJ
+T*[(39:)-600("$Id: templates.h,v 1.3 2010-02-05 17:20:52-08 - - $"\))]TJ
+(40:)'
+ET
+Q
+Q
+endstream
+endobj
+43 0 obj
+2599
+endobj
+46 0 obj
+<</Length 47 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 284.034 736.5 Tm
+(main.cc)Tj
+-126.57 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-89.4641 -35.5 Td
+[(1:)-600(// $Id: main.cc,v 1.2 2010-02-04 19:35:22-08 - - $)]TJ
+11 TL
+(2:)'
+T*[(3:)-600(#include <fstream>)]TJ
+T*[(4:)-600(#include <iostream>)]TJ
+(5:)'
+T*[(6:)-600(using namespace std;)]TJ
+(7:)'
+T*[(8:)-600(#include "interp.h")]TJ
+T*[(9:)-600(#include "trace.h")]TJ
+-6 -11 Td
+[(10:)-600(#include "util.h")]TJ
+(11:)'
+T*[(12:)-600(//)]TJ
+T*[(13:)-600(// Parse a file.  Read lines from input file, parse each line,)]TJ
+T*[(14:)-600(// and interpret the command.)]TJ
+T*[(15:)-600(//)]TJ
+(16:)'
+T*[(17:)-600(void parsefile \(const string &infilename,)]TJ
+T*[(18:)-600(                     istream &infile, ostream &outfile\) {)]TJ
+T*[(19:)-600(   objectmap objmap;)]TJ
+T*[(20:)-600(   interpreter interp \(infilename, outfile, objmap\);)]TJ
+T*[(21:)-600(   for \(int linenr = 1;; ++linenr\) {)]TJ
+T*[(22:)-600(      try {)]TJ
+T*[(23:)-600(         string line;)]TJ
+T*[(24:)-600(         getline \(infile, line\);)]TJ
+T*[(25:)-600(         if \(infile.eof\(\)\) break;)]TJ
+T*[(26:)-600(         if \(line.size\(\) == 0\) continue;)]TJ
+T*[(27:)-600(         for \(;;\) {)]TJ
+T*[(28:)-600(            TRACE \('m', line\);)]TJ
+T*[(29:)-600(            int last = line.size\(\) - 1;)]TJ
+T*[(30:)-600(            if \(line[last] != '\\\\'\) break;)]TJ
+T*[(31:)-600(            line[last] = ' ';)]TJ
+T*[(32:)-600(            string contin;)]TJ
+T*[(33:)-600(            getline \(infile, contin\);)]TJ
+T*[(34:)-600(            if \(infile.eof\(\)\) break;)]TJ
+T*[(35:)-600(            line += contin;)]TJ
+T*[(36:)-600(         })]TJ
+T*[(37:)-600(         list<string> words = split \(line, " \\t"\);)]TJ
+T*[(38:)-600(         if \(words.size\(\) == 0 || words.front\(\)[0] == '#'\) continue;)]TJ
+T*[(39:)-600(         TRACE \('m', words\);)]TJ
+T*[(40:)-600(         interp.interpret \(words\);)]TJ
+T*[(41:)-600(      }catch \(runtime_error error\) {)]TJ
+T*[(42:)-600(         complain\(\) << infilename << ":" << linenr << ": ")]TJ
+T*[(43:)-600(                    << error.what\(\) << endl;)]TJ
+T*[(44:)-600(      })]TJ
+T*[(45:)-600(   })]TJ
+T*[(46:)-600(   TRACE \('m', infilename << " EOF"\);)]TJ
+T*[(47:)-600(})]TJ
+(48:)'
+T*[(49:)-600(//)]TJ
+T*[(50:)-600(// Strip off the dirname portion and the suffix and tack on .ps.)]TJ
+T*[(51:)-600(//)]TJ
+T*[(52:)-600(string get_outfilename \(const string &infilename\) {)]TJ
+T*[(53:)-600(      string suffix = ".dr";)]TJ
+T*[(54:)-600(      int slashpos = infilename.find_last_of \('/'\) + 1;)]TJ
+T*[(55:)-600(      string outname = infilename.substr \(slashpos\);)]TJ
+T*[(56:)-600(      int baselen = outname.size\(\);)]TJ
+T*[(57:)-600(      int suffixlen = suffix.size\(\);)]TJ
+T*[(58:)-600(      int difflen = baselen - suffixlen;)]TJ
+T*[(59:)-600(      if \(baselen > suffixlen && outname.substr \(difflen\) == suffix\) {)]TJ
+T*[(60:)-600(         outname = outname.substr \(0, difflen\);)]TJ
+T*[(61:)-600(      })]TJ
+T*[(62:)-600(      return outname + ".ps";)]TJ
+T*[(63:)-600(})]TJ
+(64:)'
+ET
+Q
+Q
+endstream
+endobj
+47 0 obj
+3445
+endobj
+50 0 obj
+<</Length 51 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 284.034 736.5 Tm
+(main.cc)Tj
+-126.57 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-95.4641 -35.5 Td
+[(65:)-600(//)]TJ
+11 TL
+T*[(66:)-600(// Scan the option -D and check for operands.)]TJ
+T*[(67:)-600(//)]TJ
+(68:)'
+T*[(69:)-600(void scan_options \(int argc, char **argv\) {)]TJ
+T*[(70:)-600(   opterr = 0;)]TJ
+T*[(71:)-600(   for \(;;\) {)]TJ
+T*[(72:)-600(      int option = getopt \(argc, argv, "@:"\);)]TJ
+T*[(73:)-600(      if \(option == EOF\) break;)]TJ
+T*[(74:)-600(      switch \(option\) {)]TJ
+T*[(75:)-600(         case '@':)]TJ
+T*[(76:)-600(            traceflags::setflags \(optarg\);)]TJ
+T*[(77:)-600(            break;)]TJ
+T*[(78:)-600(         default:)]TJ
+T*[(79:)-600(            complain\(\) << "-" << \(char\) optopt << ": invalid option")]TJ
+T*[(80:)-600(                       << endl;)]TJ
+T*[(81:)-600(            break;)]TJ
+T*[(82:)-600(      })]TJ
+T*[(83:)-600(   })]TJ
+T*[(84:)-600(})]TJ
+(85:)'
+T*[(86:)-600(//)]TJ
+T*[(87:)-600(// Main function.  Iterate over files if given, use cin if not.)]TJ
+T*[(88:)-600(//)]TJ
+T*[(89:)-600(int main \(int argc, char **argv\) {)]TJ
+T*[(90:)-600(   sys_info::set_execname \(argv[0]\);)]TJ
+T*[(91:)-600(   scan_options \(argc, argv\);)]TJ
+T*[(92:)-600(   if \(optind == argc\) {)]TJ
+T*[(93:)-600(      parsefile \("-", cin, cout\);)]TJ
+T*[(94:)-600(   }else {)]TJ
+T*[(95:)-600(      for \(int argi = optind; argi < argc; ++argi\) {)]TJ
+T*[(96:)-600(         const string infilename = argv[argi];)]TJ
+T*[(97:)-600(         ifstream infile \(infilename.c_str\(\)\);)]TJ
+T*[(98:)-600(         if \(infile.fail\(\)\) {)]TJ
+T*[(99:)-600(            syscall_error \(infilename\);)]TJ
+-6 -11 Td
+[(100:)-600(            continue;)]TJ
+T*[(101:)-600(         })]TJ
+T*[(102:)-600(         const string outfilename = get_outfilename \(infilename\);)]TJ
+T*[(103:)-600(         ofstream outfile \(outfilename.c_str\(\)\);)]TJ
+T*[(104:)-600(         if \(outfile.fail\(\)\) {)]TJ
+T*[(105:)-600(            syscall_error \(outfilename\);)]TJ
+T*[(106:)-600(            infile.close\(\);)]TJ
+T*[(107:)-600(            continue;)]TJ
+T*[(108:)-600(         })]TJ
+T*[(109:)-600(         TRACE \('m', infilename << " => " << outfilename\);)]TJ
+T*[(110:)-600(         parsefile \(infilename, infile, outfile\);)]TJ
+T*[(111:)-600(         infile.close \(\);)]TJ
+T*[(112:)-600(         outfile.close \(\);)]TJ
+T*[(113:)-600(      })]TJ
+T*[(114:)-600(   })]TJ
+T*[(115:)-600(   return sys_info::get_exit_status \(\);)]TJ
+T*[(116:)-600(})]TJ
+ET
+Q
+Q
+endstream
+endobj
+51 0 obj
+2891
+endobj
+54 0 obj
+<</Length 55 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 281.704 736.5 Tm
+(interp.cc)Tj
+-124.239 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-89.4641 -35.5 Td
+(1:)Tj
+11 TL
+T*[(2:)-600(#include <list>)]TJ
+T*[(3:)-600(#include <map>)]TJ
+T*[(4:)-600(#include <string>)]TJ
+(5:)'
+T*[(6:)-600(using namespace std;)]TJ
+(7:)'
+T*[(8:)-600(#include "interp.h")]TJ
+T*[(9:)-600(#include "object.h")]TJ
+-6 -11 Td
+[(10:)-600(#include "util.h")]TJ
+(11:)'
+T*[(12:)-600(interpreter::interpreter\(const string &filename, ostream &outfile,)]TJ
+T*[(13:)-600(                         objectmap &objmap\):)]TJ
+T*[(14:)-600(   outfile\(outfile\), pagenr\(1\), objmap\(objmap\), infilename\(filename\),)]TJ
+T*[(15:)-600(   page_xoffset \(inches \(.25\)\), page_yoffset \(inches \(.25\)\) {)]TJ
+T*[(16:)-600(   if \(interpmap.size\(\) == 0\) {)]TJ
+T*[(17:)-600(      interpmap["define" ] = &interpreter::do_define ;)]TJ
+T*[(18:)-600(      interpmap["draw"   ] = &interpreter::do_draw   ;)]TJ
+T*[(19:)-600(      interpmap["newpage"] = &interpreter::do_newpage;)]TJ
+T*[(20:)-600(   })]TJ
+T*[(21:)-600(   if \(factorymap.size\(\) == 0\) {)]TJ
+T*[(22:)-600(      factorymap["text"     ] = &interpreter::make_text     ;)]TJ
+T*[(23:)-600(      factorymap["ellipse"  ] = &interpreter::make_ellipse  ;)]TJ
+T*[(24:)-600(      factorymap["circle"   ] = &interpreter::make_circle   ;)]TJ
+T*[(25:)-600(      factorymap["polygon"  ] = &interpreter::make_polygon  ;)]TJ
+T*[(26:)-600(      factorymap["rectangle"] = &interpreter::make_rectangle;)]TJ
+T*[(27:)-600(      factorymap["square"   ] = &interpreter::make_square   ;)]TJ
+T*[(28:)-600(      factorymap["line"     ] = &interpreter::make_line     ;)]TJ
+T*[(29:)-600(   })]TJ
+T*[(30:)-600(   prolog \(\);)]TJ
+T*[(31:)-600(   startpage \(\);)]TJ
+T*[(32:)-600(})]TJ
+(33:)'
+T*[(34:)-600(interpreter::~interpreter \(\) {)]TJ
+T*[(35:)-600(   endpage \(\);)]TJ
+T*[(36:)-600(   epilog \(\);)]TJ
+T*[(37:)-600(})]TJ
+(38:)'
+T*[(39:)-600(map <string, interpreter::interpreterfn> interpreter::interpmap;)]TJ
+T*[(40:)-600(map <string, interpreter::factoryfn> interpreter::factorymap;)]TJ
+(41:)'
+T*[(42:)-600(string shift \(list<string> &words\) {)]TJ
+T*[(43:)-600(   if \(words.size\(\) == 0\) throw runtime_error \("syntax error"\);)]TJ
+T*[(44:)-600(   string front = words.front\(\);)]TJ
+T*[(45:)-600(   words.pop_front\(\);)]TJ
+T*[(46:)-600(   return front;)]TJ
+T*[(47:)-600(})]TJ
+(48:)'
+T*[(49:)-600(void interpreter::interpret \(parameters &params\) {)]TJ
+T*[(50:)-600(   TRACE \('i', params\);)]TJ
+T*[(51:)-600(   string command = shift \(params\);)]TJ
+T*[(52:)-600(   interpreterfn function = interpmap[command];)]TJ
+T*[(53:)-600(   if \(function == NULL\) throw runtime_error \("syntax error"\);)]TJ
+T*[(54:)-600(   \(this->*function\) \(params\);)]TJ
+T*[(55:)-600(})]TJ
+(56:)'
+T*[(57:)-600(void interpreter::do_define \(parameters &params\) {)]TJ
+T*[(58:)-600(   TRACE \('i', params\);)]TJ
+T*[(59:)-600(   string name = shift \(params\);)]TJ
+T*[(60:)-600(   objmap[name] = make_object \(params\);)]TJ
+T*[(61:)-600(})]TJ
+(62:)'
+T*[(63:)-600(void interpreter::do_draw \(parameters &params\) {)]TJ
+T*[(64:)-600(   TRACE \('i', params\);)]TJ
+ET
+Q
+Q
+endstream
+endobj
+55 0 obj
+3510
+endobj
+58 0 obj
+<</Length 59 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 281.704 736.5 Tm
+(interp.cc)Tj
+-124.239 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-95.4641 -35.5 Td
+[(65:)-600(   string name = shift \(params\);)]TJ
+11 TL
+T*[(66:)-600(   object *thing = objmap[name];)]TJ
+T*[(67:)-600(   if \(thing == NULL\) throw runtime_error \(name + ": no such object"\);)]TJ
+T*[(68:)-600(   degrees angle = degrees \(0\);)]TJ
+T*[(69:)-600(   if \(params.size\(\) == 3\) {)]TJ
+T*[(70:)-600(      angle = degrees \(from_string<double> \(params.back\(\)\)\);)]TJ
+T*[(71:)-600(      params.pop_back\(\);)]TJ
+T*[(72:)-600(   })]TJ
+T*[(73:)-600(   if \(params.size\(\) != 2\) throw runtime_error \("syntax error"\);)]TJ
+T*[(74:)-600(   xycoords coords \(inches \(from_string<double> \(params.front\(\)\)\),)]TJ
+T*[(75:)-600(                    inches \(from_string<double> \(params.back\(\)\)\)\);)]TJ
+T*[(76:)-600(   thing->draw \(outfile, coords, angle\);)]TJ
+T*[(77:)-600(})]TJ
+(78:)'
+T*[(79:)-600(void interpreter::do_newpage \(parameters &params\) {)]TJ
+T*[(80:)-600(   if \(params.size\(\) != 0\) throw runtime_error \("syntax error"\);)]TJ
+T*[(81:)-600(   endpage \(\);)]TJ
+T*[(82:)-600(   ++pagenr;)]TJ
+T*[(83:)-600(   startpage \(\);)]TJ
+T*[(84:)-600(})]TJ
+(85:)'
+T*[(86:)-600(void interpreter::prolog \(\) {)]TJ
+T*[(87:)-600(   outfile << "%!PS-Adobe-3.0" << endl;)]TJ
+T*[(88:)-600(   outfile << "%%Creator: " << sys_info::get_execname \(\) << endl;)]TJ
+T*[(89:)-600(   outfile << "%%CreationDate: " << datestring\(\) << endl;)]TJ
+T*[(90:)-600(   outfile << "%%PageOrder: Ascend" << endl;)]TJ
+T*[(91:)-600(   outfile << "%%Orientation: Portrait" << endl;)]TJ
+T*[(92:)-600(   outfile << "%%SourceFile: " << infilename << endl;)]TJ
+T*[(93:)-600(   outfile << "%%EndComments" << endl;)]TJ
+T*[(94:)-600(})]TJ
+(95:)'
+T*[(96:)-600(void interpreter::startpage \(\) {)]TJ
+T*[(97:)-600(   outfile << endl;)]TJ
+T*[(98:)-600(   outfile << "%%Page: " << pagenr << " " << pagenr << endl;)]TJ
+T*[(99:)-600(   outfile << page_xoffset << " " << page_yoffset)]TJ
+-6 -11 Td
+[(100:)-600(           << " translate" << endl;)]TJ
+T*[(101:)-600(   outfile << "/Courier findfont 10 scalefont setfont" << endl;)]TJ
+T*[(102:)-600(   outfile << "0 0 moveto \(" << infilename << ":")]TJ
+T*[(103:)-600(           << pagenr << "\) show" << endl;)]TJ
+(104:)'
+T*[(105:)-600(})]TJ
+(106:)'
+T*[(107:)-600(void interpreter::endpage \(\) {)]TJ
+T*[(108:)-600(   outfile << endl;)]TJ
+T*[(109:)-600(   outfile << "showpage" << endl;)]TJ
+T*[(110:)-600(   outfile << "grestoreall" << endl;)]TJ
+T*[(111:)-600(})]TJ
+(112:)'
+T*[(113:)-600(void interpreter::epilog \(\) {)]TJ
+T*[(114:)-600(   outfile << endl;)]TJ
+T*[(115:)-600(   outfile << "%%Trailer" << endl;)]TJ
+T*[(116:)-600(   outfile << "%%Pages: " << pagenr << endl;)]TJ
+T*[(117:)-600(   outfile << "%%EOF" << endl;)]TJ
+(118:)'
+T*[(119:)-600(})]TJ
+(120:)'
+T*[(121:)-600(object *interpreter::make_object \(parameters &command\) {)]TJ
+T*[(122:)-600(   TRACE \('f', command\);)]TJ
+T*[(123:)-600(   string type = shift \(command\);)]TJ
+T*[(124:)-600(   factoryfn func = factorymap[type];)]TJ
+T*[(125:)-600(   if \(func == NULL\) throw runtime_error \(type + ": no such object"\);)]TJ
+T*[(126:)-600(   return \(this->*func\) \(command\);)]TJ
+T*[(127:)-600(})]TJ
+(128:)'
+ET
+Q
+Q
+endstream
+endobj
+59 0 obj
+3626
+endobj
+62 0 obj
+<</Length 63 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(3)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 281.704 736.5 Tm
+(interp.cc)Tj
+-124.239 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-101.464 -35.5 Td
+[(129:)-600(object *interpreter::make_text \(parameters &command\) {)]TJ
+11 TL
+T*[(130:)-600(   TRACE \('f', command\);)]TJ
+T*[(131:)-600(   return new text \("", points\(0\), string\(\)\);)]TJ
+T*[(132:)-600(})]TJ
+(133:)'
+T*[(134:)-600(object *interpreter::make_ellipse \(parameters &command\) {)]TJ
+T*[(135:)-600(   TRACE \('f', command\);)]TJ
+T*[(136:)-600(   return new ellipse \(inches\(0\), inches\(0\), points\(0\)\);)]TJ
+T*[(137:)-600(})]TJ
+(138:)'
+T*[(139:)-600(object *interpreter::make_circle \(parameters &command\) {)]TJ
+T*[(140:)-600(   TRACE \('f', command\);)]TJ
+T*[(141:)-600(   return new circle \(inches\(0\), points\(0\)\);)]TJ
+T*[(142:)-600(})]TJ
+(143:)'
+T*[(144:)-600(object *interpreter::make_polygon \(parameters &command\) {)]TJ
+T*[(145:)-600(   TRACE \('f', command\);)]TJ
+T*[(146:)-600(   return new polygon \(coordlist\(\), points\(0\)\);)]TJ
+T*[(147:)-600(})]TJ
+(148:)'
+T*[(149:)-600(object *interpreter::make_rectangle \(parameters &command\) {)]TJ
+T*[(150:)-600(   TRACE \('f', command\);)]TJ
+T*[(151:)-600(   return new rectangle \(inches\(0\), inches\(0\), points\(0\)\);)]TJ
+T*[(152:)-600(})]TJ
+(153:)'
+T*[(154:)-600(object *interpreter::make_square \(parameters &command\) {)]TJ
+T*[(155:)-600(   TRACE \('f', command\);)]TJ
+T*[(156:)-600(   return new square \(inches\(0\), points\(0\)\);)]TJ
+T*[(157:)-600(})]TJ
+(158:)'
+T*[(159:)-600(object *interpreter::make_line \(parameters &command\) {)]TJ
+T*[(160:)-600(   TRACE \('f', command\);)]TJ
+T*[(161:)-600(   return new line \(inches\(0\), points\(0\)\);)]TJ
+T*[(162:)-600(})]TJ
+(163:)'
+T*[(164:)-600(RCSC\(__interp_cc__,)]TJ
+T*[(165:)-600("$Id: interp.cc,v 1.3 2010-02-05 14:09:12-08 - - $"\))]TJ
+(166:)'
+ET
+Q
+Q
+endstream
+endobj
+63 0 obj
+2210
+endobj
+66 0 obj
+<</Length 67 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 273.927 736.5 Tm
+(numbers.cc)Tj
+-116.463 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-89.4641 -35.5 Td
+(1:)Tj
+11 TL
+T*[(2:)-600(#include <cstdlib>)]TJ
+(3:)'
+T*[(4:)-600(using namespace std;)]TJ
+(5:)'
+T*[(6:)-600(#include "numbers.h")]TJ
+T*[(7:)-600(#include "util.h")]TJ
+(8:)'
+T*[(9:)-600(ostream &operator<< \(ostream &out, const degrees &that\) {)]TJ
+-6 -11 Td
+[(10:)-600(   out << that.angle << "deg";)]TJ
+T*[(11:)-600(   return out;)]TJ
+T*[(12:)-600(})]TJ
+(13:)'
+T*[(14:)-600(ostream &operator<< \(ostream &out, const points &that\) {)]TJ
+T*[(15:)-600(   out << that.pointvalue << "pt";)]TJ
+T*[(16:)-600(   return out;)]TJ
+T*[(17:)-600(})]TJ
+(18:)'
+T*[(19:)-600(ostream &operator<< \(ostream &out, const inches &that\) {)]TJ
+T*[(20:)-600(   out << that.pointvalue / PTS_PER_INCH << "in";)]TJ
+T*[(21:)-600(   return out;)]TJ
+T*[(22:)-600(})]TJ
+(23:)'
+T*[(24:)-600(ostream &operator<< \(ostream &out, const xycoords &coords\) {)]TJ
+T*[(25:)-600(   out << "\(" << coords.first << "," << coords.second << "\)";)]TJ
+T*[(26:)-600(   return out;)]TJ
+T*[(27:)-600(})]TJ
+(28:)'
+T*[(29:)-600(RCSC\(__numbers_cc__,)]TJ
+T*[(30:)-600("$Id: numbers.cc,v 1.2 2010-02-05 14:09:12-08 - - $"\))]TJ
+ET
+Q
+Q
+endstream
+endobj
+67 0 obj
+1603
+endobj
+70 0 obj
+<</Length 71 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 280.927 736.5 Tm
+(object.cc)Tj
+-123.463 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-89.4641 -35.5 Td
+(1:)Tj
+11 TL
+T*[(2:)-600(#include <typeinfo>)]TJ
+(3:)'
+T*[(4:)-600(using namespace std;)]TJ
+(5:)'
+T*[(6:)-600(#include "object.h")]TJ
+T*[(7:)-600(#include "util.h")]TJ
+(8:)'
+T*[(9:)-600(#define WHOAMI \\)]TJ
+-6 -11 Td
+[(10:)-600(        "[" << typeid\(*this\).name\(\) << "@" << \(void *\) this << "]")]TJ
+(11:)'
+T*[(12:)-600(#define CTRACE\(ARGS\) \\)]TJ
+T*[(13:)-600(        TRACE \('c', WHOAMI << " " << ARGS\))]TJ
+(14:)'
+T*[(15:)-600(#define DTRACE\(ARGS\) \\)]TJ
+T*[(16:)-600(        TRACE \('d', WHOAMI << " coords=" << coords \\)]TJ
+T*[(17:)-600(               << " angle=" << angle << endl << ARGS\);)]TJ
+(18:)'
+T*[(19:)-600(object::~object \(\) {)]TJ
+T*[(20:)-600(   CTRACE \("delete"\);)]TJ
+T*[(21:)-600(})]TJ
+(22:)'
+T*[(23:)-600(text::text \(const string &font, const points &size, const string &data\):)]TJ
+T*[(24:)-600(      fontname\(font\), fontsize\(size\), textdata\(data\) {)]TJ
+T*[(25:)-600(   CTRACE \("font=" << fontname << " size=" << fontsize)]TJ
+T*[(26:)-600(           << " \\"" << textdata << "\\""\))]TJ
+T*[(27:)-600(})]TJ
+(28:)'
+T*[(29:)-600(ellipse::ellipse \(const inches &initheight, const inches &initwidth,)]TJ
+T*[(30:)-600(                  const points &initthick\):)]TJ
+T*[(31:)-600(      shape\(initthick\), height\(initheight\), width\(initwidth\) {)]TJ
+T*[(32:)-600(   CTRACE \("height=" << height << " width=" << width)]TJ
+T*[(33:)-600(           << " thick=" << thick\);)]TJ
+T*[(34:)-600(})]TJ
+(35:)'
+T*[(36:)-600(circle::circle \(const inches &diameter, const points &thick\):)]TJ
+T*[(37:)-600(      ellipse \(diameter, diameter, thick\) {)]TJ
+T*[(38:)-600(})]TJ
+(39:)'
+T*[(40:)-600(polygon::polygon \(const coordlist &coords, const points &initthick\):)]TJ
+T*[(41:)-600(      shape\(initthick\), coordinates\(coords\) {)]TJ
+T*[(42:)-600(   CTRACE \( "thick=" << thick << " coords=" << endl)]TJ
+T*[(43:)-600(            << coordinates\);)]TJ
+T*[(44:)-600(})]TJ
+(45:)'
+T*[(46:)-600(rectangle::rectangle \(const inches &height, const inches &width,)]TJ
+T*[(47:)-600(                      const points &initthick\):)]TJ
+T*[(48:)-600(      polygon \(make_list \(height, width\), initthick\) {)]TJ
+T*[(49:)-600(})]TJ
+(50:)'
+T*[(51:)-600(square::square \(const inches &width, const points &thick\):)]TJ
+T*[(52:)-600(      rectangle \(width, width, thick\) {)]TJ
+T*[(53:)-600(})]TJ
+(54:)'
+T*[(55:)-600(line::line \(const inches &length, const points &initthick\):)]TJ
+T*[(56:)-600(      polygon \(make_list \(length\), initthick\) {)]TJ
+T*[(57:)-600(      )]TJ
+T*[(58:)-600(})]TJ
+(59:)'
+T*[(60:)-600(void text::draw \(ostream &out, const xycoords &coords,)]TJ
+T*[(61:)-600(                const degrees &angle\) {)]TJ
+T*[(62:)-600(   DTRACE \("font=" << fontname << " size=" << fontsize)]TJ
+T*[(63:)-600(           << " \\"" << textdata << "\\""\))]TJ
+T*[(64:)-600(})]TJ
+ET
+Q
+Q
+endstream
+endobj
+71 0 obj
+3327
+endobj
+74 0 obj
+<</Length 75 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 280.927 736.5 Tm
+(object.cc)Tj
+-123.463 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-95.4641 -35.5 Td
+(65:)Tj
+11 TL
+T*[(66:)-600(void ellipse::draw \(ostream &out, const xycoords &coords,)]TJ
+T*[(67:)-600(                const degrees &angle\) {)]TJ
+T*[(68:)-600(   DTRACE \("height=" << height << " width=" << width)]TJ
+T*[(69:)-600(           << " thick=" << thick\);)]TJ
+T*[(70:)-600(})]TJ
+(71:)'
+T*[(72:)-600(void polygon::draw \(ostream &out, const xycoords &coords,)]TJ
+T*[(73:)-600(                const degrees &angle\) {)]TJ
+T*[(74:)-600(   DTRACE \( "thick=" << thick << " coords=" << endl)]TJ
+T*[(75:)-600(            << coordinates\);)]TJ
+T*[(76:)-600(})]TJ
+(77:)'
+T*[(78:)-600(coordlist rectangle::make_list \()]TJ
+T*[(79:)-600(            const inches &height, const inches &width\) {)]TJ
+T*[(80:)-600(   coordlist coordlist;)]TJ
+T*[(81:)-600(   return coordlist;)]TJ
+T*[(82:)-600(})]TJ
+(83:)'
+T*[(84:)-600(coordlist line::make_list \(const inches &length\) {)]TJ
+T*[(85:)-600(   coordlist coordlist;)]TJ
+T*[(86:)-600(   return coordlist;)]TJ
+T*[(87:)-600(})]TJ
+(88:)'
+(89:)'
+T*[(90:)-600(RCSC\(__object_cc__,)]TJ
+T*[(91:)-600("$Id: object.cc,v 1.1 2010-01-29 18:07:32-08 - - $"\))]TJ
+ET
+Q
+Q
+endstream
+endobj
+75 0 obj
+1618
+endobj
+78 0 obj
+<</Length 79 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 284.434 736.5 Tm
+(trace.cc)Tj
+-126.97 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-89.4641 -35.5 Td
+(1:)Tj
+11 TL
+T*[(2:)-600(#include <climits>)]TJ
+T*[(3:)-600(#include <iostream>)]TJ
+T*[(4:)-600(#include <limits>)]TJ
+T*[(5:)-600(#include <vector>)]TJ
+(6:)'
+T*[(7:)-600(using namespace std;)]TJ
+(8:)'
+T*[(9:)-600(#include "trace.h")]TJ
+-6 -11 Td
+(10:)Tj
+T*[(11:)-600(//)]TJ
+T*[(12:)-600(// ** BUG IN STL ** BUG IN STL **)]TJ
+T*[(13:)-600(// We should use vector<bool> instead of vector<char>,)]TJ
+T*[(14:)-600(// but vector<bool> has a bug:)]TJ
+T*[(15:)-600(// http://forums.sun.com/thread.jspa?threadID=5277939)]TJ
+T*[(16:)-600(// Static linking works, but doubles the size of the executable)]TJ
+T*[(17:)-600(// image.)]TJ
+T*[(18:)-600(// ** BUG IN STL ** BUG IN STL **)]TJ
+T*[(19:)-600(//)]TJ
+(20:)'
+T*[(21:)-600(typedef vector<char> boolvec;)]TJ
+T*[(22:)-600(boolvec traceflags::flags \(UCHAR_MAX + 1, false\);)]TJ
+T*[(23:)-600(const boolvec trueflags \(UCHAR_MAX + 1, true\);)]TJ
+(24:)'
+T*[(25:)-600(void traceflags::setflags \(const string &optflags\) {)]TJ
+T*[(26:)-600(   string::const_iterator itor = optflags.begin\(\);)]TJ
+T*[(27:)-600(   string::const_iterator end = optflags.end\(\);)]TJ
+T*[(28:)-600(   for \(; itor != end; ++itor\) {)]TJ
+T*[(29:)-600(      if \(*itor == '@'\) {)]TJ
+T*[(30:)-600(         flags = trueflags;)]TJ
+T*[(31:)-600(      }else {)]TJ
+T*[(32:)-600(         flags[*itor] = true;)]TJ
+T*[(33:)-600(      })]TJ
+T*[(34:)-600(   })]TJ
+T*[(35:)-600(   // Note that TRACE can trace setflags.)]TJ
+T*[(36:)-600(   TRACE \('t',  "optflags = " << optflags\);)]TJ
+T*[(37:)-600(})]TJ
+(38:)'
+T*[(39:)-600(//)]TJ
+T*[(40:)-600(// getflag -)]TJ
+T*[(41:)-600(//    Check to see if a certain flag is on.)]TJ
+T*[(42:)-600(//)]TJ
+(43:)'
+T*[(44:)-600(bool traceflags::getflag \(char flag\) {)]TJ
+T*[(45:)-600(   // Bug alert:)]TJ
+T*[(46:)-600(   // Don't TRACE this function or the stack will blow up.)]TJ
+T*[(47:)-600(   bool result = flags[flag];)]TJ
+T*[(48:)-600(   return result;)]TJ
+T*[(49:)-600(})]TJ
+(50:)'
+T*[(51:)-600(RCSC\(__trace_cc__,)]TJ
+T*[(52:)-600("$Id: trace.cc,v 1.2 2010-02-02 18:23:29-08 - - $"\))]TJ
+(53:)'
+ET
+Q
+Q
+endstream
+endobj
+79 0 obj
+2562
+endobj
+82 0 obj
+<</Length 83 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 288.696 736.5 Tm
+(util.cc)Tj
+-131.232 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-89.4641 -35.5 Td
+(1:)Tj
+11 TL
+T*[(2:)-600(#include <cerrno>)]TJ
+T*[(3:)-600(#include <cstdlib>)]TJ
+T*[(4:)-600(#include <cstring>)]TJ
+T*[(5:)-600(#include <ctime>)]TJ
+T*[(6:)-600(#include <sstream>)]TJ
+T*[(7:)-600(#include <stdexcept>)]TJ
+T*[(8:)-600(#include <string>)]TJ
+T*[(9:)-600(#include <typeinfo>)]TJ
+-6 -11 Td
+(10:)Tj
+T*[(11:)-600(using namespace std;)]TJ
+(12:)'
+T*[(13:)-600(#include "util.h")]TJ
+(14:)'
+T*[(15:)-600(int sys_info::exit_status = EXIT_SUCCESS;)]TJ
+T*[(16:)-600(string *sys_info::execname = NULL; // Must be initialized from main\(\).)]TJ
+(17:)'
+T*[(18:)-600(void sys_info_error \(const string &condition\) {)]TJ
+T*[(19:)-600(   throw logic_error \("main\(\) has " + condition)]TJ
+T*[(20:)-600(               + " called sys_info::set_execname\(\)"\);)]TJ
+T*[(21:)-600(})]TJ
+(22:)'
+T*[(23:)-600(void sys_info::set_execname \(const string &argv0\) {)]TJ
+T*[(24:)-600(   if \(execname != NULL\) sys_info_error \("already"\);)]TJ
+T*[(25:)-600(   int slashpos = argv0.find_last_of \('/'\) + 1;)]TJ
+T*[(26:)-600(   execname = new string \(argv0.substr \(slashpos\)\);)]TJ
+T*[(27:)-600(   cout << boolalpha;)]TJ
+T*[(28:)-600(   cerr << boolalpha;)]TJ
+T*[(29:)-600(   TRACE \('u', "execname = " << execname\);)]TJ
+T*[(30:)-600(})]TJ
+(31:)'
+T*[(32:)-600(const string &sys_info::get_execname \(\) {)]TJ
+T*[(33:)-600(   if \(execname == NULL\) sys_info_error \("not yet"\);)]TJ
+T*[(34:)-600(   return *execname;)]TJ
+T*[(35:)-600(})]TJ
+(36:)'
+T*[(37:)-600(void sys_info::set_exit_status \(int status\) {)]TJ
+T*[(38:)-600(   if \(execname == NULL\) sys_info_error \("not yet"\);)]TJ
+T*[(39:)-600(   exit_status = status;)]TJ
+T*[(40:)-600(})]TJ
+(41:)'
+T*[(42:)-600(int sys_info::get_exit_status \(\) {)]TJ
+T*[(43:)-600(   if \(execname == NULL\) sys_info_error \("not yet"\);)]TJ
+T*[(44:)-600(   return exit_status;)]TJ
+T*[(45:)-600(})]TJ
+(46:)'
+T*[(47:)-600(const string datestring \(\) {)]TJ
+T*[(48:)-600(   time_t clock = time \(NULL\);)]TJ
+T*[(49:)-600(   struct tm *tm_ptr = localtime \(&clock\);)]TJ
+T*[(50:)-600(   char timebuf[128];)]TJ
+T*[(51:)-600(   size_t bufsize = strftime \(timebuf, sizeof timebuf,)]TJ
+T*[(52:)-600(          "%a %b %e %H:%M:%S %Z %Y", tm_ptr\);)]TJ
+T*[(53:)-600(   return timebuf;)]TJ
+T*[(54:)-600(})]TJ
+(55:)'
+T*[(56:)-600(list<string> split \(const string &line, const string &delimiters\) {)]TJ
+T*[(57:)-600(   list<string> words;)]TJ
+T*[(58:)-600(   int end = 0;)]TJ
+T*[(59:)-600(   // Loop over the string, splitting out words, and for each word)]TJ
+T*[(60:)-600(   // thus found, append it to the output list<string>.)]TJ
+T*[(61:)-600(   for \(;;\) {)]TJ
+T*[(62:)-600(      int start = line.find_first_not_of \(delimiters, end\);)]TJ
+T*[(63:)-600(      if \(start == string::npos\) break;)]TJ
+T*[(64:)-600(      end = line.find_first_of \(delimiters, start\);)]TJ
+ET
+Q
+Q
+endstream
+endobj
+83 0 obj
+3315
+endobj
+86 0 obj
+<</Length 87 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 288.696 736.5 Tm
+(util.cc)Tj
+-131.232 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-95.4641 -35.5 Td
+[(65:)-600(      words.push_back \(line.substr \(start, end - start\)\);)]TJ
+11 TL
+T*[(66:)-600(   })]TJ
+T*[(67:)-600(   TRACE \('u', words\);)]TJ
+T*[(68:)-600(   return words;)]TJ
+T*[(69:)-600(})]TJ
+(70:)'
+T*[(71:)-600(ostream &complain\(\) {)]TJ
+T*[(72:)-600(   sys_info::set_exit_status \(EXIT_FAILURE\);)]TJ
+T*[(73:)-600(   cerr << sys_info::get_execname \(\) << ": ";)]TJ
+T*[(74:)-600(   return cerr;)]TJ
+T*[(75:)-600(})]TJ
+(76:)'
+T*[(77:)-600(void syscall_error \(const string &object\) {)]TJ
+T*[(78:)-600(   complain\(\) << object << ": " << strerror \(errno\) << endl;)]TJ
+T*[(79:)-600(})]TJ
+(80:)'
+T*[(81:)-600(template <typename item_t>)]TJ
+T*[(82:)-600(ostream &operator<< \(ostream &out, const list<item_t> &vec\) {)]TJ
+T*[(83:)-600(   typename list<item_t>::const_iterator itor = vec.begin\(\);)]TJ
+T*[(84:)-600(   typename list<item_t>::const_iterator end = vec.end\(\);)]TJ
+T*[(85:)-600(   // If the list is empty, do nothing.)]TJ
+T*[(86:)-600(   if \(itor != end\) {)]TJ
+T*[(87:)-600(      // Print out the first element without a space.)]TJ
+T*[(88:)-600(      out << *itor++;)]TJ
+T*[(89:)-600(      // Print out the rest of the elements each preceded by a space.)]TJ
+T*[(90:)-600(      while \(itor != end\) out << " " << *itor++;)]TJ
+T*[(91:)-600(   })]TJ
+T*[(92:)-600(   return out;)]TJ
+T*[(93:)-600(})]TJ
+(94:)'
+T*[(95:)-600(template <typename type>)]TJ
+T*[(96:)-600(string to_string \(const type &that\) {)]TJ
+T*[(97:)-600(   ostringstream stream;)]TJ
+T*[(98:)-600(   stream << that;)]TJ
+T*[(99:)-600(   return stream.str \(\);)]TJ
+-6 -11 Td
+[(100:)-600(})]TJ
+(101:)'
+T*[(102:)-600(template <typename type>)]TJ
+T*[(103:)-600(type from_string \(const string &that\) {)]TJ
+T*[(104:)-600(   stringstream stream;)]TJ
+T*[(105:)-600(   stream << that;)]TJ
+T*[(106:)-600(   type result;)]TJ
+T*[(107:)-600(   if \( !\(stream >> result   // Can we read type from string?)]TJ
+T*[(108:)-600(       && stream >> std::ws  // Flush trailing white space.)]TJ
+T*[(109:)-600(       && stream.eof \(\)\)     // Must now be at end of stream.)]TJ
+T*[(110:)-600(   \) {)]TJ
+T*[(111:)-600(      throw domain_error \(string \(typeid \(type\).name \(\)\))]TJ
+T*[(112:)-600(            + " from_string \(" + that + "\)"\);)]TJ
+T*[(113:)-600(   })]TJ
+T*[(114:)-600(   return result;)]TJ
+T*[(115:)-600(})]TJ
+(116:)'
+T*[(117:)-600(#include "templates.h")]TJ
+(118:)'
+T*[(119:)-600(RCSC\(__util_cc__,)]TJ
+T*[(120:)-600("$Id: util.cc,v 1.9 2010-02-05 17:20:52-08 - - $"\))]TJ
+(121:)'
+ET
+Q
+Q
+endstream
+endobj
+87 0 obj
+2993
+endobj
+90 0 obj
+<</Length 91 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 280.731 736.5 Tm
+(Makefile)Tj
+-123.267 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-89.4641 -35.5 Td
+[(1:)-600(# $Id: Makefile,v 1.8 2010-02-05 14:34:31-08 - - $)]TJ
+11 TL
+(2:)'
+T*[(3:)-600(MKFILE      = Makefile)]TJ
+T*[(4:)-600(DEPSFILE    = ${MKFILE}.deps)]TJ
+T*[(5:)-600(NOINCL      = ci clean spotless)]TJ
+T*[(6:)-600(NEEDINCL    = ${filter ${NOINCL}, ${MAKECMDGOALS}})]TJ
+T*[(7:)-600(GMAKE       = ${MAKE} --no-print-directory)]TJ
+T*[(8:)-600(UNAME      ?= ${shell uname -s})]TJ
+(9:)'
+-6 -11 Td
+[(10:)-600(ifeq \(${UNAME},SunOS\))]TJ
+T*[(11:)-600(COMPILECCC  = CC -g -features=extensions)]TJ
+T*[(12:)-600(MAKEDEPSCCC = CC -xM1)]TJ
+T*[(13:)-600(endif)]TJ
+T*[(14:)-600(ifeq \(${UNAME},Linux\))]TJ
+T*[(15:)-600(COMPILECCC  = g++ -g)]TJ
+T*[(16:)-600(MAKEDEPSCCC = g++ -MM)]TJ
+T*[(17:)-600(endif)]TJ
+(18:)'
+T*[(19:)-600(CCHEADER    = interp.h numbers.h object.h trace.h util.h)]TJ
+T*[(20:)-600(CCSOURCE    = main.cc ${CCHEADER:.h=.cc})]TJ
+T*[(21:)-600(EXECBIN     = draw)]TJ
+T*[(22:)-600(OBJECTS     = ${CCSOURCE:.cc=.o})]TJ
+T*[(23:)-600(OTHERS      = ${MKFILE} README)]TJ
+T*[(24:)-600(ALLSOURCES  = ${CCHEADER} templates.h ${CCSOURCE} ${OTHERS})]TJ
+T*[(25:)-600(LISTFILES   = ${ALLSOURCES} ${DEPSFILE} Idents ../data/draw.perl)]TJ
+(26:)'
+T*[(27:)-600(LISTING     = ../asg3-draw.code.ps)]TJ
+T*[(28:)-600(CLASS       = cmps109-wm.w09)]TJ
+T*[(29:)-600(PROJECT     = asg3)]TJ
+(30:)'
+T*[(31:)-600(all : ${EXECBIN})]TJ
+T*[(32:)-600(        - checksource ${ALLSOURCES})]TJ
+(33:)'
+T*[(34:)-600(${EXECBIN} : ${OBJECTS})]TJ
+T*[(35:)-600(        ${COMPILECCC} -o $@ ${OBJECTS})]TJ
+(36:)'
+T*[(37:)-600(%.o : %.cc)]TJ
+T*[(38:)-600(        ${COMPILECCC} -c $<)]TJ
+(39:)'
+T*[(40:)-600(ci : ${ALLSOURCES})]TJ
+T*[(41:)-600(        @ - checksource ${ALLSOURCES})]TJ
+T*[(42:)-600(        cid + ${ALLSOURCES})]TJ
+(43:)'
+T*[(44:)-600(lis : ${ALLSOURCES})]TJ
+T*[(45:)-600(        ${GMAKE} idents >Idents)]TJ
+T*[(46:)-600(        mkpspdf ${LISTING} ${LISTFILES})]TJ
+T*[(47:)-600(        - rm Idents)]TJ
+(48:)'
+T*[(49:)-600(clean :)]TJ
+T*[(50:)-600(        - rm ${OBJECTS} ${DEPSFILE} core ${EXECBIN}.errs)]TJ
+(51:)'
+T*[(52:)-600(spotless : clean)]TJ
+T*[(53:)-600(        - rm ${EXECBIN} )]TJ
+(54:)'
+T*[(55:)-600(submit : ${ALLSOURCES})]TJ
+T*[(56:)-600(        - checksource ${ALLSOURCES})]TJ
+T*[(57:)-600(        submit ${CLASS} ${PROJECT} ${ALLSOURCES})]TJ
+T*[(58:)-600(        testsubmit ${CLASS} ${PROJECT} ${ALLSOURCES})]TJ
+(59:)'
+T*[(60:)-600(deps : ${CCSOURCE} ${CCHEADER})]TJ
+T*[(61:)-600(        @ echo "# ${DEPSFILE} created `LC_TIME=C date`" >${DEPSFILE})]TJ
+T*[(62:)-600(        ${MAKEDEPSCCC} ${CCSOURCE} | sort | uniq >>${DEPSFILE})]TJ
+(63:)'
+T*[(64:)-600(${DEPSFILE} :)]TJ
+ET
+Q
+Q
+endstream
+endobj
+91 0 obj
+3084
+endobj
+94 0 obj
+<</Length 95 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 280.731 736.5 Tm
+(Makefile)Tj
+-123.267 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-95.4641 -35.5 Td
+[(65:)-600(        @ touch ${DEPSFILE})]TJ
+11 TL
+T*[(66:)-600(        ${GMAKE} deps)]TJ
+(67:)'
+T*[(68:)-600(idents : ${ALLSOURCES} ${OBJECTS} ${EXECBIN})]TJ
+T*[(69:)-600(        ldd ${EXECBIN})]TJ
+T*[(70:)-600(        ident ${ALLSOURCES} ${OBJECTS} ${EXECBIN})]TJ
+(71:)'
+T*[(72:)-600(again :)]TJ
+T*[(73:)-600(        ${GMAKE} spotless deps ci all lis)]TJ
+(74:)'
+T*[(75:)-600(ifeq \(${NEEDINCL}, \))]TJ
+T*[(76:)-600(include ${DEPSFILE})]TJ
+T*[(77:)-600(endif)]TJ
+(78:)'
+ET
+Q
+Q
+endstream
+endobj
+95 0 obj
+989
+endobj
+98 0 obj
+<</Length 99 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 276.446 736.5 Tm
+(README)Tj
+-118.982 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-89.4641 -35.5 Td
+[(1:)-600($Id: README,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+ET
+Q
+Q
+endstream
+endobj
+99 0 obj
+579
+endobj
+102 0 obj
+<</Length 103 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:20)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 266.15 736.5 Tm
+(Makefile.deps)Tj
+-108.686 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-89.4641 -35.5 Td
+[(1:)-600(# Makefile.deps created Mon Feb  8 13:45:19 PST 2010)]TJ
+11 TL
+T*[(2:)-600(interp.o : interp.cc)]TJ
+T*[(3:)-600(interp.o : interp.h)]TJ
+T*[(4:)-600(interp.o : numbers.h)]TJ
+T*[(5:)-600(interp.o : object.h)]TJ
+T*[(6:)-600(interp.o : trace.h)]TJ
+T*[(7:)-600(interp.o : util.h)]TJ
+T*[(8:)-600(main.o : interp.h)]TJ
+T*[(9:)-600(main.o : main.cc)]TJ
+-6 -11 Td
+[(10:)-600(main.o : numbers.h)]TJ
+T*[(11:)-600(main.o : object.h)]TJ
+T*[(12:)-600(main.o : trace.h)]TJ
+T*[(13:)-600(main.o : util.h)]TJ
+T*[(14:)-600(numbers.o : numbers.cc)]TJ
+T*[(15:)-600(numbers.o : numbers.h)]TJ
+T*[(16:)-600(numbers.o : trace.h)]TJ
+T*[(17:)-600(numbers.o : util.h)]TJ
+T*[(18:)-600(object.o : numbers.h)]TJ
+T*[(19:)-600(object.o : object.cc)]TJ
+T*[(20:)-600(object.o : object.h)]TJ
+T*[(21:)-600(object.o : trace.h)]TJ
+T*[(22:)-600(object.o : util.h)]TJ
+T*[(23:)-600(trace.o : trace.cc)]TJ
+T*[(24:)-600(trace.o : trace.h)]TJ
+T*[(25:)-600(util.o : numbers.h)]TJ
+T*[(26:)-600(util.o : templates.h)]TJ
+T*[(27:)-600(util.o : trace.h)]TJ
+T*[(28:)-600(util.o : util.cc)]TJ
+T*[(29:)-600(util.o : util.h)]TJ
+ET
+Q
+Q
+endstream
+endobj
+103 0 obj
+1607
+endobj
+106 0 obj
+<</Length 107 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:24)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 288.893 736.5 Tm
+(Idents)Tj
+-131.429 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-89.4641 -35.5 Td
+[(1:)-600(ldd draw)]TJ
+11 TL
+T*[(2:)-600(        libCstd.so.1 =>  /usr/lib/libCstd.so.1)]TJ
+T*[(3:)-600(        libCrun.so.1 =>  /usr/lib/libCrun.so.1)]TJ
+T*[(4:)-600(        libm.so.2 =>     /lib/libm.so.2)]TJ
+T*[(5:)-600(        libc.so.1 =>     /lib/libc.so.1)]TJ
+T*[(6:)-600(ident interp.h numbers.h object.h trace.h util.h templates.h main.cc interp.cc n)]TJ
+-25 -11 Td
+(umbers.cc object.cc trace.cc util.cc Makefile README main.o interp.o numbers.o object.o)Tj
+( trace.o util.o draw)'
+25 -11 Td
+[(7:)-600(interp.h:)]TJ
+T*[(8:)-600(     $Id: interp.h,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+(9:)'
+-6 -11 Td
+[(10:)-600(numbers.h:)]TJ
+T*[(11:)-600(     $Id: numbers.h,v 1.3 2010-02-05 14:09:12-08 - - $)]TJ
+(12:)'
+T*[(13:)-600(object.h:)]TJ
+T*[(14:)-600(     $Id: object.h,v 1.4 2010-02-04 19:09:00-08 - - $)]TJ
+(15:)'
+T*[(16:)-600(trace.h:)]TJ
+T*[(17:)-600(     $Compiled: " __FILE__ " " __DATE__ " " __TIME__ " $)]TJ
+T*[(18:)-600(     $Id: trace.h,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+(19:)'
+T*[(20:)-600(util.h:)]TJ
+T*[(21:)-600(     $Id: util.h,v 1.4 2010-02-05 14:09:12-08 - - $)]TJ
+(22:)'
+T*[(23:)-600(templates.h:)]TJ
+T*[(24:)-600(     $Id: templates.h,v 1.3 2010-02-05 17:20:52-08 - - $)]TJ
+(25:)'
+T*[(26:)-600(main.cc:)]TJ
+T*[(27:)-600(     $Id: main.cc,v 1.2 2010-02-04 19:35:22-08 - - $)]TJ
+(28:)'
+T*[(29:)-600(interp.cc:)]TJ
+T*[(30:)-600(     $Id: interp.cc,v 1.3 2010-02-05 14:09:12-08 - - $)]TJ
+(31:)'
+T*[(32:)-600(numbers.cc:)]TJ
+T*[(33:)-600(     $Id: numbers.cc,v 1.2 2010-02-05 14:09:12-08 - - $)]TJ
+(34:)'
+T*[(35:)-600(object.cc:)]TJ
+T*[(36:)-600(     $Id: object.cc,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+(37:)'
+T*[(38:)-600(trace.cc:)]TJ
+T*[(39:)-600(     $Id: trace.cc,v 1.2 2010-02-02 18:23:29-08 - - $)]TJ
+(40:)'
+T*[(41:)-600(util.cc:)]TJ
+T*[(42:)-600(     $Id: util.cc,v 1.9 2010-02-05 17:20:52-08 - - $)]TJ
+(43:)'
+T*[(44:)-600(Makefile:)]TJ
+T*[(45:)-600(     $Id: Makefile,v 1.8 2010-02-05 14:34:31-08 - - $)]TJ
+(46:)'
+T*[(47:)-600(README:)]TJ
+T*[(48:)-600(     $Id: README,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+(49:)'
+T*[(50:)-600(main.o:)]TJ
+T*[(51:)-600(     $Id: trace.h,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+T*[(52:)-600(     $Id: numbers.h,v 1.3 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(53:)-600(     $Id: object.h,v 1.4 2010-02-04 19:09:00-08 - - $)]TJ
+T*[(54:)-600(     $Id: interp.h,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+T*[(55:)-600(     $Id: util.h,v 1.4 2010-02-05 14:09:12-08 - - $)]TJ
+(56:)'
+T*[(57:)-600(interp.o:)]TJ
+T*[(58:)-600(     $Id: trace.h,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+T*[(59:)-600(     $Id: numbers.h,v 1.3 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(60:)-600(     $Id: object.h,v 1.4 2010-02-04 19:09:00-08 - - $)]TJ
+T*[(61:)-600(     $Id: interp.h,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+T*[(62:)-600(     $Id: util.h,v 1.4 2010-02-05 14:09:12-08 - - $)]TJ
+ET
+Q
+Q
+endstream
+endobj
+107 0 obj
+3333
+endobj
+110 0 obj
+<</Length 111 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(02/08/10)Tj
+-0.659766 -12.8004 Td
+(13:45:24)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 288.893 736.5 Tm
+(Idents)Tj
+-131.429 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-95.4641 -35.5 Td
+[(63:)-600(     $Id: interp.cc,v 1.3 2010-02-05 14:09:12-08 - - $)]TJ
+11 TL
+T*[(64:)-600(     $Compiled: interp.cc Feb  8 2010 13:45:21 $)]TJ
+(65:)'
+T*[(66:)-600(numbers.o:)]TJ
+T*[(67:)-600(     $Id: trace.h,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+T*[(68:)-600(     $Id: numbers.h,v 1.3 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(69:)-600(     $Id: util.h,v 1.4 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(70:)-600(     $Id: numbers.cc,v 1.2 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(71:)-600(     $Compiled: numbers.cc Feb  8 2010 13:45:22 $)]TJ
+(72:)'
+T*[(73:)-600(object.o:)]TJ
+T*[(74:)-600(     $Id: trace.h,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+T*[(75:)-600(     $Id: numbers.h,v 1.3 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(76:)-600(     $Id: object.h,v 1.4 2010-02-04 19:09:00-08 - - $)]TJ
+T*[(77:)-600(     $Id: util.h,v 1.4 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(78:)-600(     $Id: object.cc,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+T*[(79:)-600(     $Compiled: object.cc Feb  8 2010 13:45:22 $)]TJ
+(80:)'
+T*[(81:)-600(trace.o:)]TJ
+T*[(82:)-600(     $Id: trace.h,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+T*[(83:)-600(     $Id: trace.cc,v 1.2 2010-02-02 18:23:29-08 - - $)]TJ
+T*[(84:)-600(     $Compiled: trace.cc Feb  8 2010 13:45:23 $)]TJ
+(85:)'
+T*[(86:)-600(util.o:)]TJ
+T*[(87:)-600(     $Id: trace.h,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+T*[(88:)-600(     $Id: util.h,v 1.4 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(89:)-600(     $Id: numbers.h,v 1.3 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(90:)-600(     $Id: templates.h,v 1.3 2010-02-05 17:20:52-08 - - $)]TJ
+T*[(91:)-600(     $Id: util.cc,v 1.9 2010-02-05 17:20:52-08 - - $)]TJ
+T*[(92:)-600(     $Compiled: util.cc Feb  8 2010 13:45:23 $)]TJ
+(93:)'
+T*[(94:)-600(draw:)]TJ
+T*[(95:)-600(     $Id: trace.h,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+T*[(96:)-600(     $Id: numbers.h,v 1.3 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(97:)-600(     $Id: object.h,v 1.4 2010-02-04 19:09:00-08 - - $)]TJ
+T*[(98:)-600(     $Id: interp.h,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+T*[(99:)-600(     $Id: util.h,v 1.4 2010-02-05 14:09:12-08 - - $)]TJ
+-6 -11 Td
+[(100:)-600(     $Id: trace.h,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+T*[(101:)-600(     $Id: numbers.h,v 1.3 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(102:)-600(     $Id: object.h,v 1.4 2010-02-04 19:09:00-08 - - $)]TJ
+T*[(103:)-600(     $Id: interp.h,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+T*[(104:)-600(     $Id: util.h,v 1.4 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(105:)-600(     $Id: interp.cc,v 1.3 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(106:)-600(     $Compiled: interp.cc Feb  8 2010 13:45:21 $)]TJ
+T*[(107:)-600(     $Id: trace.h,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+T*[(108:)-600(     $Id: numbers.h,v 1.3 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(109:)-600(     $Id: util.h,v 1.4 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(110:)-600(     $Id: numbers.cc,v 1.2 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(111:)-600(     $Compiled: numbers.cc Feb  8 2010 13:45:22 $)]TJ
+T*[(112:)-600(     $Id: trace.h,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+T*[(113:)-600(     $Id: numbers.h,v 1.3 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(114:)-600(     $Id: object.h,v 1.4 2010-02-04 19:09:00-08 - - $)]TJ
+T*[(115:)-600(     $Id: util.h,v 1.4 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(116:)-600(     $Id: object.cc,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+T*[(117:)-600(     $Compiled: object.cc Feb  8 2010 13:45:22 $)]TJ
+T*[(118:)-600(     $Id: trace.h,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+T*[(119:)-600(     $Id: trace.cc,v 1.2 2010-02-02 18:23:29-08 - - $)]TJ
+T*[(120:)-600(     $Compiled: trace.cc Feb  8 2010 13:45:23 $)]TJ
+T*[(121:)-600(     $Id: trace.h,v 1.1 2010-01-29 18:07:32-08 - - $)]TJ
+T*[(122:)-600(     $Id: util.h,v 1.4 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(123:)-600(     $Id: numbers.h,v 1.3 2010-02-05 14:09:12-08 - - $)]TJ
+T*[(124:)-600(     $Id: templates.h,v 1.3 2010-02-05 17:20:52-08 - - $)]TJ
+T*[(125:)-600(     $Id: util.cc,v 1.9 2010-02-05 17:20:52-08 - - $)]TJ
+T*[(126:)-600(     $Compiled: util.cc Feb  8 2010 13:45:23 $)]TJ
+ET
+Q
+Q
+endstream
+endobj
+111 0 obj
+4495
+endobj
+114 0 obj
+<</Length 115 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(01/29/10)Tj
+-0.659766 -12.8004 Td
+(18:15:03)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 260.32 736.5 Tm
+(../data/draw.perl)Tj
+-102.855 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-89.4641 -35.5 Td
+[(1:)-600(#!/usr/bin/perl)]TJ
+11 TL
+T*[(2:)-600(# $Id: draw.perl,v 1.2 2010-01-29 18:15:03-08 - - $)]TJ
+(3:)'
+T*[(4:)-600(use strict;)]TJ
+T*[(5:)-600(use warnings;)]TJ
+T*[(6:)-600(use POSIX qw \(strftime\);)]TJ
+T*[(7:)-600(use Data::Dumper;)]TJ
+(8:)'
+T*[(9:)-600(my $script = $0;)]TJ
+-6 -11 Td
+[(10:)-600(my $date = strftime "%a %b %e %H:%M:%S %Z %Y", localtime;)]TJ
+T*[(11:)-600(my $debug = 0;)]TJ
+(12:)'
+T*[(13:)-600($0 =~ s|^\(.*/\)?\([^/]+\)/*$|$2|;)]TJ
+T*[(14:)-600(my $exit_status = 0;)]TJ
+T*[(15:)-600(END{ exit $exit_status; })]TJ
+T*[(16:)-600(sub note\(@\){ print STDERR "$0: @_"; };)]TJ
+T*[(17:)-600($SIG{'__WARN__'} = sub{ note @_;; $exit_status = 1; };)]TJ
+T*[(18:)-600($SIG{'__DIE__'} = sub{ warn @_; exit; };)]TJ
+(19:)'
+T*[(20:)-600(sub startpage \($\) {)]TJ
+T*[(21:)-600(   my \($state\) = @_;)]TJ
+T*[(22:)-600(   my $outfile = $state->{OUTFILE};)]TJ
+T*[(23:)-600(   print $outfile)]TJ
+T*[(24:)-600(      "%%Page: $state->{PAGENR} $state->{PAGENR}\\n",)]TJ
+T*[(25:)-600(      "18 18 translate\\n",)]TJ
+T*[(26:)-600(      "/Courier findfont 10 scalefont setfont\\n",)]TJ
+T*[(27:)-600(      "0 0 moveto \($state->{INFILENAME}:$state->{PAGENR}\) show\\n";)]TJ
+T*[(28:)-600(})]TJ
+(29:)'
+T*[(30:)-600(sub endpage \($\) {)]TJ
+T*[(31:)-600(   my \($state\) = @_;)]TJ
+T*[(32:)-600(   my $outfile = $state->{OUTFILE};)]TJ
+T*[(33:)-600(   print $outfile)]TJ
+T*[(34:)-600(      "showpage\\n",)]TJ
+T*[(35:)-600(      "grestoreall\\n";)]TJ
+T*[(36:)-600(})]TJ
+(37:)'
+T*[(38:)-600(sub prolog \($\) {)]TJ
+T*[(39:)-600(   my \($state\) = @_;)]TJ
+T*[(40:)-600(   my $outfile = $state->{OUTFILE};)]TJ
+T*[(41:)-600(   print $outfile)]TJ
+T*[(42:)-600(      "%!PS-Adobe-3.0\\n",)]TJ
+T*[(43:)-600(      "%%Creator: $script\\n",)]TJ
+T*[(44:)-600(      "%%CreationDate: $date\\n",)]TJ
+T*[(45:)-600(      "%%PageOrder: Ascend\\n",)]TJ
+T*[(46:)-600(      "%%Orientation: Portrait\\n",)]TJ
+T*[(47:)-600(      "%%SourceFile: $state->{INFILENAME}\\n",)]TJ
+T*[(48:)-600(      "%%EndComments\\n";)]TJ
+T*[(49:)-600(   $state->{PAGENR} = 1;)]TJ
+T*[(50:)-600(   startpage $state;)]TJ
+T*[(51:)-600(})]TJ
+(52:)'
+T*[(53:)-600(sub epilog \($\) {)]TJ
+T*[(54:)-600(   my \($state\) = @_;)]TJ
+T*[(55:)-600(   my $outfile = $state->{OUTFILE};)]TJ
+T*[(56:)-600(   endpage $state;)]TJ
+T*[(57:)-600(   print $outfile)]TJ
+T*[(58:)-600(      "%%Trailer\\n",)]TJ
+T*[(59:)-600(      "%%Pages: $state->{PAGENR}\\n",)]TJ
+T*[(60:)-600(      "%%EOF\\n",)]TJ
+T*[(61:)-600(})]TJ
+(62:)'
+T*[(63:)-600(sub error \($;$\) {)]TJ
+T*[(64:)-600(   my \($state, $message\) = @_;)]TJ
+ET
+Q
+Q
+endstream
+endobj
+115 0 obj
+3060
+endobj
+118 0 obj
+<</Length 119 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(01/29/10)Tj
+-0.659766 -12.8004 Td
+(18:15:03)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 260.32 736.5 Tm
+(../data/draw.perl)Tj
+-102.855 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-95.4641 -35.5 Td
+[(65:)-600(   $message = "syntax error" unless $message;)]TJ
+11 TL
+T*[(66:)-600(   warn "$state->{INFILENAME}: $.: $message\\n";)]TJ
+T*[(67:)-600(})]TJ
+(68:)'
+T*[(69:)-600(sub numeric \($\) {)]TJ
+T*[(70:)-600(   my \($number\) = @_;)]TJ
+T*[(71:)-600(   return $number =~ m/^[+-]?\(\\d+\\.?\\d*|\\.\\d+\)\([Ee][+-]?\\d+\)?$/;)]TJ
+T*[(72:)-600(})]TJ
+(73:)'
+T*[(74:)-600(sub numbers \($$\) {)]TJ
+T*[(75:)-600(   my \($count, $numbers\) = @_;)]TJ
+T*[(76:)-600(   return 0 if $count != @$numbers and $count > 0;)]TJ
+T*[(77:)-600(   return ! grep {! numeric $_} @$numbers;)]TJ
+T*[(78:)-600(})]TJ
+(79:)'
+T*[(80:)-600(sub make_text \($$\) {)]TJ
+T*[(81:)-600(   my \($state, $words\) = @_;)]TJ
+T*[(82:)-600(   my $size = \(numeric $words->[0]\) ? \(shift @$words\) : 12;)]TJ
+T*[(83:)-600(   my $font = shift @$words;)]TJ
+T*[(84:)-600(   do {error $state; return} unless @$words >= 1;)]TJ
+T*[(85:)-600(   my $text = join ' ', @$words;)]TJ
+T*[(86:)-600(   $text =~ s/[\(\\\\\)]/\\\\$&/g;)]TJ
+T*[(87:)-600(   my $outfile = $state->{OUTFILE};)]TJ
+T*[(88:)-600(   return sub {)]TJ
+T*[(89:)-600(      my \($place\) = @_;)]TJ
+T*[(90:)-600(      my \($x0, $y0, $angle\) = @$place;)]TJ
+T*[(91:)-600(      map {$_ *= 72} $x0, $y0;)]TJ
+T*[(92:)-600(      $angle = 0 unless $angle;)]TJ
+T*[(93:)-600(      print $outfile)]TJ
+T*[(94:)-600(            "gsave\\n",)]TJ
+T*[(95:)-600(            "   /$font findfont\\n",)]TJ
+T*[(96:)-600(            "   $size scalefont setfont\\n",)]TJ
+T*[(97:)-600(            "   $x0 $y0 translate\\n",)]TJ
+T*[(98:)-600(            "   $angle rotate\\n",)]TJ
+T*[(99:)-600(            "   0 0 moveto\\n",)]TJ
+-6 -11 Td
+[(100:)-600(            "   \($text\)\\n",)]TJ
+T*[(101:)-600(            "   show\\n",)]TJ
+T*[(102:)-600(            "grestore\\n";)]TJ
+T*[(103:)-600(   })]TJ
+T*[(104:)-600(})]TJ
+(105:)'
+T*[(106:)-600(sub make_ellipse \($$\) {)]TJ
+T*[(107:)-600(   my \($state, $words\) = @_;)]TJ
+T*[(108:)-600(   push @$words, 2 unless @$words == 3;)]TJ
+T*[(109:)-600(   do {error $state; return} unless numbers 3, $words;)]TJ
+T*[(110:)-600(   my \($height, $width, $thick\) = @$words;)]TJ
+T*[(111:)-600(   map {$_ *= 72} $height, $width;)]TJ
+T*[(112:)-600(   do {error $state, "syntax error height"; return} if $height == 0;)]TJ
+T*[(113:)-600(   my \($xscale, $yscale, $radius\);)]TJ
+T*[(114:)-600(   if \($height < $width\) {)]TJ
+T*[(115:)-600(      $xscale = 1;)]TJ
+T*[(116:)-600(      $yscale = $height / $width;)]TJ
+T*[(117:)-600(      $radius = $width / 2;)]TJ
+T*[(118:)-600(   }else {)]TJ
+T*[(119:)-600(      $xscale = $width / $height;)]TJ
+T*[(120:)-600(      $yscale = 1;)]TJ
+T*[(121:)-600(      $radius = $height / 2;)]TJ
+T*[(122:)-600(   })]TJ
+T*[(123:)-600(   my $outfile = $state->{OUTFILE};)]TJ
+T*[(124:)-600(   return sub {)]TJ
+T*[(125:)-600(      my \($place\) = @_;)]TJ
+T*[(126:)-600(      my \($x0, $y0, $angle\) = @$place;)]TJ
+T*[(127:)-600(      map {$_ *= 72} $x0, $y0, $width;)]TJ
+T*[(128:)-600(      $angle = 0 unless $angle;)]TJ
+ET
+Q
+Q
+endstream
+endobj
+119 0 obj
+3492
+endobj
+122 0 obj
+<</Length 123 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(01/29/10)Tj
+-0.659766 -12.8004 Td
+(18:15:03)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(3)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 260.32 736.5 Tm
+(../data/draw.perl)Tj
+-102.855 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-101.464 -35.5 Td
+[(129:)-600(      print $outfile)]TJ
+11 TL
+T*[(130:)-600(            "gsave\\n",)]TJ
+T*[(131:)-600(            "   newpath\\n",)]TJ
+T*[(132:)-600(            "   /save matrix currentmatrix def\\n",)]TJ
+T*[(133:)-600(            "   $x0 $y0 translate\\n",)]TJ
+T*[(134:)-600(            "   $angle rotate\\n",)]TJ
+T*[(135:)-600(            "   $xscale $yscale scale\\n",)]TJ
+T*[(136:)-600(            "   0 0 $radius 0 360 arc\\n",)]TJ
+T*[(137:)-600(            "   save setmatrix\\n",)]TJ
+T*[(138:)-600(            "   $thick setlinewidth\\n",)]TJ
+T*[(139:)-600(            "   stroke\\n",)]TJ
+T*[(140:)-600(            "grestore\\n";)]TJ
+T*[(141:)-600(   })]TJ
+T*[(142:)-600(})]TJ
+(143:)'
+T*[(144:)-600(sub make_circle \($$\) {)]TJ
+T*[(145:)-600(   my \($state, $words\) = @_;)]TJ
+T*[(146:)-600(   unshift @$words, $words->[0];)]TJ
+T*[(147:)-600(   return make_ellipse $state, $words;)]TJ
+T*[(148:)-600(})]TJ
+(149:)'
+T*[(150:)-600(sub make_polygon \($$\) {)]TJ
+T*[(151:)-600(   my \($state, $words\) = @_;)]TJ
+T*[(152:)-600(   do {error $state; return} unless @$words >= 2 and numbers 0, $words;)]TJ
+T*[(153:)-600(   my $thick = \(@$words % 2 == 0\) ? 2 : pop @$words;)]TJ
+T*[(154:)-600(   my $outfile = $state->{OUTFILE};)]TJ
+T*[(155:)-600(   return sub {)]TJ
+T*[(156:)-600(      my \($place\) = @_;)]TJ
+T*[(157:)-600(      my \($x0, $y0, $angle\) = @$place;)]TJ
+T*[(158:)-600(      map {$_ *= 72} $x0, $y0;)]TJ
+T*[(159:)-600(      $angle = 0 unless $angle;)]TJ
+T*[(160:)-600(      print $outfile)]TJ
+T*[(161:)-600(            "gsave\\n",)]TJ
+T*[(162:)-600(            "   newpath\\n",)]TJ
+T*[(163:)-600(            "   $x0 $y0 translate\\n",)]TJ
+T*[(164:)-600(            "   $angle rotate\\n",)]TJ
+T*[(165:)-600(            "   0 0 moveto\\n";)]TJ
+T*[(166:)-600(      for \(my $gon = 0; $gon < @$words; $gon += 2\) {)]TJ
+T*[(167:)-600(         my \($xrel, $yrel\) = @{$words}[$gon, $gon + 1];)]TJ
+T*[(168:)-600(         map {$_ *= 72} $xrel, $yrel;)]TJ
+T*[(169:)-600(         print $outfile)]TJ
+T*[(170:)-600(            "   $xrel $yrel rlineto\\n";)]TJ
+T*[(171:)-600(      })]TJ
+T*[(172:)-600(      print $outfile)]TJ
+T*[(173:)-600(            "   closepath\\n",)]TJ
+T*[(174:)-600(            "   $thick setlinewidth\\n",)]TJ
+T*[(175:)-600(            "   stroke\\n",)]TJ
+T*[(176:)-600(            "grestore\\n";)]TJ
+T*[(177:)-600(   })]TJ
+T*[(178:)-600(})]TJ
+(179:)'
+T*[(180:)-600(sub make_rectangle \($$\) {)]TJ
+T*[(181:)-600(   my \($state, $words\) = @_;)]TJ
+T*[(182:)-600(   push @$words, 2 unless @$words == 3;)]TJ
+T*[(183:)-600(   do {error $state; return} unless numbers 3, $words;)]TJ
+T*[(184:)-600(   my \($hght, $wid, $thick\) = @$words;)]TJ
+T*[(185:)-600(   return make_polygon $state, [0, $hght, $wid, 0, 0, - $hght, $thick];)]TJ
+T*[(186:)-600(})]TJ
+(187:)'
+T*[(188:)-600(sub make_square \($$\) {)]TJ
+T*[(189:)-600(   my \($state, $words\) = @_;)]TJ
+T*[(190:)-600(   unshift @$words, $words->[0];)]TJ
+T*[(191:)-600(   return make_rectangle $state, $words;)]TJ
+T*[(192:)-600(})]TJ
+ET
+Q
+Q
+endstream
+endobj
+123 0 obj
+3525
+endobj
+126 0 obj
+<</Length 127 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(01/29/10)Tj
+-0.659766 -12.8004 Td
+(18:15:03)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(4)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 260.32 736.5 Tm
+(../data/draw.perl)Tj
+-102.855 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-101.464 -35.5 Td
+(193:)Tj
+11 TL
+T*[(194:)-600(sub make_line \($$\) {)]TJ
+T*[(195:)-600(   my \($state, $words\) = @_;)]TJ
+T*[(196:)-600(   push @$words, 2 unless @$words == 2;)]TJ
+T*[(197:)-600(   do {error $state; return} unless numbers 2, $words;)]TJ
+T*[(198:)-600(   my \($length, $thick\) = @$words;)]TJ
+T*[(199:)-600(   $thick = 2 unless $thick;)]TJ
+T*[(200:)-600(   return make_polygon $state, [$words->[0], 0, $thick];)]TJ
+T*[(201:)-600(})]TJ
+(202:)'
+T*[(203:)-600(my %objects = \()]TJ
+T*[(204:)-600(   "text" => \\&make_text,)]TJ
+T*[(205:)-600(   "ellipse" => \\&make_ellipse,)]TJ
+T*[(206:)-600(   "circle" => \\&make_circle,)]TJ
+T*[(207:)-600(   "polygon" => \\&make_polygon,)]TJ
+T*[(208:)-600(   "rectangle" => \\&make_rectangle,)]TJ
+T*[(209:)-600(   "square" => \\&make_square,)]TJ
+T*[(210:)-600(   "line" => \\&make_line,)]TJ
+T*[(211:)-600(\);)]TJ
+(212:)'
+T*[(213:)-600(sub do_define \($$\) {)]TJ
+T*[(214:)-600(   my \($state, $words\) = @_;)]TJ
+T*[(215:)-600(   do {error $state; return} unless @$words > 2;)]TJ
+T*[(216:)-600(   my \($name\) = shift @$words;)]TJ
+T*[(217:)-600(   my \($class\) = shift @$words;)]TJ
+T*[(218:)-600(   my \($maker\) = $objects{$class};)]TJ
+T*[(219:)-600(   do {error $state, "no such shape"; return} unless $maker;)]TJ
+T*[(220:)-600(   my $object = $maker->\($state, $words\);)]TJ
+T*[(221:)-600(   $state->{SYMTAB}->{$name} = $object if $object;)]TJ
+T*[(222:)-600(})]TJ
+(223:)'
+T*[(224:)-600(sub do_draw \($$\) {)]TJ
+T*[(225:)-600(   my \($state, $words\) = @_;)]TJ
+T*[(226:)-600(   my $object = $state->{SYMTAB}->{shift @$words};)]TJ
+T*[(227:)-600(   do {error $state, "no such object"; return} unless $object;)]TJ
+T*[(228:)-600(   push @$words, 0 if @$words == 2;)]TJ
+T*[(229:)-600(   do {error $state; return} unless numbers 3, $words;)]TJ
+T*[(230:)-600(   $object->\($words\);)]TJ
+T*[(231:)-600(})]TJ
+(232:)'
+T*[(233:)-600(sub do_newpage \($$\) {)]TJ
+T*[(234:)-600(   my \($state, $words\) = @_;)]TJ
+T*[(235:)-600(   do {error $state; return} unless @$words == 0;)]TJ
+T*[(236:)-600(   endpage $state;)]TJ
+T*[(237:)-600(   $state->{PAGENR}++;)]TJ
+T*[(238:)-600(   startpage $state;)]TJ
+T*[(239:)-600(})]TJ
+(240:)'
+T*[(241:)-600(my %commands = \()]TJ
+T*[(242:)-600(   "define" => \\&do_define,)]TJ
+T*[(243:)-600(   "draw" => \\&do_draw,)]TJ
+T*[(244:)-600(   "newpage" => \\&do_newpage,)]TJ
+T*[(245:)-600(\);)]TJ
+(246:)'
+T*[(247:)-600(sub parsefile \($\) {)]TJ
+T*[(248:)-600(   my \($state\) = @_;)]TJ
+T*[(249:)-600(   prolog $state;)]TJ
+T*[(250:)-600(   my $infile = $state->{INFILE};)]TJ
+T*[(251:)-600(   my $outfile = $state->{OUTFILE};)]TJ
+T*[(252:)-600(   while \(defined \(my $line = <$infile>\)\) {)]TJ
+T*[(253:)-600(      for \(;;\) {)]TJ
+T*[(254:)-600(         chomp $line;)]TJ
+T*[(255:)-600(         last unless $line =~ s/\\\\$//;)]TJ
+T*[(256:)-600(         my $contin = <$infile>;)]TJ
+ET
+Q
+Q
+endstream
+endobj
+127 0 obj
+3352
+endobj
+130 0 obj
+<</Length 131 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(01/29/10)Tj
+-0.659766 -12.8004 Td
+(18:15:03)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(5)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 260.32 736.5 Tm
+(../data/draw.perl)Tj
+-102.855 18 Td
+($cmps109-wm/Assignments/asg3-draw-inherit/code/)Tj
+/R10 10 Tf
+-101.464 -35.5 Td
+[(257:)-600(         $line .= $contin;)]TJ
+11 TL
+T*[(258:)-600(      })]TJ
+T*[(259:)-600(      chomp $line;)]TJ
+T*[(260:)-600(      print $outfile "\\n",)]TJ
+T*[(261:)-600(            "%%Command[$.]: $line\\n";)]TJ
+T*[(262:)-600(      next if $line =~ m/^\\s*\(#|$\)/;)]TJ
+T*[(263:)-600(      my @words = split " ", $line;)]TJ
+T*[(264:)-600(      my $command = $commands{shift @words};)]TJ
+T*[(265:)-600(      do {error $state; next} unless defined $command;)]TJ
+T*[(266:)-600(      $command->\($state, \\@words\);)]TJ
+T*[(267:)-600(   })]TJ
+T*[(268:)-600(   epilog $state;)]TJ
+T*[(269:)-600(})]TJ
+(270:)'
+T*[(271:)-600(sub main \(\) {)]TJ
+T*[(272:)-600(   @ARGV and $ARGV[0] =~ m/^-D/ and $debug = shift;)]TJ
+T*[(273:)-600(   unless \(@ARGV\) {)]TJ
+T*[(274:)-600(      parsefile {INFILENAME => "-",)]TJ
+T*[(275:)-600(                 INFILE => *STDIN,)]TJ
+T*[(276:)-600(                 OUTFILE => *STDOUT};)]TJ
+T*[(277:)-600(   }else {)]TJ
+T*[(278:)-600(      for my $infilename \(@ARGV\) {)]TJ
+T*[(279:)-600(         my $outfilename = $infilename;)]TJ
+T*[(280:)-600(         $outfilename =~ s|^.*/\([^/]+\)/*$|$1|;)]TJ
+T*[(281:)-600(         $outfilename =~ s/\(\\.dr\)?$/.ps/;)]TJ
+T*[(282:)-600(         open my $infile, "<$infilename")]TJ
+T*[(283:)-600(              or warn "$infilename: $!\\n" and next;)]TJ
+T*[(284:)-600(         open my $outfile, ">$outfilename")]TJ
+T*[(285:)-600(              or warn "$outfilename: $!\\n" and next;)]TJ
+T*[(286:)-600(         print "$0: $infilename => $outfilename\\n";)]TJ
+T*[(287:)-600(         parsefile {INFILENAME => $infilename,)]TJ
+T*[(288:)-600(                    INFILE => $infile,)]TJ
+T*[(289:)-600(                    OUTFILE => $outfile};)]TJ
+T*[(290:)-600(         close $infile;)]TJ
+T*[(291:)-600(         close $outfile;)]TJ
+T*[(292:)-600(      })]TJ
+T*[(293:)-600(   })]TJ
+T*[(294:)-600(})]TJ
+(295:)'
+T*[(296:)-600(main;)]TJ
+(297:)'
+ET
+Q
+Q
+endstream
+endobj
+131 0 obj
+2423
+endobj
+4 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 12 0 R
+>>
+/Contents 5 0 R
+>>
+endobj
+13 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 16 0 R
+>>
+/Contents 14 0 R
+>>
+endobj
+17 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 20 0 R
+>>
+/Contents 18 0 R
+>>
+endobj
+21 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 24 0 R
+>>
+/Contents 22 0 R
+>>
+endobj
+25 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 28 0 R
+>>
+/Contents 26 0 R
+>>
+endobj
+29 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 32 0 R
+>>
+/Contents 30 0 R
+>>
+endobj
+33 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 36 0 R
+>>
+/Contents 34 0 R
+>>
+endobj
+37 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 40 0 R
+>>
+/Contents 38 0 R
+>>
+endobj
+41 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 44 0 R
+>>
+/Contents 42 0 R
+>>
+endobj
+45 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 48 0 R
+>>
+/Contents 46 0 R
+>>
+endobj
+49 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 52 0 R
+>>
+/Contents 50 0 R
+>>
+endobj
+53 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 56 0 R
+>>
+/Contents 54 0 R
+>>
+endobj
+57 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 60 0 R
+>>
+/Contents 58 0 R
+>>
+endobj
+61 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 64 0 R
+>>
+/Contents 62 0 R
+>>
+endobj
+65 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 68 0 R
+>>
+/Contents 66 0 R
+>>
+endobj
+69 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 72 0 R
+>>
+/Contents 70 0 R
+>>
+endobj
+73 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 76 0 R
+>>
+/Contents 74 0 R
+>>
+endobj
+77 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 80 0 R
+>>
+/Contents 78 0 R
+>>
+endobj
+81 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 84 0 R
+>>
+/Contents 82 0 R
+>>
+endobj
+85 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 88 0 R
+>>
+/Contents 86 0 R
+>>
+endobj
+89 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 92 0 R
+>>
+/Contents 90 0 R
+>>
+endobj
+93 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 96 0 R
+>>
+/Contents 94 0 R
+>>
+endobj
+97 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 100 0 R
+>>
+/Contents 98 0 R
+>>
+endobj
+101 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 104 0 R
+>>
+/Contents 102 0 R
+>>
+endobj
+105 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 108 0 R
+>>
+/Contents 106 0 R
+>>
+endobj
+109 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 112 0 R
+>>
+/Contents 110 0 R
+>>
+endobj
+113 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 116 0 R
+>>
+/Contents 114 0 R
+>>
+endobj
+117 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 120 0 R
+>>
+/Contents 118 0 R
+>>
+endobj
+121 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 124 0 R
+>>
+/Contents 122 0 R
+>>
+endobj
+125 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 128 0 R
+>>
+/Contents 126 0 R
+>>
+endobj
+129 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 132 0 R
+>>
+/Contents 130 0 R
+>>
+endobj
+3 0 obj
+<< /Type /Pages /Kids [
+4 0 R
+13 0 R
+17 0 R
+21 0 R
+25 0 R
+29 0 R
+33 0 R
+37 0 R
+41 0 R
+45 0 R
+49 0 R
+53 0 R
+57 0 R
+61 0 R
+65 0 R
+69 0 R
+73 0 R
+77 0 R
+81 0 R
+85 0 R
+89 0 R
+93 0 R
+97 0 R
+101 0 R
+105 0 R
+109 0 R
+113 0 R
+117 0 R
+121 0 R
+125 0 R
+129 0 R
+] /Count 31
+>>
+endobj
+1 0 obj
+<</Type /Catalog /Pages 3 0 R
+>>
+endobj
+12 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R11
+11 0 R/R8
+8 0 R>>
+endobj
+16 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+20 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+24 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+28 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+32 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+36 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+40 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+44 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+48 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+52 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+56 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+60 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+64 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+68 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+72 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+76 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+80 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+84 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+88 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+92 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+96 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+100 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+104 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+108 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+112 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+116 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+120 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+124 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+128 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+132 0 obj
+<</R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R8
+8 0 R>>
+endobj
+10 0 obj
+<</BaseFont/Courier/Type/Font
+/Encoding 133 0 R/Subtype/Type1>>
+endobj
+133 0 obj
+<</Type/Encoding/Differences[
+126/tilde]>>
+endobj
+7 0 obj
+<</BaseFont/Helvetica-Bold/Type/Font
+/Subtype/Type1>>
+endobj
+9 0 obj
+<</BaseFont/Times-Bold/Type/Font
+/Subtype/Type1>>
+endobj
+11 0 obj
+<</BaseFont/Courier-Bold/Type/Font
+/Subtype/Type1>>
+endobj
+8 0 obj
+<</BaseFont/Times-Roman/Type/Font
+/Subtype/Type1>>
+endobj
+2 0 obj
+<</Producer(ESP Ghostscript 815.01)
+/CreationDate(D:20100208134525)
+/ModDate(D:20100208134525)
+/Title(Enscript Output)
+/Author(Wesley Mackey,,,,)
+/Creator(GNU enscript 1.6.3)>>endobj
+xref
+0 134
+0000000000 65535 f 
+0000090817 00000 n 
+0000093122 00000 n 
+0000090539 00000 n 
+0000086331 00000 n 
+0000000009 00000 n 
+0000003177 00000 n 
+0000092854 00000 n 
+0000093056 00000 n 
+0000092923 00000 n 
+0000092714 00000 n 
+0000092988 00000 n 
+0000090865 00000 n 
+0000086464 00000 n 
+0000003197 00000 n 
+0000005665 00000 n 
+0000090935 00000 n 
+0000086599 00000 n 
+0000005686 00000 n 
+0000008409 00000 n 
+0000090994 00000 n 
+0000086734 00000 n 
+0000008430 00000 n 
+0000011514 00000 n 
+0000091053 00000 n 
+0000086869 00000 n 
+0000011535 00000 n 
+0000012290 00000 n 
+0000091112 00000 n 
+0000087004 00000 n 
+0000012310 00000 n 
+0000015537 00000 n 
+0000091171 00000 n 
+0000087139 00000 n 
+0000015558 00000 n 
+0000018595 00000 n 
+0000091230 00000 n 
+0000087274 00000 n 
+0000018616 00000 n 
+0000020971 00000 n 
+0000091289 00000 n 
+0000087409 00000 n 
+0000020992 00000 n 
+0000023643 00000 n 
+0000091348 00000 n 
+0000087544 00000 n 
+0000023664 00000 n 
+0000027161 00000 n 
+0000091407 00000 n 
+0000087679 00000 n 
+0000027182 00000 n 
+0000030125 00000 n 
+0000091466 00000 n 
+0000087814 00000 n 
+0000030146 00000 n 
+0000033708 00000 n 
+0000091525 00000 n 
+0000087949 00000 n 
+0000033729 00000 n 
+0000037407 00000 n 
+0000091584 00000 n 
+0000088084 00000 n 
+0000037428 00000 n 
+0000039690 00000 n 
+0000091643 00000 n 
+0000088219 00000 n 
+0000039711 00000 n 
+0000041366 00000 n 
+0000091702 00000 n 
+0000088354 00000 n 
+0000041387 00000 n 
+0000044766 00000 n 
+0000091761 00000 n 
+0000088489 00000 n 
+0000044787 00000 n 
+0000046457 00000 n 
+0000091820 00000 n 
+0000088624 00000 n 
+0000046478 00000 n 
+0000049092 00000 n 
+0000091879 00000 n 
+0000088759 00000 n 
+0000049113 00000 n 
+0000052480 00000 n 
+0000091938 00000 n 
+0000088894 00000 n 
+0000052501 00000 n 
+0000055546 00000 n 
+0000091997 00000 n 
+0000089029 00000 n 
+0000055567 00000 n 
+0000058703 00000 n 
+0000092056 00000 n 
+0000089164 00000 n 
+0000058724 00000 n 
+0000059765 00000 n 
+0000092115 00000 n 
+0000089299 00000 n 
+0000059785 00000 n 
+0000060416 00000 n 
+0000092174 00000 n 
+0000089435 00000 n 
+0000060436 00000 n 
+0000062097 00000 n 
+0000092234 00000 n 
+0000089573 00000 n 
+0000062119 00000 n 
+0000065506 00000 n 
+0000092294 00000 n 
+0000089711 00000 n 
+0000065528 00000 n 
+0000070077 00000 n 
+0000092354 00000 n 
+0000089849 00000 n 
+0000070099 00000 n 
+0000073213 00000 n 
+0000092414 00000 n 
+0000089987 00000 n 
+0000073235 00000 n 
+0000076781 00000 n 
+0000092474 00000 n 
+0000090125 00000 n 
+0000076803 00000 n 
+0000080382 00000 n 
+0000092534 00000 n 
+0000090263 00000 n 
+0000080404 00000 n 
+0000083810 00000 n 
+0000092594 00000 n 
+0000090401 00000 n 
+0000083832 00000 n 
+0000086309 00000 n 
+0000092654 00000 n 
+0000092794 00000 n 
+trailer
+<< /Size 134 /Root 1 0 R /Info 2 0 R
+/ID [<E691205DFD2A6DDBFC3D5BF40E851443><E691205DFD2A6DDBFC3D5BF40E851443>]
+>>
+startxref
+93313
+%%EOF

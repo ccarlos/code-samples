@@ -1,0 +1,11 @@
+{# vim: set ts=2 et sts=2 sw=2: #}
+{% extends "sowink/home_base.html" %}
+{% from "lets/macros.html" import activities with context %}
+{% set title = _('Activities') %}
+
+{% block main_content %}
+<section id="activities" class="s-stream">
+  {{ lets_area(active='activities') }}{# imported in home_base #}
+  {{ activities(lets, pages) }}
+</section>
+{% endblock %}

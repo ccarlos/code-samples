@@ -1,0 +1,4 @@
+checksource: M*: No such file or directory
+checksource: *.h: No such file or directory
+checksource: *.cpp: No such file or directory
+checksource: TOTAL COMPLAINTS: 3

@@ -1,0 +1,27 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2010.10.05.22.34.45;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: mk.build,v 1.1 2008-04-11 17:57:09-07 - - $
+checksource Makefile *.java >check.log 2>&1
+gmake >gmake.log 2>&1
+@

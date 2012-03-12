@@ -1,0 +1,28 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2010.02.11.20.38.56;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@# $Id: text.dr,v 1.2 2010-02-05 13:36:53-08 - - $
+define Lefty text 36 Times-Bold ((((((((((
+define Righty text 36 Times-Bold ))))))))))
+draw Lefty 2 8
+draw Righty 2 6
+@

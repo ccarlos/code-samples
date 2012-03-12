@@ -1,0 +1,174 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2010.01.30.02.09.29;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2010.01.30.02.08.36;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@$Id: SCORE,v 1.1 2010-01-29 18:08:36-08 - - $
+
+Copy all of the files in this directory into the student's
+directory.  For each point deduction, give a reason.  Numbers in
+parens are the max points for each check.
+
+Check to see if they are working alone or doing pair
+programming.  If pair programming, they should have a symlink to
+their partner's directory.  If it is not there, you should make
+one.  Grade only one partner's code and assign them the same score.
+
+*****************************************************************
+
+SOURCE CODE.
+
+     Run mk.build
+
+     (3) Checksource was silent, did not complain.  No extra
+	 files were submitted, except as per asgt spec.
+         C++ source are all called .h or .cc as appropriate.
+
+     (3) Used good consistent indentation.  Did not use any
+	 one-letter idents, used only meaningful idents.
+
+     Implemented each of the following functions in interp.cc
+     [Note:  make_polygon is (3), others are (2)]
+
+     (2) make_text
+
+     (2) make_ellipse
+
+     (2) make_circle
+
+     (3) make_polygon
+
+     (2) make_rectangle
+
+     (2) make_square
+
+     (2) make_line
+
+     Implemented drawing functions in object.cc and allowed
+     others to inherit.
+
+     (3) text::draw
+
+     (3) ellipse::draw
+
+     (3) polygon::draw
+
+
+source points: /30
+min 1, max 30
+
+*****************************************************************
+
+PROGRAM TESTING:
+
+     (3) If gmake failed, try to compile manually with:
+         CC -g -features=extensions -o ydc *.cc
+         If that worked, deduct these three 3 points.
+         If not, assign 0 for this section.
+         If gmake succeeded in building ydc, keep these 3 points.
+
+     Run mk.tests
+     Check each .out file for reasonable output.  Use eyes,
+     not just diff.  Output should be substantially the same
+     as dc output.
+
+     (3) The test bcheck -leaks draw round.dr
+         showed no memory leaks tracing back to student's code.
+         Leaks in system libraries are OK.
+
+     Test files listed below.  Run ghostview on the 
+     generated files to see if it displays properly.
+     Assign 2 points for each successful view.
+
+     (2)  box.dr
+
+     (2)  ellipse.dr
+
+     (2)  hello.dr
+
+     (2)  hellohello.dr
+
+     (2)  lines.dr
+
+     (2)  polygon.dr
+
+     (2)  polygons.dr
+
+     (2)  pythagoras.dr
+
+     (2)  rectangle.dr
+
+     (2)  round.dr
+
+     (2)  square.dr
+
+     (2)  text.dr
+
+     subtotal = /30 (max 30).
+
+     If there were no core dumps during testing, or if the
+     subtotal is less than 24, transfer this subtotal to the
+     line below.  If there were any core dumps, the maximum
+     testing points here will be 24.
+
+testing points: /30
+min 0, max 30.
+
+*****************************************************************
+
+SUBTOTAL=
+min 1, max 60
+
+If pair programming, TOTALSCORE = SUBTOTAL - TOTAL1.
+If not, TOTALSCORE = SUBTOTAL.
+
+TOTALSCORE=
+min 1, max 60
+
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+$Id: SCORE,v 1.1 2009-02-24 14:00:59-08 - - $
+d10 1
+a10 8
+one.
+
+Make sure PARTNER is a symlink, not a file.  Example: charles
+and ada are working together.
+. dir charles/ should have a symlink PARTNER -> ../ada
+. dir ada/ should have a symlink PARTNER -> ../charles
+
+Grade only one partner's code and assign them the same score.
+d114 6
+d121 2
+@

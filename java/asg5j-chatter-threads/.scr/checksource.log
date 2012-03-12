@@ -1,0 +1,4 @@
+checksource: improper character \x09 = ^I (tab)
+   file "Makefile~": 12 errors: lines 20--23, 26, 29, 32, 35, 38--39, 
+        42--43
+checksource: TOTAL COMPLAINTS: 12

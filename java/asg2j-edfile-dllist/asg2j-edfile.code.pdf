@@ -1,0 +1,712 @@
+%PDF-1.2
+5 0 obj
+<</Length 6 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+1 i
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/19/10)Tj
+-0.659766 -12.8004 Td
+(15:10:56)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 276.65 736.5 Tm
+(edfile.java)Tj
+-122.308 18 Td
+($cmps012b-wm/Assignments/asg2j-edfile-dllist/code/)Tj
+/R10 10 Tf
+-86.3422 -35.5 Td
+[(1:)-600(// $Id: edfile.java,v 1.2 2010-10-19 15:10:27-07 - - $)]TJ
+11 TL
+(2:)'
+T*[(3:)-600(import static java.lang.System.*;)]TJ
+(4:)'
+T*[(5:)-600(class edfile{)]TJ
+(6:)'
+T*[(7:)-600(   public static void main \(String[] args\) {)]TJ
+T*[(8:)-600(      dllist lines = new dllist \(\);)]TJ
+T*[(9:)-600(      out.printf \("%s: ", auxlib.PROGNAME\);)]TJ
+-6 -11 Td
+[(10:)-600(      if \(args.length == 0\) {)]TJ
+T*[(11:)-600(         lines.setposition \(dllist.position.FIRST\);)]TJ
+T*[(12:)-600(      }else {)]TJ
+T*[(13:)-600(         auxlib.usage_exit \("[-e] [filename...]"\);)]TJ
+T*[(14:)-600(      })]TJ
+T*[(15:)-600(   })]TJ
+(16:)'
+T*[(17:)-600(})]TJ
+(18:)'
+ET
+Q
+Q
+endstream
+endobj
+6 0 obj
+1190
+endobj
+14 0 obj
+<</Length 15 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/19/10)Tj
+-0.659766 -12.8004 Td
+(15:10:56)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 278.582 736.5 Tm
+(dllist.java)Tj
+-124.24 18 Td
+($cmps012b-wm/Assignments/asg2j-edfile-dllist/code/)Tj
+/R10 10 Tf
+-86.3422 -35.5 Td
+[(1:)-600(// $Id: dllist.java,v 1.4 2010-10-19 15:10:27-07 - - $)]TJ
+11 TL
+(2:)'
+T*[(3:)-600(class dllist {)]TJ
+(4:)'
+T*[(5:)-600(   public enum position {FIRST, PREVIOUS, FOLLOWING, LAST};)]TJ
+(6:)'
+T*[(7:)-600(   private class node {)]TJ
+T*[(8:)-600(      String item;)]TJ
+T*[(9:)-600(      node prev;)]TJ
+-6 -11 Td
+[(10:)-600(      node next;)]TJ
+T*[(11:)-600(   })]TJ
+(12:)'
+T*[(13:)-600(   private node first = null;)]TJ
+T*[(14:)-600(   private node current = null;)]TJ
+T*[(15:)-600(   private node last = null;)]TJ
+T*[(16:)-600(   private int currentposition = 0;)]TJ
+(17:)'
+T*[(18:)-600(   public void setposition \(position pos\) {)]TJ
+T*[(19:)-600(      throw new UnsupportedOperationException\(\);)]TJ
+T*[(20:)-600(   })]TJ
+(21:)'
+T*[(22:)-600(   public boolean isempty \(\) {)]TJ
+T*[(23:)-600(      throw new UnsupportedOperationException\(\);)]TJ
+T*[(24:)-600(   })]TJ
+(25:)'
+T*[(26:)-600(   public String getitem \(\) {)]TJ
+T*[(27:)-600(      throw new UnsupportedOperationException\(\);)]TJ
+T*[(28:)-600(   })]TJ
+(29:)'
+T*[(30:)-600(   public int getposition \(\) {)]TJ
+T*[(31:)-600(      throw new UnsupportedOperationException\(\);)]TJ
+T*[(32:)-600(   })]TJ
+(33:)'
+T*[(34:)-600(   public void delete \(\) {)]TJ
+T*[(35:)-600(      throw new UnsupportedOperationException\(\);)]TJ
+T*[(36:)-600(   })]TJ
+(37:)'
+T*[(38:)-600(   public void insert \(String item, position pos\) {)]TJ
+T*[(39:)-600(      throw new UnsupportedOperationException\(\);)]TJ
+T*[(40:)-600(   })]TJ
+(41:)'
+T*[(42:)-600(})]TJ
+(43:)'
+ET
+Q
+Q
+endstream
+endobj
+15 0 obj
+2043
+endobj
+18 0 obj
+<</Length 19 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/19/10)Tj
+-0.659766 -12.8004 Td
+(15:10:56)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 275.089 736.5 Tm
+(auxlib.java)Tj
+-120.746 18 Td
+($cmps012b-wm/Assignments/asg2j-edfile-dllist/code/)Tj
+/R10 10 Tf
+-86.3422 -35.5 Td
+[(1:)-600(// $Id: auxlib.java,v 1.1 2010-10-05 15:37:29-07 - - $)]TJ
+11 TL
+T*[(2:)-600(//)]TJ
+T*[(3:)-600(// NAME)]TJ
+T*[(4:)-600(//    auxlib - Auxiliary miscellanea for handling system interaction.)]TJ
+T*[(5:)-600(//)]TJ
+T*[(6:)-600(// DESCRIPTION)]TJ
+T*[(7:)-600(//    Auxlib has system access functions that can be used by other)]TJ
+T*[(8:)-600(//    classes to print appropriate messages and keep track of)]TJ
+T*[(9:)-600(//    the program name and exit codes.  It assumes it is being run)]TJ
+-6 -11 Td
+[(10:)-600(//    from a jar and gets the name of the program from the classpath.)]TJ
+T*[(11:)-600(//    Can not be instantiated.)]TJ
+T*[(12:)-600(//)]TJ
+(13:)'
+T*[(14:)-600(import static java.lang.System.*;)]TJ
+T*[(15:)-600(import static java.lang.Integer.*;)]TJ
+(16:)'
+T*[(17:)-600(public final class auxlib{)]TJ
+T*[(18:)-600(   public static final String PROGNAME =)]TJ
+T*[(19:)-600(                 basename \(getProperty \("java.class.path"\)\);)]TJ
+T*[(20:)-600(   public static final int EXIT_SUCCESS = 0;)]TJ
+T*[(21:)-600(   public static final int EXIT_FAILURE = 1;)]TJ
+T*[(22:)-600(   public static int exitvalue = EXIT_SUCCESS;)]TJ
+(23:)'
+T*[(24:)-600(   //)]TJ
+T*[(25:)-600(   // private ctor - prevents class from new instantiation.)]TJ
+T*[(26:)-600(   //)]TJ
+T*[(27:)-600(   private auxlib \(\) {)]TJ
+T*[(28:)-600(      throw new UnsupportedOperationException \(\);)]TJ
+T*[(29:)-600(   })]TJ
+(30:)'
+T*[(31:)-600(   //)]TJ
+T*[(32:)-600(   // basename - strips the dirname and returns only the basename.)]TJ
+T*[(33:)-600(   //            See:  man -s 3c basename)]TJ
+T*[(34:)-600(   //)]TJ
+T*[(35:)-600(   public static String basename \(String pathname\) {)]TJ
+T*[(36:)-600(      if \(pathname == null || pathname.length \(\) == 0\) return ".";)]TJ
+T*[(37:)-600(      String[] paths = pathname.split \("/"\);)]TJ
+T*[(38:)-600(      for \(int index = paths.length - 1; index >= 0; --index\) {)]TJ
+T*[(39:)-600(         if \(paths[index].length \(\) > 0\) return paths[index];)]TJ
+T*[(40:)-600(      })]TJ
+T*[(41:)-600(      return "/";)]TJ
+T*[(42:)-600(   })]TJ
+(43:)'
+T*[(44:)-600(   //)]TJ
+T*[(45:)-600(   // Functions:)]TJ
+T*[(46:)-600(   //    whine   - prints a message with a given exit code.)]TJ
+T*[(47:)-600(   //    warn    - prints a stderr message and sets the exit code.)]TJ
+T*[(48:)-600(   //    die     - calls warn then exits.)]TJ
+T*[(49:)-600(   // Combinations of arguments:)]TJ
+T*[(50:)-600(   //    objname - name of the object to be printed \(optional\))]TJ
+T*[(51:)-600(   //    message - message to be printed after the objname,)]TJ
+T*[(52:)-600(   //              either a Throwable or a String.)]TJ
+T*[(53:)-600(   //)]TJ
+T*[(54:)-600(   public static void whine \(int exitval, Object... args\) {)]TJ
+T*[(55:)-600(      exitvalue = exitval;)]TJ
+T*[(56:)-600(      err.printf \("%s", PROGNAME\);)]TJ
+T*[(57:)-600(      for \(Object argi : args\) err.printf \(": %s", argi\);)]TJ
+T*[(58:)-600(      err.printf \("%n"\);)]TJ
+T*[(59:)-600(   })]TJ
+T*[(60:)-600(   public static void warn \(Object... args\) {)]TJ
+T*[(61:)-600(      whine \(EXIT_FAILURE, args\);)]TJ
+T*[(62:)-600(   })]TJ
+T*[(63:)-600(   public static void die \(Object... args\) {)]TJ
+T*[(64:)-600(      warn \(args\);)]TJ
+ET
+Q
+Q
+endstream
+endobj
+19 0 obj
+3755
+endobj
+22 0 obj
+<</Length 23 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/19/10)Tj
+-0.659766 -12.8004 Td
+(15:10:56)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(2)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 275.089 736.5 Tm
+(auxlib.java)Tj
+-120.746 18 Td
+($cmps012b-wm/Assignments/asg2j-edfile-dllist/code/)Tj
+/R10 10 Tf
+-92.3422 -35.5 Td
+[(65:)-600(      exit \(\);)]TJ
+11 TL
+T*[(66:)-600(   })]TJ
+(67:)'
+T*[(68:)-600(   //)]TJ
+T*[(69:)-600(   // usage_exit - prints a usage message and exits.)]TJ
+T*[(70:)-600(   //)]TJ
+T*[(71:)-600(   public static void usage_exit \(String optsargs\) {)]TJ
+T*[(72:)-600(      exitvalue = EXIT_FAILURE;)]TJ
+T*[(73:)-600(      err.printf \("Usage: %s %s%n", PROGNAME, optsargs\);)]TJ
+T*[(74:)-600(      exit \(\);)]TJ
+T*[(75:)-600(   })]TJ
+(76:)'
+T*[(77:)-600(   //)]TJ
+T*[(78:)-600(   // exit - calls exit with the appropriate code.)]TJ
+T*[(79:)-600(   //        This function should be called instead of returning)]TJ
+T*[(80:)-600(   //        from the main function.)]TJ
+T*[(81:)-600(   //)]TJ
+T*[(82:)-600(   public static void exit \(\) {)]TJ
+T*[(83:)-600(      System.exit \(exitvalue\);)]TJ
+T*[(84:)-600(   })]TJ
+(85:)'
+T*[(86:)-600(   //)]TJ
+T*[(87:)-600(   // identity - returns the default Object.toString value)]TJ
+T*[(88:)-600(   //            Useful for debugging.)]TJ
+T*[(89:)-600(   //)]TJ
+T*[(90:)-600(   public static String identity \(Object object\) {)]TJ
+T*[(91:)-600(      return object == null ? "\(null\)")]TJ
+T*[(92:)-600(           : object.getClass\(\).getName\(\) + "@")]TJ
+T*[(93:)-600(           + toHexString \(identityHashCode \(object\)\);)]TJ
+T*[(94:)-600(   })]TJ
+(95:)'
+T*[(96:)-600(})]TJ
+ET
+Q
+Q
+endstream
+endobj
+23 0 obj
+1846
+endobj
+26 0 obj
+<</Length 27 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/19/10)Tj
+-0.659766 -12.8004 Td
+(15:10:56)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 280.773 736.5 Tm
+(Makefile)Tj
+-126.43 18 Td
+($cmps012b-wm/Assignments/asg2j-edfile-dllist/code/)Tj
+/R10 10 Tf
+-86.3422 -35.5 Td
+[(1:)-600(# $Id: Makefile,v 1.6 2010-10-19 15:10:56-07 - - $)]TJ
+11 TL
+(2:)'
+T*[(3:)-600(JAVASRC    = edfile.java dllist.java auxlib.java)]TJ
+T*[(4:)-600(SOURCES    = ${JAVASRC} Makefile README)]TJ
+T*[(5:)-600(MAINCLASS  = edfile)]TJ
+T*[(6:)-600(CLASSES    = edfile.class dllist.class auxlib.class)]TJ
+T*[(7:)-600(JARCLASSES = ${CLASSES} dllist\\$$node.class dllist\\$$position.class)]TJ
+T*[(8:)-600(JARFILE    = edfile)]TJ
+T*[(9:)-600(LISTING    = ../asg2j-edfile.code.ps)]TJ
+-6 -11 Td
+[(10:)-600(SUBMITDIR  = cmps012b-wm.f10 asg2)]TJ
+(11:)'
+T*[(12:)-600(all : ${JARFILE})]TJ
+T*[(13:)-600(        - checksource ${SOURCES})]TJ
+(14:)'
+T*[(15:)-600(${JARFILE} : ${CLASSES})]TJ
+T*[(16:)-600(        echo Main-class: ${MAINCLASS} >Manifest)]TJ
+T*[(17:)-600(        jar cvfm ${JARFILE} Manifest ${JARCLASSES})]TJ
+T*[(18:)-600(        chmod +x ${JARFILE})]TJ
+T*[(19:)-600(        - rm Manifest)]TJ
+(20:)'
+T*[(21:)-600(%.class : %.java)]TJ
+T*[(22:)-600(        - cid + $<)]TJ
+T*[(23:)-600(        javac $<)]TJ
+(24:)'
+T*[(25:)-600(clean :)]TJ
+T*[(26:)-600(        - rm ${JARCLASSES} Manifest)]TJ
+(27:)'
+T*[(28:)-600(spotless : clean)]TJ
+T*[(29:)-600(        - rm ${JARFILE})]TJ
+(30:)'
+T*[(31:)-600(ci : ${SOURCES})]TJ
+T*[(32:)-600(        - checksource ${SOURCES})]TJ
+T*[(33:)-600(        - cid + ${SOURCES})]TJ
+(34:)'
+T*[(35:)-600(lis : ${SOURCES})]TJ
+T*[(36:)-600(        mkpspdf ${LISTING} ${SOURCES})]TJ
+(37:)'
+T*[(38:)-600(submit : ${SOURCES})]TJ
+T*[(39:)-600(        submit ${SUBMITDIR} ${SOURCES})]TJ
+T*[(40:)-600(        testsubmit ${SUBMITDIR} ${SOURCES})]TJ
+(41:)'
+ET
+Q
+Q
+endstream
+endobj
+27 0 obj
+2089
+endobj
+30 0 obj
+<</Length 31 0 R>>
+stream
+q 0.1 0 0 0.1 0 0 cm
+0 G
+380 240 5360 7080 re
+S
+0.949219 g
+380 7320 5360 180 re
+f
+0.699219 g
+380 7320 720 360 re
+f
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R9 12 Tf
+1 0 0 1 52.6641 752 Tm
+(10/19/10)Tj
+-0.659766 -12.8004 Td
+(15:10:56)Tj
+ET
+Q
+0.699219 g
+5020 7320 720 360 re
+f
+1 G
+1 g
+q
+10 0 0 10 0 0 cm BT
+/R7 28.8 Tf
+1 0 0 1 529.993 739.2 Tm
+(1)Tj
+ET
+Q
+0 G
+0 g
+q
+10 0 0 10 0 0 cm BT
+/R8 14 Tf
+1 0 0 1 276.551 736.5 Tm
+(README)Tj
+-122.209 18 Td
+($cmps012b-wm/Assignments/asg2j-edfile-dllist/code/)Tj
+/R10 10 Tf
+-86.3422 -35.5 Td
+[(1:)-600($Id: README,v 1.1 2010-10-05 15:37:29-07 - - $)]TJ
+ET
+Q
+Q
+endstream
+endobj
+31 0 obj
+582
+endobj
+4 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 12 0 R
+>>
+/Contents 5 0 R
+>>
+endobj
+13 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 16 0 R
+>>
+/Contents 14 0 R
+>>
+endobj
+17 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 20 0 R
+>>
+/Contents 18 0 R
+>>
+endobj
+21 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 24 0 R
+>>
+/Contents 22 0 R
+>>
+endobj
+25 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 28 0 R
+>>
+/Contents 26 0 R
+>>
+endobj
+29 0 obj
+<</Type/Page/MediaBox [0 0 612 792]
+/Parent 3 0 R
+/Resources<</ProcSet[/PDF /Text]
+/Font 32 0 R
+>>
+/Contents 30 0 R
+>>
+endobj
+3 0 obj
+<< /Type /Pages /Kids [
+4 0 R
+13 0 R
+17 0 R
+21 0 R
+25 0 R
+29 0 R
+] /Count 6
+>>
+endobj
+1 0 obj
+<</Type /Catalog /Pages 3 0 R
+>>
+endobj
+12 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R/R11
+11 0 R>>
+endobj
+16 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+20 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+24 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+28 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+32 0 obj
+<</R8
+8 0 R/R10
+10 0 R/R7
+7 0 R/R9
+9 0 R>>
+endobj
+8 0 obj
+<</BaseFont/Times-Roman/Type/Font
+/Subtype/Type1>>
+endobj
+10 0 obj
+<</BaseFont/Courier/Type/Font
+/Subtype/Type1>>
+endobj
+7 0 obj
+<</BaseFont/Helvetica-Bold/Type/Font
+/Subtype/Type1>>
+endobj
+9 0 obj
+<</BaseFont/Times-Bold/Type/Font
+/Subtype/Type1>>
+endobj
+11 0 obj
+<</BaseFont/Courier-Bold/Type/Font
+/Subtype/Type1>>
+endobj
+2 0 obj
+<</Producer(ESP Ghostscript 815.02)
+/CreationDate(D:20101019151059)
+/ModDate(D:20101019151059)>>endobj
+xref
+0 33
+0000000000 65535 f 
+0000012850 00000 n 
+0000013594 00000 n 
+0000012756 00000 n 
+0000011948 00000 n 
+0000000009 00000 n 
+0000001249 00000 n 
+0000013392 00000 n 
+0000013263 00000 n 
+0000013461 00000 n 
+0000013329 00000 n 
+0000013526 00000 n 
+0000012898 00000 n 
+0000012081 00000 n 
+0000001269 00000 n 
+0000003364 00000 n 
+0000012968 00000 n 
+0000012216 00000 n 
+0000003385 00000 n 
+0000007192 00000 n 
+0000013027 00000 n 
+0000012351 00000 n 
+0000007213 00000 n 
+0000009111 00000 n 
+0000013086 00000 n 
+0000012486 00000 n 
+0000009132 00000 n 
+0000011273 00000 n 
+0000013145 00000 n 
+0000012621 00000 n 
+0000011294 00000 n 
+0000011928 00000 n 
+0000013204 00000 n 
+trailer
+<< /Size 33 /Root 1 0 R /Info 2 0 R
+/ID [<27997FC3E55148C134BBE42FBCA965E1><27997FC3E55148C134BBE42FBCA965E1>]
+>>
+startxref
+13705
+%%EOF

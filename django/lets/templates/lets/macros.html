@@ -1,0 +1,242 @@
+{# vim: set ts=2 et sts=2 sw=2: #}
+{% from "macros.html" import section_header with context %}
+{% from "photos/macros.html" import profile_picture with context %}
+
+{# if you change this, please also change let_obj_us #}
+{% macro let_object(let, for_user=None, wall=None) -%}
+  {% if wall %}
+  <div class="notice-creator wall-lets">
+    <a href="{{ let.get_category_url() }}" title="View Let's of this category">
+      <img src="{{ let.get_category_img(large=True) }}" alt="category picture" class="wall-cat"/>
+    </a>
+    <a class="nc-name" href="{{ let.get_category_url() }}">{{ let.get_category_display() }}</a>
+  </div>
+  {% else %}
+  <div class="notice-creator">
+    {{ profile_picture(let.creator) }}
+    <a class="nc-name" href="{{ profile_url(let.creator) }}">{{ display_name(let.creator) }}</a>
+  </div>
+  {% endif %}
+  <div class="notice-right">
+    <div class="notice-content">
+      <div class="let-content">
+        {{ _("Let's... {content}")|f(content=let.content|display_plain) }}
+      </div>
+      <div class="let-meta">
+        <div class="lm-left">
+          <ul class="let-act">
+            {% if not wall %}
+              <li class="lets-cat {{ let.get_category_class() }}">
+              {% if for_user %}
+                {% set cat_base = url('lets.wall', for_user.username) %}
+              {% endif %}
+              <a href="{{ let.get_category_url(base=cat_base) }}">
+                <span class="l-icon"></span>
+                <span class="l-text">{{ let.get_category_display() }}</span>
+              </a>
+              </li>{# .lets-cat #}
+            {% endif %}
+            <li class="lets-date">
+              <time class="timeago" datetime="{{ js_datetime(let.created) }}">{{ let.created|timesince }}</time>
+            </li>{# .lets-date #}
+          </ul>
+        </div>{# .lm-left #}
+        <div class="lm-right">
+        {% if let.creator == user %}
+          {{ let_delete_form(let) }}
+        {% else %}
+          {{ let_like_message_form(let) }}
+        {% endif %}
+        </div>{# .lm-right #}
+        <div class="clear"></div>
+      </div>{# .let-meta #}
+    </div>{# .notice-content #}
+  </div>
+{%- endmacro %}
+
+
+{# underscore.js template for let_object #}
+{% macro let_obj_us(wall) -%}
+<script type="text/template" id="letobj-tmpl">
+  <li class="lets">
+  {% if wall %}
+  <div class="notice-creator wall-lets">
+    <a href="<%= letobj.category_url %>" title="View Let's of this category">
+      <img src="<%= letobj.category_img %>" alt="category picture"/>
+    </a>
+    <a class="nc-name" href="<%= letobj.category_url %>"><%= letobj.category_display %></a>
+  </div>
+  {% else %}
+  <div class="notice-creator">
+    <a class="profile-pic" href="<%= u.profile_url %>">
+      <img alt="profile picture" src="<%= u.picture_url %>">
+    </a>
+    <a class="nc-name" href="<%= u.profile_url %>"><%= u.display_name %></a>
+  </div>
+  {% endif %}
+  <div class="notice-right">
+    <div class="notice-content">
+      <div class="let-content">
+        <%= letobj.content %>
+      </div>
+      <div class="let-meta">
+        <div class="lm-left">
+          <ul class="let-act">
+          {% if not wall %}
+            <li class="lets-cat <%= letobj.category_class %>">
+            <a href="<%= letobj.category_url %>">
+              <span class="l-icon"></span>
+              <span class="l-text"><%= letobj.category_display %></span>
+            </a>
+            </li>{# .lets-cat #}
+          {% endif %}
+            <li class="lets-date">
+              <time class="timeago" datetime="<%= letobj.js_date %>"><%= letobj.timesince %></time>
+            </li>{# .lets-date #}
+          </ul>
+        </div>{# .lm-left #}
+        <div class="lm-right">
+          <form class="ld-form" action="<%= letobj.delete_url %>" method="POST">
+            <input type="hidden" name="<%= token %>" value="<%= csrf %>">
+            <div class="form-widget submit">
+              <input class="button" type="submit" name="save" value="{{ _('delete') }}"/>
+            </div>
+          </form>
+        </div>{# .lm-right #}
+        <div class="clear"></div>
+      </div>{# .let-meta #}
+    </div>{# .notice-content #}
+  </div>
+  </li>
+</script>
+{%- endmacro %}
+
+
+{% macro let_delete_form(let) -%}
+  {# NOTE: A check must be performed to ensure user == let.creator #}
+  <form class="ld-form" action="{{ url('lets.delete', lets_id=let.pk) }}" method="POST">
+    {{ csrf() }}
+    <div class="form-widget submit">
+      <input class="button" type="submit" name="save" value="{{ _('delete') }}"/>
+    </div>
+  </form>
+{%- endmacro %}
+
+
+{% macro let_like_message_form(let) -%}
+  {# NOTE: A check must be performed to ensure user != let.creator #}
+  <ul class="let-act">
+    <li class="let-reply">
+    {% set text = _("Hey, this idea sounds like a lot of fun!\n> Let's... {content}\n\n")|fe(content=let.content) %}
+    {% set let_map = let.maps.filter(lets=let, thread__creator=user) %}
+    {% if let_map %}
+      <form action="{{ let_map[0].thread.get_last_post_url() }}" method="GET">
+        {{ csrf() }}
+        <input type="submit" class="button let-respond reqver" name="respond" value="{{ _('Respond') }}">
+      </form>
+    {% else %}
+      <form action="{{ url('messages.new') }}" method="GET">
+        {{ csrf() }}
+        <input type="hidden" name="to" value="{{ let.creator.username }}">
+        <input type="hidden" name="text" value="{{ text }}">
+        <input type="hidden" name="let_id" value={{ let.pk }}>
+        <input type="submit" class="button reqver let-respond sw-modal-trigger"
+          name="respond" value="{{ _('Respond') }}"
+          data-for-modal="#send-message-modal"
+          data-username="{{ let.creator.username }}"
+          data-first-name="{{ let.creator.first_name }}"
+          data-let-id={{ let.pk }}>
+      </form>
+    {% endif %}
+    </li>{# .let-reply #}
+    {% set liked = let.let_votes_received.filter(creator=user) %}
+    {% if liked %}
+      {% set like_value = _('Liked') %}
+    {% else %}
+      {% set like_value = _('Like') %}
+    {% endif %}
+    <li class="let-like">
+    <form class="ll-form" action="{{ url('lets.like', lets_id=let.pk) }}" method="POST">
+      {{ csrf() }}
+      <div class="form-widget submit">
+        <input type="hidden" name="next" value="{{ url('lets') }}" />
+        <input type="submit" name="save"
+        {% if user == let.creator or liked %}
+          disabled="disabled" class="button button-liked"
+        {% else %}
+          class="button reqver on"
+        {% endif %}
+        value="{{ like_value }}"/>
+      </div>
+    </form>
+    </li>{# .let-like #}
+  </ul>{# .let-act #}
+{%- endmacro %}
+
+
+{# Import with context or pass lets categories #}
+{% macro let_form(categories=None) -%}
+  {% if not categories %}
+    {% set categories = lets_categories %}
+  {% endif %}
+  <section class="lets-box">
+    <form action="{{ url('lets.new') }}" method="POST">
+      {{ csrf() }}
+      <div class="lbox-wrap">
+        <div class="lbox-textarea-wrap">
+          <div class="lbox-textarea-bg"><span>{{ _('Let\'s...') }}</span></div>
+          <textarea rows="1" cols="40" name="content"></textarea>
+        </div>
+      </div>
+      <div class="lets-more hidden">
+        <ul class="lets-cats">
+        {% for category_id, category_name in categories %}
+          <li class="lets-cat lc-{{ category_id }}"><label>
+            <span class="l-icon">
+              <input type="radio" name="category" value="{{ category_id }}" {% if category_id == 100 %}checked="checked" {% endif %}/>
+            </span>
+            <span class="l-text">{{ category_name }}</span>
+          </label></li>
+        {% endfor %}
+        </ul>
+        <div class="form-widget submit">
+          <input class="button" type="submit" name="save" value="{{ _('Post Idea') }}"/>
+        </div>
+      </div>{# .lets-more #}
+    </form>{# lets-form #}
+  </section>{# lets-box #}
+{%- endmacro %}
+
+
+{% macro activities(lets, pages=None, for_user=None, wall=None) -%}
+  <ul id="lets-list" data-response-template="{{ _('Hey, this idea sounds like a lot of fun!\n> {0}\n\n') }}">
+  {% for let in lets %}
+    <li class="lets">{{ let_object(let, for_user=for_user, wall=wall) }}</li>
+  {% endfor %}
+  </ul>{# #lets-list #}
+  <div class="clear"></div>
+  {% if pages %}{{ pages|paginator }}{% endif %}
+  {% from "messages/macros.html" import send_message_modal with context %}
+  {{ send_message_modal(None, user, let_id=True) }}
+{%- endmacro %}
+
+
+{% macro lets_area(active='winkstream', form, wall=None) %}
+  {% if active %}
+  {{ section_header('Home', links=(
+      (url('stream'), _('WinkStream'), active == 'winkstream'),
+      (url('lets'), _('Activities'), active == 'activities'))) }}
+  {% endif %}
+
+  {% if form %}
+  <div class="lets-area">
+    <ul class="lets-actions">
+      <li class="active">{{ _('Post Activity') }}</li>
+      {# TODO: <li>{{ _('Update Status') }}</li>#}
+    </ul>{# .lets-actions #}
+    {{ let_form() }}
+  </div>{# .lets-area #}
+  {% endif %}
+
+  {{ let_obj_us(wall) }}
+{% endmacro %}

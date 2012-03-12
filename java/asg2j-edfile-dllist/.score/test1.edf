@@ -1,0 +1,7 @@
+r/foo/bar
+w/no/such/file
+# Should print error messages
+insert this line into the buffer
+*
+wtest1.output
+# $Id: test1.edf,v 1.1 2010-10-05 15:35:36-07 - - $

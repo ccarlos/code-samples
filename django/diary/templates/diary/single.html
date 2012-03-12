@@ -1,0 +1,48 @@
+{# vim: set ts=2 et sts=2 sw=2: #}
+{% extends "diary/base.html" %}
+{% from "diary/macros.html" import diary_entry with context %}
+{% from "errorlist.html" import errorlist %}
+{% from "photos/macros.html" import profile_picture with context %}
+
+{% block sub_tabs %}
+  <section id="diary-posts">
+    {{ profile_tabs(user, profile, active=active_tab) }}
+    {{ calendar(creator, calendar_data, single=entry.created_day.day) }}
+    <ol class="diary-entries single">
+      <li class="diary-entry">{{ diary_entry(entry, large=True) }}</li>
+    </ol>
+    {% if comments %}
+      <ol class="posts">
+        {% for comment in comments %}
+          <li id="comment-{{ comment.id }}" class="post {% if comment.creator == user %} you{% endif %}">
+            {% include "diary/includes/comment.html" %}
+          </li>
+        {% endfor %}
+      </ol>
+    {% endif %}
+    <div id="thread-reply">
+      {{ profile_picture(user) }}
+      <form method="POST" action="{{ url('diary.reply', entry.pk)|urlparams(hash='thread-reply') }}">
+        {{ csrf() }}
+        {{ comment_form['text'] }}
+        <div id="editor-actions">
+          {{ errorlist(comment_form) }}
+          <input class="button" name="reply" type="submit" value="{{ _('Reply »') }}"/>
+        </div>
+      </form>
+    </div>
+  </section>
+  <div id="delete-confirm-modal" class="sw-modal modal explicit off">
+    <div class="modal-h">
+      <h2 class="m-title">Are you sure?</h2>
+    </div>
+    <div class="modal-c-lone">
+      <p>Are you sure you want to remove this entry?</p>
+    </div>
+    <form method="POST" action="{{ url('diary.delete', 0) }}" class="modal-button-area">
+      {{ csrf() }}
+      <input id="delete-diary" class="button button-red" type="submit" value="Delete" />
+      <a href="#" class="cancel">Save Entry</a>
+    </form>
+  </div>
+{% endblock sub_tabs %}

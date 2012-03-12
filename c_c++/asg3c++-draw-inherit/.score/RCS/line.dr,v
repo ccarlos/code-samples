@@ -1,0 +1,46 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2010.02.05.21.36.53;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2010.01.30.02.12.14;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@# $Id: line.dr,v 1.1 2010-01-29 18:12:14-08 - - $
+define lin2 line 2
+define lin6 line 2 6
+draw lin2 2 2
+draw lin6 4 4 45
+draw lin2 2 2
+draw lin6 4 4 45
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a7 1
+# $Id: line.dr,v 1.2 2009-02-12 16:34:37-08 - - $
+@

@@ -1,0 +1,30 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2010.10.05.22.35.36;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@r/foo/bar
+w/no/such/file
+# Should print error messages
+insert this line into the buffer
+*
+wtest1.output
+# $Id: test1.edf,v 1.1 2008-04-11 17:57:09-07 - - $
+@

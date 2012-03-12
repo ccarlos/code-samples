@@ -1,0 +1,83 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.2
+date	2010.02.05.22.09.12;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2010.01.30.02.07.32;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@
+#include <cstdlib>
+
+using namespace std;
+
+#include "numbers.h"
+#include "util.h"
+
+ostream &operator<< (ostream &out, const degrees &that) {
+   out << that.angle << "deg";
+   return out;
+}
+
+ostream &operator<< (ostream &out, const points &that) {
+   out << that.pointvalue << "pt";
+   return out;
+}
+
+ostream &operator<< (ostream &out, const inches &that) {
+   out << that.pointvalue / PTS_PER_INCH << "in";
+   return out;
+}
+
+ostream &operator<< (ostream &out, const xycoords &coords) {
+   out << "(" << coords.first << "," << coords.second << ")";
+   return out;
+}
+
+RCSC(__numbers_cc__,
+"$Id: numbers.cc,v 1.1 2010-01-29 18:07:32-08 - - $")
+@
+
+
+1.1
+log
+@-
+@
+text
+@a8 13
+double todouble (const string &number) {
+   static double INFINITY = 1.0 / 0.0;
+   char *endptr;
+   double value = strtod (number.c_str(), &endptr);
+   TRACE ('n', "number = \"" << number << "\", value = " << value
+          << " (end!=0) = " << (*endptr != '\0'));
+   if (*endptr != '\0') throw 
+         runtime_error (number + ": is not a valid number");
+   if (value == INFINITY || value == -INFINITY) throw
+         overflow_error (number + " is infinite");
+   return value;
+}
+
+d30 1
+a30 1
+"$Id: numbers.cc,v 1.1 2009-02-20 15:04:01-08 - - $")
+@

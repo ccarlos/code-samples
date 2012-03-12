@@ -1,0 +1,7 @@
+# Makefile.deps created Tue Dec  7 01:12:09 PST 2010
+interp.o: interp.cc interp.h object.h numbers.h trace.h util.h
+main.o: main.cc interp.h object.h numbers.h trace.h util.h
+numbers.o: numbers.cc numbers.h trace.h util.h
+object.o: object.cc object.h numbers.h trace.h util.h
+trace.o: trace.cc trace.h
+util.o: util.cc util.h trace.h templates.h numbers.h

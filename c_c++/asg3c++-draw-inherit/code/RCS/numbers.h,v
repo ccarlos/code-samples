@@ -1,0 +1,144 @@
+head	1.4;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.4
+date	2010.02.16.21.20.29;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2010.02.05.22.09.12;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2010.02.03.03.08.59;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2010.01.30.02.07.32;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@-
+@
+text
+@
+#ifndef __NUMBERS_H__
+#define __NUMBERS_H__
+
+#include <iostream>
+#include <utility>
+
+using namespace std;
+
+#include "trace.h"
+
+const double PTS_PER_INCH = 72;
+
+class degrees {
+   friend ostream &operator<< (ostream &, const degrees &);
+   public:
+      explicit degrees (double init): angle(init) {}
+      operator double() const {return angle; }
+   private:
+      degrees (); // Disable.
+      double angle;
+};
+
+class points {
+   friend ostream &operator<< (ostream &, const points &);
+   public:
+      explicit points (double init): pointvalue(init) {}
+      operator double() const {return pointvalue; }
+   private:
+      points (); // Disable.
+      double pointvalue;
+};
+
+class inches {
+   friend ostream &operator<< (ostream &, const inches &);
+   public:
+      explicit inches (double init): pointvalue(init * PTS_PER_INCH) {}
+      operator double() const {return pointvalue; }
+   private:
+      inches (); // Disable.
+      double pointvalue;
+};
+
+typedef pair <inches, inches> xycoords;
+
+ostream &operator<< (ostream &, const xycoords &);
+
+RCSH(__numbers_h__,
+"$Id: numbers.h,v 1.3 2010-02-05 14:09:12-08 - - $")
+
+#endif
+
+@
+
+
+1.3
+log
+@-
+@
+text
+@d18 1
+a18 1
+      operator double() {return angle; }
+d28 1
+a28 1
+      operator double() {return pointvalue; }
+d38 1
+a38 1
+      operator double() {return pointvalue; }
+d49 1
+a49 1
+"$Id: numbers.h,v 1.2 2010-02-02 19:08:59-08 - - $")
+@
+
+
+1.2
+log
+@-
+@
+text
+@a47 2
+double todouble (const string &number);
+
+d49 1
+a49 1
+"$Id: numbers.h,v 1.1 2010-01-29 18:07:32-08 - - $")
+@
+
+
+1.1
+log
+@-
+@
+text
+@d15 1
+a15 1
+      friend ostream &operator<< (ostream &, const degrees &);
+d25 1
+a25 1
+      friend ostream &operator<< (ostream &, const points &);
+d35 1
+a35 1
+      friend ostream &operator<< (ostream &, const inches &);
+d51 1
+a51 1
+"$Id: numbers.h,v 1.1 2009-02-20 15:04:22-08 - - $")
+@

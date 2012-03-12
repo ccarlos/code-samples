@@ -1,0 +1,24 @@
+{# vim: set ts=2 et sts=2 sw=2: #}
+{% from "photos/macros.html" import profile_picture with context %}
+<div class="left-side">
+  {{ profile_picture(comment.creator) }}
+  {% if comment.creator == user or entry.creator == user %}
+  <ul class="post-actions">
+    <li>
+      <form action="{{ url('diary.delete_comment', comment_id=comment.pk) }}" method="POST">
+        {{ csrf() }}
+        <input class="plain-submit delete" type="submit" value="{{ _('Delete') }}"/>
+      </form>
+    </li>
+  </ul>
+  {% endif %}
+</div>
+<div class="post-content">
+  <span class="date">{{ comment.created|timesince }}</span>
+  <h2 class="user"><a href="{{ profile_url(comment.creator) }}">
+    {{ display_name(comment.creator) }}
+  </a></h2>
+  <div class="content">
+    {{ comment.text|display_html }}
+  </div>
+</div>

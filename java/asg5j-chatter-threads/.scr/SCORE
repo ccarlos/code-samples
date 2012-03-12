@@ -1,0 +1,91 @@
+$Id: SCORE,v 1.2 2010-02-19 18:49:06-08 - - $
+
+Copy all files form this direcotyr into the student's directory.
+
+Check to see if they are doing pair programming.  If so, mkdir
+the partner's directory if not already there.  Make the symlink
+PARTNER in both directions if not already there.  When grading
+is done, copy SCORE to both directories.
+
+*****************************************************************
+
+Grading is done in three parts, in order.
+
+SOURCE CODE.
+
+   (3) Was checksource silent? 
+
+   (3) Did mk.build create a jar file?
+
+   **** SERVER ****
+   Does the code for the server look reasonable. /8
+
+   (2) Server code accepting connections and starting client
+       listeners?
+
+   (3) Paired client: listener, sender.
+
+   (3) Queue to handle relaying code from client listeners to
+       client senders.
+
+   **** TEXT CLIENT ****
+   Has the text client been implemented?  /8
+
+   (4) Code for listener thread to send to server.
+
+   (4) Code for sender thread to send to user.
+
+   **** GUI CLIENT ****
+   Has the GUI client been implemented?  /8
+
+   (4) Listener puts text in textarea
+
+   (4) Sender takes textfield and sends to server.
+
+source code points:  /30
+min 1, max 30
+
+*****************************************************************
+
+PROGRAM TESTING.
+
+  If the jar file fails, use
+     java chatter .....
+  (points deducted above in source code)
+
+  For each of the following items, assign between 0 and 10 points.
+  Always use ports above 2000.  Use a different port for each
+  test, in case one of them hangs.
+
+  For any non-gui grading, make sure to archive all output in
+  a file.  For gui, make clear notes about what failed.
+
+   (8) Start the server, then two clients.  Cut and paste
+       random elements into the clients and see if they are
+       echoed back.  If the server appears not to work, use
+       roboclients.
+
+   (8) Do the GUI clients work?
+
+   (8) If the GUI clients fail, test the text clients.
+       If the GUI clients work, assign full points to this
+       item and assume the text clients work.
+
+   (6) Assign 0 or 6 for this point.  If any of the tests
+       crashed with a Java call stack traceback, 0.
+       If none did, 6.
+
+testing points: /30
+min 0, max 30
+
+*****************************************************************
+   
+SUBTOTAL=
+min 1, max 60
+
+If pair programming, TOTALSCORE = SUBTOTAL - TOTAL1.
+If not, TOTALSCORE = SUBTOTAL.
+
+TOTALSCORE=
+min 1, max 60
+

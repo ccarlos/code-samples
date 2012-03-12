@@ -1,0 +1,6 @@
+reading: This is an input test file.
+reading: Its name is used on the command line.
+reading: It should be read in at the beginning
+reading: of execution
+reading: when its name appears on the command line.
+reading: $Id: reading.test,v 1.1 2010-10-05 15:34:41-07 - - $

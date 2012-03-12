@@ -1,0 +1,14 @@
+asg3j-jxref-bstree.pdf contains the program specifications.
+asg3j-jxref.code.pdf contains the starter code.
+asg3j-jxref.misc.pdf contains all source files in the 
+directory /misc.
+
+code/ contains the program implementation. Inside code/ is
+jxref.java which contains the main function
+
+misc/ contains a reference perl implementation and various
+examples of how to use an interface in Java.
+
+test_code/ contains the scripts mk.build and mk.tests to
+test the program implementation.
+

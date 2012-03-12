@@ -1,0 +1,23 @@
+{# vim: set ts=2 et sts=2 sw=2: #}
+{# Before including: A check must be performed if entry.creator is the owner of the entry. #}
+<form method="POST" action="{{ url('diary.delete', diary_id=entry.pk) }}">
+  {{ csrf() }}
+  {% if entry.is_draft %}
+  <a href="#" data-for-modal="#delete-confirm-modal" class="sw-modal-trigger button button-red draft-delete">{{ _('Discard') }}</a>
+  {% else %}
+  <a href="#" data-for-modal="#delete-confirm-modal" class="sw-modal-trigger delete-diary">{{ _('Delete') }}</a>
+  {% endif %}
+  <div id="delete-confirm-modal" class="sw-modal pop-modal modal off">
+    <div class="modal-h">
+      <h2 class="m-title">Are you sure?</h2>
+    </div>
+    <div class="modal-c-lone">
+      <p>Are you sure you want to remove this entry?</p>
+    </div>
+    <form method="POST" action="{{ url('diary.delete', 0) }}" class="modal-button-area">
+      {{ csrf() }}
+      <input id="delete-diary" class="button button-red" type="submit" value="Delete" />
+      <a href="#" class="cancel">Save Entry</a>
+    </form>
+  </div>
+</form>

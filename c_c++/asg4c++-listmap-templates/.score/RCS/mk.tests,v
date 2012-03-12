@@ -1,0 +1,37 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2010.02.10.04.31.28;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: mk.tests,v 1.2 2009-03-05 15:08:33-08 - - $
+PATH=$PATH:/afs/cats.ucsc.edu/courses/cmps012b-wm/bin
+export PATH
+RUN=runprogram.perl
+PROG=./keyvalue
+$RUN -orun1.stdin -0test1.in $PROG
+$RUN -orun2.stdin -0test2.in $PROG
+$RUN -orun3.files            $PROG test1.in
+$RUN -orun4.files            $PROG test2.in
+$RUN -orun5.files            $PROG test3.in
+$RUN -orun6.files            $PROG test*in
+$RUN -orun7.nofiles          $PROG /no/such no//file/either
+bcheck -leaks $PROG <test1.in
+@

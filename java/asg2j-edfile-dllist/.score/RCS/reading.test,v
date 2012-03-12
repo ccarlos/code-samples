@@ -1,0 +1,29 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2010.10.05.22.34.41;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@reading: This is an input test file.
+reading: Its name is used on the command line.
+reading: It should be read in at the beginning
+reading: of execution
+reading: when its name appears on the command line.
+reading: $Id: reading.test,v 1.1 2008-04-11 17:57:09-07 - - $
+@
